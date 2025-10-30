@@ -3375,5 +3375,166 @@ CREATE TABLE Anagrafica(
 \item \textbf{Operando sulla tabella interna:} modifico il valore dell'attributo della tabella referente, o inserisco una nuova riga.
 \end{itemize}
 
+Diverse alternative per rispondere a vuolazioni generate da modifiche sulla tabella esterna (o Master)
+La tabella interna (o tabella Slave) deve adeguarsi alle modifiche che avvengono sulla tabella Master.
+
+La modifica che faccio sull'attributo riferito la propago. Reazione \textbf{cascade}.
+
+Politiche di reazione per modifica attributo riferito:\begin{itemize}
+	\item \textbf{Set null:} all'attributo referente(tabella \textit{interna}) viene assegnato valore nullo al posto del valore modificato nella tabella \textit{esterna}. Non voglio propagare la modifica, ma voglio farla sostare in uno stato transitorio con valore NULL. Infatti, il vincolo di integrità referenziale non è violato dal valore NULL. 
+	\item \textbf{set default:} scelgo un valore di default \textit{che deve essere presente nella tabella riferita}. All'attributo referente viene assegnato un valore di default al posto del valore modificato nella tabella esterna. 
+	\item no action...? vincolo non rispettato?  
 \end{itemize}
+
+Modificazioni tabella interna
+\begin{itemize}
+	
+	\item cascade: tutte le righe della tabella interna corrispondenti alla riga cancellata vengono cancellate.
+\end{itemize}
+
+\item \textbf{UPDATE:}
+
+\begin{minipage}{0.4\textwidth}
+	\begin{lstlisting}[style=sqlstyle]
+	UPDATE Impiegato
+	SET Stipendio = Stipendio + 100
+	WHERE NomeDip = "Acquisti";
+	\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\textwidth}
+\begin{lstlisting}[style=sqlstyle]
+UPDATE Impiegato
+SET Stipendio = Stipendio + 100
+\end{lstlisting}
+\end{minipage}
+
+Con 
+\begin{lstlisting}[style=sqlstyle]
+UPDATE Impiegato
+SET Stipendio = Stipendio + 100;
+\end{lstlisting}
+lo dò a tutti
+
+\item \textbf{SELECT:}
+\begin{lstlisting}[style=sqlstyle]
+SELECT NomeAttributo {,Attributo}
+FROM NomeTabella {,Tabella}
+[ WHERE Condizione ]
+\end{lstlisting}
+Lista degli attributi che voglio vedere nel risultato
+Tabelle conivolte nell'interrogazione
+\begin{lstlisting}[style=sqlstyle]
+	SELECT Nome, Cognome
+	FROM Impiegato
+\end{lstlisting}
+
+$\Pi_{Nome,Cognome} Impiegato$
+
+\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	\textbf{Matricola} & \textbf{Nome} & \textbf{Cognome} & \textbf{NomeDIp} & \textbf{Stipendio} \\
+	\hline
+	A12345 & Mario & Rossi & Vendite & 1600 \\
+	\hline
+	A23456 & Lucia & Verdi & Acquisti & 1500 \\
+	\hline
+	A34567 & Luca & Gialli & Vendite & 1300\\
+	\hline
+\end{tabular}
+
+Condizioni che i dati devono soddisfare per appartenere al risultato. 
+
+\begin{tabular}{|c|c|}
+	\hline \textbf{Nome} & \textbf{Cognome} \\
+	\hline
+	 Mario & Rossi \\
+	\hline
+	 Lucia & Verdi \\
+	\hline
+	 Luca & Gialli \\
+	\hline
+\end{tabular}
+
+
+\begin{lstlisting}[style=sqlstyle]
+	SELECT Nome, Cognome
+	FROM Impiegato
+	WHERE NomeDip = "Vendite"
+\end{lstlisting}
+
+\begin{tabular}{|c|c|}
+	\hline
+	\textbf{Nome} & \textbf{Cognome} \\
+	\hline
+	Mario & Rossi \\
+	\hline
+	Luca & Gialli \\
+	\hline
+\end{tabular}
+
+$\Pi_{Nome,Cognome}(\sigma_{NomeDip = "Vendite" IMPIEGATO})$
+
+
+\begin{lstlisting}[style=sqlstyle]
+	SELECT Nome, Cognome
+	FROM Impiegato
+	WHERE NomeDip = "Vendite"
+	AND Stipendio > 1500;
+\end{lstlisting}
+
+\begin{tabular}{|c|c|}
+	\hline
+	\textbf{Nome} & \textbf{Cognome} \\
+	\hline
+	Mario & Rossi \\
+	\hline
+\end{tabular}
+
+Vedere tutti i dati della tabella
+\begin{lstlisting}[style=sqlstyle]
+	SELECT *
+	FROM Impiegato
+	WHERE NomeDip = "Vendite"
+	AND Stipendio > 1500;
+\end{lstlisting}
+
+è come dire 
+
+\begin{lstlisting}[style=sqlstyle]
+	SELECT Matricola, Nome, Cognome, NomeDip, Stipendio
+	FROM Impiegato
+	WHERE NomeDip = "Vendite"
+	AND Stipendio > 1500;
+\end{lstlisting}
+
+\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	\textbf{Matricola} & \textbf{Nome} & \textbf{Cognome} & \textbf{NomeDIp} & \textbf{Stipendio} \\
+	\hline
+	A12345 & Mario & Rossi & Vendite & 1600 \\
+	\hline
+\end{tabular}
+
+\begin{lstlisting}[style=sqlstyle]
+	SELECT Nome AS NomeI, Cognome AS CognomeI
+	FROM Impiegato
+	WHERE NomeDip = "Vendite"
+	AND Stipendio > 1500;
+\end{lstlisting}
+
+
+\begin{tabular}{|c|c|}
+	\hline
+	\textbf{NomeI} & \textbf{CognomeI} \\
+	\hline
+	Mario & Rossi \\
+	\hline
+\end{tabular}
+
+
+\end{itemize}
+
+
+
 \end{document} 
