@@ -3532,8 +3532,80 @@ Vedere tutti i dati della tabella
 	\hline
 \end{tabular}
 
+\begin{align*}
+	STUDENTE(\underline{Matricola}, Nome, Indirizzo, Citta, CAP, Genere) \\
+	CORSO(\underline{Codice}, NomeCorso, NumCrediti)\\
+	DOCENTE(\underline{Matricola}, Nome, Telefono, Stipendio)
+\end{align*}
 
+\begin{enumerate}
+	\item \textbf{Visualizzare tutte le informazioni sui corsi disponibili:}
+	\begin{lstlisting}[style=sqlstyle]
+		SELECT *
+		FROM CORSO;
+	\end{lstlisting}
+	
+	\item \textbf{Visualizzare tutte le ifnormazioni sui corsi disponibili di 6 CFU:}
+		\begin{lstlisting}[style=sqlstyle]
+		SELECT *
+		FROM CORSO
+		WHERE NumCrediti = 6;
+	\end{lstlisting}
+	\item \textbf{Visualizzare il nome dei corsi disponibili di 6 CFU:}
+	\begin{lstlisting}[style=sqlstyle]
+		SELECT NomeCorso
+		FROM CORSO
+		WHERE NumCrediti = 6;
+	\end{lstlisting} 
+	\item \textbf{Visualizzare matricola e nome degli studenti:}
+		\begin{lstlisting}[style=sqlstyle]
+		SELECT Matricola, Nome
+		FROM STUDENTE;
+	\end{lstlisting} 
+	\item \textbf{Visualizzare il nome e lo stipendio settimanale dei docenti:}
+		\begin{lstlisting}[style=sqlstyle]
+		SELECT Nome, Stipendio/4 AS StipendioSettimanale
+		FROM DOCENTE;
+	\end{lstlisting} 
+\end{enumerate}
+
+List degli attributi si chiama anche target list. Nella target list possono apparire espressioni generiche sul valore degli attributi di ciascuna riga selezionata. 
+
+\item Visualizzare il nome e lo stipendio annuale di docenti che guadagnano più di 1600
+	\begin{lstlisting}[style=sqlstyle]
+	SELECT Nome, Stipendio * 13 AS StipendioAnnuale
+	FROM DOCENTE
+	WHERE Stipendio > 1600;
+\end{lstlisting} 
+
+WHERE Nome att OPERATORE valore
+
+Predicati combinati mediante gli operatori AND OR NOT
+
+\item Visualizzare Nome e Indirizzo delle studentesse di Verona
+	\begin{lstlisting}[style=sqlstyle]
+SELECT Nome, Indirizzo
+FROM STUDENTE
+WHERE Citta = "Verona" AND Genere = "F"
+\end{lstlisting} 
+
+\item Visualizzare nome e indirizzo di tutti gli studenti di Verona o Padova
+	\begin{lstlisting}[style=sqlstyle]
+SELECT Nome, Indirizzo
+FROM STUDENTE
+WHERE Citta = "Verona" OR Citta = "Padova"
+\end{lstlisting} 
+
+\item Visualizzare nome e indirizzo degli studenti che non abitano a Verona
+	\begin{lstlisting}[style=sqlstyle]
+	SELECT Nome, Indirizzo
+	FROM STUDENTE
+	WHERE NOT Citta = "Verona"
+\end{lstlisting} 
 \end{itemize}
+
+% Vi ho pensato stanotte
+
 
 
 
