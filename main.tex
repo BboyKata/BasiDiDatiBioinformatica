@@ -3993,5 +3993,179 @@ MAX(STIPENDIO)\\
 	\hline
 \end{tabular}
 
+\textbf{INTERROGAZIONI CON RAGGRUPPAMENTO:} sono interrogazioni che utilizzano la clausola \textbf{GROUP BY}.
+
+\begin{lstlisting}[style=sqlstyle]
+GROUP BY Attributo
+\end{lstlisting}
+
+Specifica come dividere le tuple di una tabella in sottoinsiemi raggruppando le tuple che hanno valori comuni in un sottoinsieme di attributi. 
+\textbf{ATTENZIONE:} SQL impone che in una interrogazione in cui si fa uso del \textit{GROUP BY}, possono comparire come argomento della \textit{SELECT} solamente un sottoinsieme degli attributi utilizzati per il raggruppamento ed eventuali funzioni di aggregazione (MIN, MAX, COUNT, ...) valutate sugli altri attributi. 
+
+\begin{lstlisting}[style=sqlstyle]
+SELECT Attributi 
+FROM Tabella
+WHERE Condizione 
+GROUP BY Attributo1 -- < -- attributo su cui faccio i raggruppamenti 
+\end{lstlisting}
+
+\textbf{Esempio:} visualizzare il numero degli studenti che provengono da ogni città, visualizzando anche la città.
+\begin{lstlisting}[style=sqlstyle]
+	SELECT Citta, COUNT(*) AS NStud
+	FROM STUDENTE
+	GROUP BY Citta
+\end{lstlisting}
+
+\begin{table}[h!]
+	\begin{tabular}{|c|c|}
+		\hline \textbf{Citta} & \textbf{NStud} \\
+		\hline
+		   Verona & 2 \\
+		\hline
+		   Padova & 2 \\
+		\hline
+		   Ragusa  & 1\\
+		\hline
+		   Vicenza & 1\\
+		\hline
+	\end{tabular}
+\end{table}
+
+\textbf{HAVING:} posso descrivere le condizioni che si devono applicare al termine dell'esecuzione di un'interrogazione che fa uso del \textit{GROUP BY.}
+\begin{lstlisting}[style=sqlstyle]
+	SELECT Attributi 
+	FROM Tabella
+	WHERE Condizione 
+	GROUP BY Attributo1 -- < -- attributo su cui faccio i raggruppamenti 
+	HAVING Predicato -- Condizione sul raggruppamento
+\end{lstlisting}
+Un sottoinsieme di tuple finisce nel risultato solo se soddisfa la condizione della clausola \textit{HAVING}.
+
+\textbf{INSERISCI DISCLAIMER SULL'ORDINE DEGLI OPERANDI}
+
+\textbf{Esempio:} visualizzare la città e il numero di studenti provenienti da quella città solo se gli studenti provenienti da quella città sono almeno 2.
+\begin{lstlisting}[style=sqlstyle]
+SELECT Citta, COUNT(*) as NStud
+FROM STUDENTE
+GROUP BY Citta
+HAVING NStud >= 2
+\end{lstlisting}
+\begin{table}[h!]
+	\begin{tabular}{|c|c|}
+		\hline \textbf{Citta} & \textbf{NStud} \\
+		\hline
+		Verona & 2 \\
+		\hline
+		Padova & 2 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+QUINDI
+\begin{lstlisting}[style=sqlstyle]
+SELECT Attributi 
+FROM Tabella
+WHERE Condizione -- opzionale
+GROUP BY Attributo1  --opzionale
+HAVING Predicato  --opzionale
+ORDER BY Attributi --opzionale
+\end{lstlisting}
+
+\subsubsection{JOIN}
+\begin{lstlisting}[style=sqlstyle]
+SELECT ListaAttributi
+FROM Tabella1,Tabella2
+WHERE [ CONDIZIONI ] AND Tabella1.Att1 = Tabella2.Att2 -- nella tabella finiscono le condizioni di join
+\end{lstlisting}
+
+Aggiungiamo agli esempi un'altra base di dati.
+\begin{align*}
+	STUDENTE(\underline{Matricola}, Nome, Cognome, Indirizzo, Citta, CAP, Genere)\\
+	CORSO(\underline{Codice}, NomeCorso, NumCFU)\\
+	DOCENTE(\underline{Matricola}, Nome, Cognome, Stipendio)\\
+	ESAME(\underline{CodCorso},\underline{MatrStud}, Voto)\\
+	INSEGNAMENTO(\underline{CodCorso},\underline{MatrDoc},NumStud)
+\end{align*}
+\begin{enumerate}
+	\item \textbf{Visualizzare il codice dei corsi tenuti da ogni docente visualizzando anche nome e conome docente.}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Nome, Cognome, CodCorso
+FROM Insegnamento, Docente
+WHERE MatrDoc = Matricola -- condizione di JOIN
+--non uso la notazione puntata perche il nome degli attributi non e' ambiguo
+\end{lstlisting}
+
+che in algebra sarebbe\begin{align*}
+	\Pi_{Nome,Cognome,CodCorso}(INSEGNAMENTO \bowtie_{Matricola = MatrDoc} DOCENTE)
+\end{align*}
+\begin{center}
+	\begin{forest}
+		for tree={
+			align=center,
+			parent anchor=south,
+			child anchor=north,
+			l sep=10pt,
+			s sep=15pt,
+			font=\sffamily,
+		}
+		[
+		$\pi_{\text{Nome, Cognome, CodCorso}}$
+		[
+		$\bowtie_{\text{Matricola} = \text{MatrDoc}}$
+		[INSEGNAMENTO]
+		[DOCENTE]
+		]
+		]
+	\end{forest}
+\end{center}
+
+
+\item \textbf{Trovare il numero di studenti che frequentano i diversi corsi, visualizzando anche il nome del corso.}
+\begin{lstlisting}[style=sqlstyle]
+SELECT NomeCorso, NumStud
+FROM CORSO, INSEGNAMENTO
+WHERE CORSO.Codice = INSEGNAMENTO.CodCorso
+\end{lstlisting}
+
+\item \textbf{Trovare i voti presi dagli studenti di Verona, visualizzando anche nome e cognome dello studente insieme al codice del corso.}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Nome, Cognome, CodCorso, Voto
+FROM STUDENTE, ESAME
+WHERE Citta = 'Verona' AND Matricola = MatrStud
+\end{lstlisting}
+
+\item \textbf{Trovare i voti presi dagli studenti di Verona, visualizzando anche nome e cognome dello studente insieme al NOME del corso:}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Nome, Cognome, NomeCorso, Voto
+FROM STUDENTE, ESAME, CORSO
+WHERE Citta = 'Verona' 
+	AND Matricola = MatrStud
+	AND CodCorso = Codice
+\end{lstlisting}
+
+\item \textbf{Visualizzare i voti presi dagli studenti di Verona, visualizzando il nome del corso e il nome e cognome del docente che lo tiene:}
+\begin{lstlisting}[style=sqlstyle]
+SELECT S.Nome, S.Cognome, C.NomeCorso, E.Voto, D.Nome, D.Cognome
+FROM STUDENTE S, ESAME E, CORSO C, 	INSEGNAMENTO I, DOCENTE D
+WHERE S.Citta = 'Verona' 
+	AND S.Matricola = E.MatrStud
+	AND E.CodCorso = C.Codice
+	AND I.CodCorso = C.Codice
+	AND I.MatrDoc = D.Matricola
+\end{lstlisting}
+
+\item \textbf{Visualizzare il numero di studenti maschi e femmine che hanno superato l'esame del corso di Analisi I}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Genere, COUNT(S.Matricola) as Numero
+FROM STUDENTE S, ESAME E, CORSO C
+WHERE Corso = 'Analisi 1'
+	AND S.Matricola = E.MatrStud
+	AND E.CodCorso = C.Codice
+GROUP BY Genere
+\end{lstlisting}
+
+
+
+\end{enumerate}
 
 \end{document} 
