@@ -3270,8 +3270,8 @@ CREATE TABLE Impiegato (
 
 \textbf{VINCOLI INTRARELAZIONALI:}
 \begin{itemize}
-    \item \textbf{NOT NULL}
-    \item \textbf{PRIMARY KEY}
+    \item \textbf{NOT NULL:} l'attributo non può assumere valore NULL.
+    \item \textbf{PRIMARY KEY:} l'attributo (o insieme di attributi) è chiave. Include i vincoli \textit{NOT NULL, UNIQUE} e \textit{INDEXED (non visto)}.
     \item \textbf{UNIQUE}: valore che non si può ripetere all'interno della tabella, ad eccezione se sia chiave
 \end{itemize}
 
@@ -3279,7 +3279,7 @@ CREATE TABLE Impiegato (
 	Dire 
 	
 	\begin{lstlisting}[style=sqlstyle]
-	UNIQUE (Nome, Cognome)
+UNIQUE (Nome, Cognome)
 	\end{lstlisting}
 	
 	è diverso da dire
@@ -3289,7 +3289,10 @@ Nome VARCHAR(20) NOT NULL UNIQUE
 Cognome VARCHAR(20) NOT NULL UNIQUE
 \end{lstlisting}
 
-Scrviere in SQL:
+Poiché nel primo caso è la coppia di Nome e Cognome che non si deve ripetere, mentre nel secondo caso \textit{entrambi} gli attributi non devono ripetersi. Ad esempio, nel primo caso \textit{(Matteo, Rossi),(Matteo, Bianchi)} è ammesso, mentre nel secondo caso verrebbe violato il vincolo UNIQUE.
+
+\vspace{1em}
+\textbf{Nota bene:} Scrviere in SQL:
 
 \begin{lstlisting}[style=sqlstyle]
 CREATE TABLE Studente(
@@ -3312,7 +3315,7 @@ CREATE TABLE Studente(
 INSERT INTO Impiegato (Matricola, Cognome, Nome, Stipendio) 
 VALUES ("A00000", "Rossi", "Mario", 1500);
 \end{lstlisting}
-\newpage
+
 Darebbe come risultato:
 \begin{table}[h!]
 	\centering
@@ -3604,9 +3607,391 @@ WHERE Citta = "Verona" OR Citta = "Padova"
 \end{lstlisting} 
 \end{itemize}
 
-% Vi ho pensato stanotte
+% Vi ho pensato stanotte 
+% 5/11/2205
+\textbf{Riassumendo:} una query SQL viene fatta così
+\begin{lstlisting}[style=sqlstyle]
+SELECT ListaAttributi
+FROM Tabelle
+WHERE Condizione1 OPERATORE (AND, OR, NOT) Condizione 2 ...
+\end{lstlisting}
+
+\textbf{Operatore LIKE (e NOT LIKE):} utilizzato per confrontare il valore di una stringa. Mi permette di fare un confronto tra stringhe nella clausola \textit{WHERE}.
+
+\begin{lstlisting}[style=sqlstyle]
+SELECT Matricola, Nome
+FROM STUDENTE
+WHERE Citta LIKE '_a%a'
+\end{lstlisting}
+
+Dove $\_$ rappresenta un \textbf{carattere}, mentre $\%$ rappresenta una stringa di un numero arbitrario (anche 0) di caratteri.
+
+\begin{table}[h!]
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		\textbf{Matricola} & \textbf{Nome} & \textbf{Indirizzo} & \textbf{Citta} & \textbf{CAP} & \textbf{Genere} \\
+		\hline
+		VR1 & Rossi Maria & ... & Verona & ... & ... \\
+		\hline
+		VR2 & Neri Maria & ... & Verona & ... & ... \\
+		\hline
+		VR3 & Verdi Paolo & ... & Padova & ... & ... \\
+		\hline
+		VR4 & Gialli Marco & ... & Ragusa & ... & ... \\
+		\hline
+		VR5 & Bianchi Luca & ... & Vicenza & ... & ... \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Quindi 
+\begin{lstlisting}[style=sqlstyle]
+SELECT Matricola, Nome
+FROM STUDENTE
+WHERE Citta LIKE '_a%a'
+\end{lstlisting}
+
+\begin{table}[h!]
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Matricola} & \textbf{Nome} \\
+		\hline
+		VR3 & Verdi Paolo \\
+		\hline
+		VR4 & Gialli Marco \\
+		\hline
+	\end{tabular}
+\end{table}
 
 
+Darà VR3 e VR4
+
+mentre
+\begin{lstlisting}[style=sqlstyle]
+SELECT Matricola, Nome
+FROM STUDENTE
+WHERE Citta NOT LIKE 'P%'
+\end{lstlisting}
+darà tutti i risultati tranne Padova.
+
+\begin{table}[h!]
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Matricola} & \textbf{Nome} \\
+		\hline
+		VR1 & Rossi Maria \\
+		\hline
+		VR2 & Neri Maria \\
+		\hline
+		VR4 & Gialli Marco \\
+		\hline
+		VR5 & Bianchi Luca \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+\textbf{BETWEEN e NOT BETWEEN}: specifica i valori che può assumere un attributo all'interno di un intervallo concesso o vietato.
+\begin{lstlisting}[style=sqlstyle]
+SELECT Nome, Stipendio
+FROM DOCENTE
+WHERE Stipendio BETWEEN 2000 AND 3000
+\end{lstlisting}
+
+\textbf{IN e NOT IN:} indichiamo se il valore di un attributo è compreso o meno in una lista di valori. 
+
+\begin{lstlisting}[style=sqlstyle]
+SELECT Matricola, Nome, Citta
+FROM STUDENTE
+WHERE Citta IN ('Verona', 'Venezia', 'Padova');
+\end{lstlisting}
+
+\textbf{IS NULL e IS NOT NULL:} per selezionare le tuple che hanno (o non hanno) attributi dal valore nullo.
+\begin{lstlisting}[style=sqlstyle]
+SELECT * 
+FROM Corso
+WHERE NumeroCrediti IS NULL;
+\end{lstlisting}
+
+\textbf{DISTINCT:} se facessi
+\begin{lstlisting}[style=sqlstyle]
+	SELECT Citta
+	FROM Studente
+\end{lstlisting}
+Mi mostrerebbe tutte le città degli studenti presentando più volte lo stesso valore.
+
+\begin{table}[h!]
+	\begin{tabular}{|c|}
+		\hline  \textbf{Citta} \\
+		\hline
+		   Verona \\
+		\hline
+		   Verona \\
+		\hline
+		   Padova \\
+		\hline
+		   Ragusa \\
+		\hline
+		   Vicenza \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Mentre se scrivessi 
+\begin{lstlisting}[style=sqlstyle]
+SELECT DISTINCT Citta
+FROM Studente
+\end{lstlisting}
+Mi farebbe comparire i valori delle città al più una volta.
+\begin{table}[h!]
+	\begin{tabular}{|c|}
+		\hline  \textbf{Citta} \\
+		\hline
+		Verona \\
+		\hline
+		Padova \\
+		\hline
+		Ragusa \\
+		\hline
+		Vicenza \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+Questa query corrisponde ora a $\Pi_{Citta} STUDENTE$.
+
+\textbf{Attenzione:} quando non mettiamo \textit{DISTINCT} è come specificare implicitamente che mettiamo la clausola \textit{ALL} che include tutti i valori anche ripetuti.
+
+\textbf{ORDER BY:} visualizza i risultati stabilendo un ordine in base al valore di uno o più attributi. \textbf{N.B. \textit{Il valore ascendente è di default.}}
+
+\begin{lstlisting}[style=sqlstyle]
+SELECT Nome, Citta
+FROM Studente
+ORDER BY Nome [ASC | DESC]
+\end{lstlisting}
+
+\begin{table}[h!]
+	\begin{tabular}{|c|c|}
+		\hline \textbf{Nome} &  \textbf{Citta} \\
+		\hline
+				 Bianchi Luca &  Vicenza \\
+
+		\hline
+				 Gialli Marco &  Ragusa \\
+
+		\hline
+		 Verdi Paolo &  Padova \\
+		\hline
+		 Neri Maria &  Verona \\
+		\hline
+		 Rossi Maria &  Verona \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{lstlisting}[style=sqlstyle]
+	SELECT Nome, Citta
+	FROM Studente
+	WHERE Citta = 'Verona'
+	ORDER BY Nome
+\end{lstlisting}
+
+\begin{table}[h!]
+	\begin{tabular}{|c|c|}
+		\hline \textbf{Nome} &  \textbf{Citta} \\
+		\hline
+		Neri Maria &  Verona \\
+		\hline
+		Rossi Maria &  Verona \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Posso ordinare anche per coppie o liste di attributi, ordinando quindi prima per il primo attributo, poi per il secondo, etc...
+Ad esempio
+\begin{lstlisting}[style=sqlstyle]
+	SELECT Nome, Citta
+	FROM Studente
+	WHERE Citta = 'Verona'
+	ORDER BY Nome, Citta
+\end{lstlisting}
+
+Ordinerebbe prima per il nome, e poi per la città.
+
+\textbf{OPERATORI DI AGGREGAZIONE:}
+Vengono applicati ad un insieme di righe. \begin{itemize}
+	\item \textbf{COUNT:} conta le tuple;
+	\item \textbf{MAX, MIN, AVG, SUM:} operazioni sui valori della tabella.
+\end{itemize}
+
+Quando abbiamo un operatore di aggregazione, normalmente viene \textit{prima eseguita la query considerando unicamente le clausole FROM e WHERE} e dopo viene effettuata l'operazione di aggregazione sulle righe trovate.
+
+\textbf{COUNT:} permette di contare il numero di righe/tuple in un risultato. Posso avere 
+\begin{lstlisting}[style=sqlstyle]
+COUNT( < *, [DISTINCT | ALL] Attributo > ) 
+\end{lstlisting} 
+
+Se uso $*$ \textit{( COUNT(*) )} restituisce il numero di righe del risultato, se uso $DISTINCT$ \textit{( COUNT(DISTINCT Attributo) )} restituisce il numero di valori diversi, se uso $ALL$ restituisce il numero di righe con valori diversi da NULL. Se si scrive un attributo, il valore di default è ALL.
+
+\begin{table}[h!]
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Codice & NomeCorso & NumCFU \\
+		\hline
+		INFO1 & LabBD & 2 \\
+		\hline
+		INFO2 & Analisi1 & NULL \\
+		\hline
+		INFO3 & Fisica1 & 3 \\
+		\hline
+		INFO4 & IngSM & 3 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Se scrivo 
+\begin{lstlisting}[style=sqlstyle]
+	SELECT COUNT(*)
+	FROM Corso 
+\end{lstlisting}
+
+ottengo
+
+\begin{tabular}{|c|}
+\hline
+COUNT(*) \\
+\hline
+4\\
+\hline
+\end{tabular} 
+
+Se scrivo 
+\begin{lstlisting}[style=sqlstyle]
+	SELECT COUNT(Codice)
+	FROM Corso 
+\end{lstlisting}
+
+ottengo
+
+\begin{tabular}{|c|}
+	\hline
+	COUNT(Codice) \\
+	\hline
+	4\\
+	\hline
+\end{tabular} 
+
+Se invece scrivo 
+
+Se scrivo 
+\begin{lstlisting}[style=sqlstyle]
+	SELECT DISTINCT COUNT(NumCFU) AS NC
+	FROM Corso 
+\end{lstlisting}
+
+ottengo
+
+\begin{tabular}{|c|}
+	\hline
+	NC \\
+	\hline
+	2\\
+	\hline
+\end{tabular} 
+
+Se scrivo 
+\begin{lstlisting}[style=sqlstyle]
+	SELECT COUNT(NumCFU) AS CFUPresenti
+	FROM Corso 
+\end{lstlisting}
+
+ottengo
+
+\begin{tabular}{|c|}
+	\hline
+	CFUPresenti \\
+	\hline
+	3\\
+	\hline
+\end{tabular} 
+
+\textbf{SUM:} somma dei valori numerici posseduti da un attributo sull'insieme di tuple selezionate. \textit{Se non abbiamo una clausola WHERE è sui valori di  tutte le tuple.}
+
+\textbf{MIN/MAX:} trovano il valore massimo/minimo di un attributo all'interno delle tuple selezionate. \textbf{N.B.} con questi operatori, \textit{DISTINCT e ALL} non hanno effetto.
+
+\textbf{AVG:} restituisce la media dei valori numerici posseduti da un attributo sull'insieme di tuple selezionate.
+
+\begin{lstlisting}[style=sqlstyle]
+< SUM | MIN | MAX | AVG > ([DISTINCT | ALL] Attributo)
+\end{lstlisting}
+Attenzione, \textit{DISTINCT} elimina i duplicati, mentre \textit{ALL} trascura \textit{solo i valori nulli}.
+
+\begin{table}[h!]
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Matricola & Nome & Tel & Stipendio \\
+		\hline
+		DOC1 & A.A. & ... & 2500 \\
+		\hline
+				DOC1 & A.A. & ... & 2500 \\
+		\hline
+				DOC2 & B.B. & ... & 1900 \\
+				\hline
+				DOC3 & C.C. & ... & 3000 \\
+		
+	\end{tabular}
+\end{table}
+
+
+\begin{lstlisting}[style=sqlstyle]
+SELECT MAX(Stipendio)
+FROM Docente
+\end{lstlisting}
+\begin{tabular}{|c|}
+\hline
+MAX(STIPENDIO)\\
+\hline
+3000\\
+\hline
+\end{tabular}
+
+\begin{lstlisting}[style=sqlstyle]
+	SELECT MIN(Stipendio)
+	FROM Docente
+\end{lstlisting}
+\begin{tabular}{|c|}
+	\hline
+	MIN(STIPENDIO)\\
+	\hline
+	1900\\
+	\hline
+\end{tabular}
+
+\begin{lstlisting}[style=sqlstyle]
+	SELECT AVG(Stipendio)
+	FROM Docente
+\end{lstlisting}
+\begin{tabular}{|c|}
+	\hline
+	AVG(STIPENDIO)\\
+	\hline
+	2466\\
+	\hline
+\end{tabular}
+
+\begin{lstlisting}[style=sqlstyle]
+	SELECT AVG(Stipendio)
+	FROM Docente
+	WHERE Stipendio > 2000
+\end{lstlisting}
+\begin{tabular}{|c|}
+	\hline
+	AVG(STIPENDIO)\\
+	\hline
+	2750\\
+	\hline
+\end{tabular}
 
 
 \end{document} 
