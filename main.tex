@@ -65,6 +65,13 @@
   \vspace{1em}%
 }
 
+\newcounter{esempio}
+\newenvironment{esempio}{
+	\refstepcounter{esempio}%
+	\noindent\textbf{Esempio \theesempio:}
+}{\par}
+
+
 
 \begin{document}
 
@@ -4163,9 +4170,252 @@ WHERE Corso = 'Analisi 1'
 	AND E.CodCorso = C.Codice
 GROUP BY Genere
 \end{lstlisting}
-
-
-
 \end{enumerate}
 
+
+\textbf{JOIN INTERNI E JOIN ESTERNI}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Attributi
+FROM Tabella1 
+{INNER, RIGHT OUTER, LEFT OUTER, FULL OUTER} JOIN Tabella2
+ON CondizioneJoin
+WHERE Condizioni
+\end{lstlisting}
+
+\textbf{Visualizzare nome e cognome dei docenti che tengono un corso con più di 100 studenti:}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Docente.Nome, Docente.Cognome
+FROM DOCENTE
+INNER JOIN INSEGNAMENTO
+ON Docente.Matricol = Insegnamento.CodDoc
+WHERE NumStud > 100;
+\end{lstlisting}
+
+Che sarebbe come dire
+\begin{lstlisting}[style=sqlstyle]
+	SELECT Docente.Nome, Docente.Cognome
+	FROM DOCENTE,INSEGNAMENTO
+	WHERE NumStud > 100
+	AND Docente.Matricol = Insegnamento.CodDoc;
+\end{lstlisting}
+
+\subsubsection{USO DI VARIABILI}
+SQL permette di associare un nome alternativo alle tabelle che compaiono nella sezione FROM. Come ad esempio
+\begin{lstlisting}[style=sqlstyle]
+S.Nome, S.Cognome
+FROM STUDENTE S
+WHERE S.Citta = 'Verona'
+\end{lstlisting}
+In questo caso 'S' è uno \textbf{pseudonimo}.
+
+Ogni volta che si introduce un ALIAS per una tabella, è coe creare una copia della tabella. Ad esempio
+\begin{lstlisting}[style=sqlstyle]
+SELECT S1.cognome
+FROM STUDENTE S1, STUDENTE S2
+WHERE S1.Cognome = S2.Cognome 
+	AND S2.Citta = 'Padova'
+\end{lstlisting}	
+In questo caso si creano DUE copie dalla tabella studente, le quali interagiscono tra di loro. In questo caso permettono di soddisfare la query seguente: "\textit{Trovare il cognome di tutti gli studenti che hanno ll stesso cognome di uno studente di Padova}."
+
+\subsubsection{Interrogazioni di tipo insiemistico}
+SQL mette a disposizione gli operatori visti nell'algebra: \begin{itemize}
+	\item \textbf{UNION}
+	\item \textbf{INTERSECT}
+	\item \textbf{EXCEPT (MINUS)}
+\end{itemize}
+Questi operatori possono essere usati solo al livello più esterno di una query operando sul risultato della SELECT. Ad esempio: 
+\begin{lstlisting}[style=sqlstyle]
+SELECT A1,...
+FROM T1, ...
+--query 1
+
+<UNION | INTERSECT | EXCEPT > [ALL]
+
+--query 2
+SELECT A2,...
+FROM T2,...
+\end{lstlisting}
+\textbf{ATTENZIONE:} questi operatori assumono come \textit{DEFAULT} di eseguire sempre una \textbf{eliminazione dei duplicati}, a meno dell'uso dell'\textbf{ALL}. 
+SQL non impone che gli schemi siano uguali, cioè non dobbiamo avere lo stesso nome dell'attrbuto, differentemente dall'algebra relazionale, \textbf{purché il tipo dei dati sia compatibile}. \textit{Se unisco due tabelle con due nomi di attributi diversi, il risultato avrà come nome quello dell'attributo della prima tabella.} 
+
+\textbf{ESEMPIO: trovare i cognomi e le città degli studenti maschi}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Cognome
+FROM STUDENTE
+WHERE Genere = 'M'
+
+	UNION
+
+SELECT Citta
+FROM STUDENTE
+WHERE Genere = 'M'
+\end{lstlisting}
+
+Il risultato avrà come nome dell'attributo "Cognome", cioè il nome del primo operando. Inoltre, \textbf{i duplicati vengono eliminati.}
+\begin{tabular}{|c|}
+	\hline
+\textbf{Cognome}\\
+\hline
+Rossi\\
+\hline
+Padova \\
+\hline
+Verdi \\
+\hline
+Verona\\
+\hline
+\end{tabular}
+
+
+\textbf{ESEMPIO 2: Trovare cognome e città di docenti e studenti}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Cognome, Citta
+FROM STUDENTE
+	UNION
+SELECT Cognome, Citta -- facciamo finta che docente abbia citta
+FROM DOCENTE
+\end{lstlisting}
+
+In questi casi in cui ho più di un attriuto, la corrispondenza non si basa sul nome degli attributi , ma sulla loro posizione. Cioè il primo attributo della prima tabella si unisce al primo attributo della seconda tabella, il secondo con il secondo e così via...
+Infatti, scrivendo
+\begin{lstlisting}[style=sqlstyle]
+SELECT Cognome, Citta
+FROM STUDENTE
+	UNION
+SELECT Citta, Cognome
+FROM DOCENTE
+\end{lstlisting}
+
+Avrò un risultato del tipo:
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Cognome} & \textbf{Citta} \\
+\hline
+Rossi & Padova \\
+\hline
+Verdi & Verona \\
+\hline
+Verona & Oliboni \\
+\hline
+\end{tabular}
+
+Se invece voglio mantenere i duplicati devo inserire la clausola \textbf{ALL}.
+
+\begin{lstlisting}[style=sqlstyle]
+	SELECT Cognome
+	FROM STUDENTE
+	WHERE Genere = 'M'
+	
+	UNION ALL
+	
+	SELECT Citta
+	FROM STUDENTE
+	WHERE Genere = 'M'
+\end{lstlisting}
+
+\begin{tabular}{|c|}
+	\hline
+	\textbf{Cognome}\\
+	\hline
+	Rossi\\
+	\hline
+	Padova \\
+	\hline
+	Verdi \\
+	\hline
+	Verona\\
+	\hline
+	Padova\\
+	\hline
+	Verona\\
+	\hline
+\end{tabular}
+
+\textbf{ESEMPIO 3: trovare i cognomi degli studenti che sono anche città}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Cognome 
+FROM Studente
+	INTERSECT
+SELECT Citta
+FROM Studente
+\end{lstlisting}
+
+\textbf{Trovare i cognomi degli studenti che non sono città}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Cognome 
+FROM Studente
+	EXCEPT
+SELECT Citta
+FROM Studente
+\end{lstlisting}
+
+\subsubsection{INTERROGAZIONI NIDIFICATE}
+\textbf{Esempio:}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Cognome
+FROM Docente
+WHERE Stipendio < (	SELECT AVG(Stipendio)
+					FROM DOCENTE			)
+\end{lstlisting}
+
+Le interrogazioni nidificate si trovano nella clausola \textit{WHERE}. Il problema sorge quando il risultato dell'interrogazione nidificata non è un valore singolo, e cerco di confrontare un attributo con un insieme di valori. Per risolvere questo problema vengono in aiuto le parole chiave \textbf{ANY} e \textbf{ALL} che mi permettono di estendere i normali operatori di confronto ($<,>,=,...$).
+\begin{itemize}
+\item \textbf{ANY:} specifica che la riga soddisfa la condizione se il confronto risulta \textbf{VERO PER ALMENO UNO} degli elementi ritornati dalla query nidificata.
+\item \textbf{ALL:} specifica che la riga soddisfa la condizione se il confronto risulta \textbf{VERO PER TUTTI} gli elementi ritornati dalla query nidificata.	
+	\end{itemize} 
+\textit{Ovviamente devo ricordarmi di confrontare elementi compatibili.}
+
+\begin{esempio}
+\textit{Trovare tutti gli studenti che hanno almeno un voto maggiore o uguale del voto medio di ogni studente.}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Cognome, Voto
+FROM STUDENTE S 
+	INNER JOIN Esame E
+	ON S.Matricola = E.MatrStud
+WHERE Voto >= ALL (	SELECT AVG(voto)
+					FROM ESAME
+					GROUP BY MatrStud);
+\end{lstlisting}
+\end{esempio}
+
+\subsubsection{INTERROGAZIONI NIDIFICATE \textbf{\textit{COMPLESSE}}}
+Per comprendere le interrogazioni nidificate complesse facciamo uso di un esempio.
+\begin{esempio} esempio di passaggio di valori tra due query. 
+\textbf{Query:}\textit{visualizzare matricola e cognome degli studenti che hanno superato più di un esame.}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Matricola, Cognome
+FROM Studente
+WHERE EXISTS(	SELECT COUNT(*)
+				FROM ESAME
+				WHERE MatrStud = Matricola
+				HAVING COUNT(*) > 1)
+			);
+\end{lstlisting}
+
+In questo caso, ad ogni matricola della query esterna, si fa un confronto con \textit{MatrStud} della sottoquery. Si ha quindi un \textbf{passaggio di binding}, ovvero in cui le \textbf{due query sono eseguite contemporaneamente.} Generalmente, infatti, viene prima eseguita la sottoquery e poi le query principali; in questo caso, invece, per ogni tupla della query principale vi è un confronto con la query interna. Quindi, per eseguire la query interna ho bisogno dell'esterna e viceversa \textit{ad ogni passo}. 
+\end{esempio}
+
+\mybox{Nelle \textbf{interrogazioni nidificate complesse}, l'interrogazione nidificata fa riferimento al contesto dell'interrogazione che lo racchiude. Si parla di \textbf{PASSAGGIO DI BINDING.}}
+
+\mybox{\textbf{EXIST:} è un operatore che ammette come parametro un'interrogazione nidificata e restituisce \textbf{VERO} solo se l'interrogazione nidificata definisce un risultato \textbf{non vuoto}. Ha senso che io lo utilizzi solo quando ho il \textit{passaggio di binding.}}
+
+\subsubsection{VISTE SQL:}
+Sono tabelle virtuali il cui contenuto dipende dal contenuto delle altre tabelle della mia base di dati. Vengono definite associando uno schema al risultato di una interrogazione.
+\begin{esempio}
+\textit{Definire la vista che contiene la matricola e il cognome dei docenti che tengono un corso con più di 100 studenti.}
+\begin{lstlisting}[style=sqlstyle]
+CREATE VIEW Docenti100Studenti(Matricola, Cognome)
+AS 	SELECT D.Matricola, D.Cognome
+	FROM DOCENTE D
+		INNER JOIN INSEGNAMENTO I
+		ON I.MatrDoc = D.Matricola
+	WHERE NumStud > 100;
+\end{lstlisting}
+Ora posso usare la query come una tabella a tutti gli effetti, ad esempio scrivendo
+\begin{lstlisting}[style=sqlstyle]
+SELECT ...
+FROM Docenti100Studenti
+WHERE ...
+\end{lstlisting}
+\end{esempio}
 \end{document} 
