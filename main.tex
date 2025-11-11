@@ -128,45 +128,71 @@ arrivino preparati.
 \end{itemize}
 \subsection{Modellazione dei dati}
 Una \textbf{base di dati} è un insieme organizzato di dati; per organizzare i dati serve un \textbf{modello di dati}. Un \textbf{modello dei dati} è un insieme di concetti utilizzati per organizzare i dati di interesse e descriverne la struttura in modo che essa risulti comprensibile ad un elaboratore.
+\begin{itemize}
+	\item \textbf{Modelli logici:} organizzano i dati in modo strutturato ma ancora astratto. 
+	
+	\begin{esempio}
+		\textit{Il modello relazionale, che rappresenta i dati con tabelle e relazioni.}
+	\end{esempio}
+	
+	\item \textbf{Modelli concettuali:} ancora più astratti, descrivono i concetti fondamentali di un dominio
+	indipendentemente dal modello logico.
+	
+	\begin{esempio}
+		\textit{Il modello entità-relazione (E-R), che rappresenta concetti come Studente, Corso e la relazione frequenta.}
+	\end{esempio}
+	
+	Serve per dare una visione ad alto livello, più intuitiva, del dominio di interesse.
+\end{itemize}
 
-\textbf{Modelli logici:} organizzano i dati in modo strutturato ma ancora astratto. Esempio: il modello relazionale, che rappresenta i dati con tabelle e relazioni.
-\textbf{Modelli concettuali:} ancora più astratti, descrivono i concetti fondamentali di un dominio
-indipendentemente dal modello logico. \textit{Esempio: modello entità-relazione (E-R), che rappresenta concetti come Studente, Corso e la relazione frequenta. }
-Serve per dare una visione ad alto livello, più intuitiva, del dominio di interesse.
 
 \subsubsection{Schema, Istanza e Architettura delle basi di dati}
 \textbf{Schema: }\begin{itemize}
     \item Lo schema descrive la struttura della base di dati.
-    \item È sostanzialmente invariante nel tempo: quando progetto uno schema cerco che sia definitivo. Non è “scolpito nella pietra” (può cambiare), ma la buona progettazione serve proprio a ridurre al minimo le modifiche. Perché? Perché se cambio lo schema, devo poi aggiornare tutte le istanze e adattare tutte le query collegate. \textit{Esempio: se aggiungo una colonna “secondo nome” alla tabella degli studenti, devo aggiornare ogni riga della tabella. Con basi di dati grandi, ciò diventa costoso.}
+    \item È sostanzialmente invariante nel tempo: quando progetto uno schema cerco che sia definitivo. Non è “scolpito nella pietra” (può cambiare), ma la buona progettazione serve proprio a ridurre al minimo le modifiche. Perché? Perché se cambio lo schema, devo poi aggiornare tutte le istanze e adattare tutte le query collegate. 
+    
+    \begin{esempio}
+\textit{Se aggiungo una colonna “secondo nome” alla tabella degli studenti, devo aggiornare ogni riga della tabella. Con basi di dati grandi, ciò diventa costoso.}
+    \end{esempio}
 \item In sintesi: lo schema è la descrizione formale della struttura dei dati (es. attributi delle tabelle, tipi di dato, relazioni tra entità).
 \end{itemize}
 \textbf{Istanza:} L'istanza è l'insieme dei valori attuali contenuti nella base di
-dati. Sono i dati veri e propri, che possono cambiare nel tempo. Esempio: aggiungere uno studente, modificare un voto, cancellare un record. Le istanze cambiano quotidianamente, mentre lo schema
-dovrebbe rimanere stabile. 
+dati. Sono i dati veri e propri, che possono cambiare nel tempo. 
+
+\begin{esempio}
+	\textit{Aggiungere uno studente, modificare un voto, cancellare un record. Le istanze cambiano quotidianamente, mentre lo schema
+	dovrebbe rimanere stabile. }
+\end{esempio}
 
 \emph{Schema = struttura dei dati. Istanza = valori memorizzati.}
 
 Il concetto di schema e istanza non vale solo per il modello logico (relazionale), ma anche per il livello concettuale. In un diagramma E-R (Entità-Relazioni) lo \textbf{schema} è costituito dalle \textbf{entità} (rettangoli) e dalle \textbf{relazioni} (rombi) che collegano le entità. L’\textbf{istanza} è costituita dalle \textbf{occorrenze} delle entità e dalle \textbf{coppie} (o tuple) che formano le \textbf{relazioni}.
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.5\linewidth]{immagine.png}
-\end{figure}
-
-Esempi:\begin{itemize}
-    \item Entità Studente → ciascuno studente reale è un'istanza.
-    \item Entità Docente → ciascun professore è un'istanza.
-    \item Relazione Relatore di tesi → è rappresentata dalle coppie (Docente, Studente) che concretamente svolgono quella relazione.
-\end{itemize}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.25\linewidth]{er.png}
-\end{figure}
+\begin{esempio}
+		\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.25\linewidth]{er.png}
+	\end{figure}
+	
+	
+	\begin{itemize}
+		\item Entità Studente → ciascuno studente reale è un'istanza.
+		\item Entità Docente → ciascun professore è un'istanza.
+		\item Relazione Relatore di tesi → è rappresentata dalle coppie (Docente, Studente) che concretamente svolgono quella relazione.
+	\end{itemize}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.5\linewidth]{immagine.png}
+	\end{figure}
+\end{esempio}
 
 \subsubsection{Architettura semplificata di un DBMS}
 \begin{itemize}
     \item \textbf{Utente: interroga la base di dati o inserisce nuovi dati.}
- Esempio: uno studente si iscrive a un appello → inserimento di dati. Il docente controlla la lista degli iscritti → interrogazione della base di dati.
+    \begin{esempio}
+    	uno studente si iscrive a un appello → inserimento di dati. Il docente controlla la lista degli iscritti → interrogazione della base di dati.
+    \end{esempio}
 
 \item \textbf{Livello logico (schema logico):}
 L’utente interagisce con le tabelle (modello relazionale). Scrive query SQL che operano sui dati organizzati in tabelle. Non si preoccupa di come i dati siano memorizzati fisicamente.
@@ -183,7 +209,9 @@ L’utente interagisce con le tabelle (modello relazionale). Scrive query SQL ch
 finale non deve preoccuparsene.
 
 \item\textbf{Sistema informativo e dati}: Un sistema informativo esprime l’informazione di interesse. Differenza tra dato e informazione: Dato → valore grezzo, singolo elemento. Informazione → interpretazione dei dati in un contesto applicativo, utile per prendere decisioni o
-rispondere a domande concrete. Contesto applicativo: determina quali dati sono rilevanti. \textit{Esempio: memorizzare i dati degli studenti. Il numero di scarpe non è rilevante, a meno che non serva per un contesto particolare.}
+rispondere a domande concrete. Contesto applicativo: determina quali dati sono rilevanti. \begin{esempio}
+	memorizzare i dati degli studenti. Il numero di scarpe non è rilevante, a meno che non serva per un contesto particolare.
+\end{esempio}
 
 \item\textbf{Modello di dati:} La base di dati è un insieme organizzato di dati, gestito da un DBMS. L’organizzazione dei dati è rappresentata tramite modelli di dati, che forniscono costrutti concettuali per strutturare le informazioni.Tipi di modelli di dati: \textbf{Concettuali} → rappresentano concetti importanti (E-R). \textbf{Logici} → rappresentano la struttura reale delle tabelle e delle relazioni (modello relazionale).
 \item \textbf{Schema e istanza}
@@ -211,28 +239,38 @@ La parola relazione ha tre accezioni: \begin{enumerate}
 È importante capire il contesto per sapere a quale significato ci si riferisce.
 \begin{itemize}
      
-\item \textbf{Relazione matematica: } una relazione matematica è \emph{per definizione} il \textbf{prodotto cartesiano dei domini degli insieme in relazione.} \textit{Ad esempio:} 
+\item \textbf{Relazione matematica: } una relazione matematica è \emph{per definizione} il \textbf{prodotto cartesiano dei domini degli insieme in relazione.} 
 
-Dominio $D_1 = \{1,2\}, D_2 = \{x,y,z\}$
-
-Prodotto Cartesiano: $D_1 \times D_2 = \{ (1,x), (1,y), (1,z), (2,x),(2,y),(2,z)\}$ 
-
-Una relazione $R \subseteq D1 \times D2 \to R = \{(1,x), (2,x), (2,z)\}$
+\begin{esempio}
+	
+	Dominio $D_1 = \{1,2\}, D_2 = \{x,y,z\}$
+	
+	Prodotto Cartesiano: $D_1 \times D_2 = \{ (1,x), (1,y), (1,z), (2,x),(2,y),(2,z)\}$ 
+	
+	Una relazione $R \subseteq D1 \times D2 \to R = \{(1,x), (2,x), (2,z)\}$
+\end{esempio}
 
 \textbf{L'ordine dei valori nel prodotto cartesiano è posizionale.} 
-\item \textbf{Relazione nel modello relazionale (Codd):} Codd introduce una variante della relazione matematica per rendere la relazione non posizionale: Nelle tabelle, \textbf{i valori non dipendono dalla posizione della colonna.} Ogni colonna ha un ruolo distinguibile tramite il nome, non tramite l’ordine. Questo semplifica le interrogazioni e la gestione dei dati: non occorre ricordare quale colonna rappresenta quale informazione. \textbf{Esempio tabella “partite”:} \begin{itemize}
-    \item Colonne: squadra in casa, squadra ospite, goal squadra in casa, goal squadra ospite
-\item Ogni dominio ha un ruolo distinto, identificabile dalla colonna, non dalla posizione.
-\end{itemize}
+\item \textbf{Relazione nel modello relazionale (Codd):} Codd introduce una variante della relazione matematica per rendere la relazione non posizionale: Nelle tabelle, \textbf{i valori non dipendono dalla posizione della colonna.} Ogni colonna ha un ruolo distinguibile tramite il nome, non tramite l’ordine. Questo semplifica le interrogazioni e la gestione dei dati: non occorre ricordare quale colonna rappresenta quale informazione. 
 
+\begin{esempio}
+	\textbf{tabella “partite”:} \begin{itemize}
+		\item Colonne: squadra in casa, squadra ospite, goal squadra in casa, goal squadra ospite
+		\item Ogni dominio ha un ruolo distinto, identificabile dalla colonna, non dalla posizione.
+	\end{itemize}
+\end{esempio}
 
 \end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Relazione nel modello relazionale:} relazione matematica con una variante che mira a rendere la notazione NON posizionale. 
+\textbf{Relazione nel modello relazionale:}
 
-\textbf{\textit{Esempio: }} Partite $\subseteq$ string $\times$ string $\times$ int $\times$ int $\leftarrow$ A ciascun dominio viene associato un nome (\textbf{attributo}) che è unico nella relazione e descrive il "ruolo" (il significato) del dominio.
+\mybox{Relazione matematica con una variante che mira a rendere la notazione NON posizionale. }
+
+\begin{esempio}
+	\textit{Partite $\subseteq$ string $\times$ string $\times$ int $\times$ int $\leftarrow$ A ciascun dominio viene associato un nome (\textbf{attributo}) che è unico nella relazione e descrive il "ruolo" (il significato) del dominio.}
+\end{esempio}
 
 \begin{table}[h!]
     \centering
@@ -256,18 +294,19 @@ Una relazione $R \subseteq D1 \times D2 \to R = \{(1,x), (2,x), (2,z)\}$
 Il significato della colonna è descritto dal nome della colonna stessa, quindi l'ordine della riga non è più rilevante nell'informazione $\to$ \textbf{Relazione NON posizionale.}
 
 \textbf{Tabelle e relazioni (nel modello relazionale dei dati):}
-<Domanda di Esame> quando una tabella rappresenta una relazione nel modello relazionale dei dati? \textit{(per i posteri, 1 Forma Normale)}
-\begin{itemize}
-    \item Una tabella rappresenta una relazione \textit{se} i valori di ogni colonna sono fra loro \textbf{omogenei}, perché appartengono allo stesso dominio.
-    \item le righe della tabella sono tutte diverse tra loro, perché la relazione è un insieme, quindi ogni elemento(riga) è diverso tra loro.
-    \item Le intestazioni di ogni colonna sono diverse perché se dò nomi uguali si torna ad una notazione posizionale, mentre io ne voglio una NON posizionale. 
-\end{itemize}
 
-Se una tabella rappresenta una relazione, abbiamo che l'ordinamento tra le righe è \textbf{irrilevante}, perché \textit{essendo un insieme, non importa l'ordine}. Anche l'ordinamentro tra le colonne è \textbf{irrilevante}, siccome vogliamo una notazione non posizionale, quindi quando ogni colonna ha il suo nome posso mescolarle e non cambia nulla.  \textbf{RICORDA: }\textit{la relazione è un insieme.}
+\mybox{\emph{!Domanda di Esame!} \textit{quando una tabella rappresenta una relazione nel modello relazionale dei dati?} \textit{(per i posteri, 1 Forma Normale)}
+	\begin{itemize}
+		\item Una tabella rappresenta una relazione \textit{se} i valori di ogni colonna sono fra loro \textbf{omogenei}, perché appartengono allo stesso dominio.
+		\item le righe della tabella sono tutte diverse tra loro, perché la relazione è un insieme, quindi ogni elemento(riga) è diverso tra loro.
+		\item Le intestazioni di ogni colonna sono diverse perché se dò nomi uguali si torna ad una notazione posizionale, mentre io ne voglio una NON posizionale. 
+\end{itemize}}
 
-Nel modello relazionale ogni riga si chiama \textbf{\textit{tupla}}, ed ogni valore nella tupla lo recupero indicando il valore dell'attributo. Ad esempio, nella tabella \ref{tab:esempiononrelaz}, se t è la prima tupla, allora \textit{t[squadraCasa]} = "Milan".
+Se una tabella rappresenta una relazione, abbiamo che l'ordinamento tra le righe è \textbf{irrilevante}, perché \textit{essendo un insieme, non importa l'ordine}. Anche l'ordinamentro tra le colonne è \textbf{irrilevante}, siccome vogliamo una notazione non posizionale, quindi quando ogni colonna ha il suo nome posso mescolarle e non cambia nulla. \emph{ \textbf{RICORDA: }\textit{la relazione è un insieme!}} Nel modello relazionale ogni riga si chiama \textbf{\textit{tupla}}, ed ogni valore nella tupla lo recupero indicando il valore dell'attributo. Ad esempio, nella tabella \ref{tab:esempiononrelaz}, se t è la prima tupla, allora \textit{t[squadraCasa]} = "Milan".
 
-In una relazione un \textbf{collegamento è basato sui valori}, infatti, ad esempio, posso collegare la prima squadra della tabella \ref{tab:esempiononrelaz} con la tabella
+\mybox{In una relazione un \textbf{collegamento è basato sui valori.}}
+
+Infatti, ad esempio, posso collegare la prima squadra della tabella \ref{tab:esempiononrelaz} con la tabella
 \begin{table}[h!]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -291,23 +330,32 @@ In una relazione un \textbf{collegamento è basato sui valori}, infatti, ad esem
 
     \item \textbf{Schema di relazione:} \small(\textit{Schema:} struttura, organizzazione dei dati.) \normalsize Descrive la STRUTTURA  e si indica $R(X)$ dove $R$ è il nome della relazione, $X$ è l'insieme degli attributi, quindi $X = {A_1, A_2, ..., A_n}$; Ad ogni attributo è associato un dominio. 
     
-    \textit{\textbf{Esempio:}} $Studente(Matricola,Cognome, Nome, DataNascita)$
+    \begin{esempio}
+    	$Studente(Matricola,Cognome, Nome, DataNascita)$
+    \end{esempio}
     \item \textbf{Schema di base di dati:} un'insieme di schemi di relazione con nomi diversi.
     \begin{equation*}
         \boldsymbol{R}= \{  R_1(X_1), R_2(X_2), ..., R_n(X_n) \}
     \end{equation*}
 
-    \textit{Esempio:} 
-    \begin{align*}
-        \boldsymbol{R} = \{ Studente(Matricola, Cognome, Nome, Datanascita),\\
-        Docente(Codice, Cognome, Nome, NumTel), \\ Supervisore(MatrSt CodDoc, DataInizio)\}
-    \end{align*}
-    \item \textbf{Tupla:} una tupla su in insieme di attributi $X$ è una \textit{funzione} che associa a ciascuno degli attributi $A$ in $X$ un valore del dominio di A. \textit{Esempio:} $t[A]$ denota il valore della tupla $t$ sull'attributo a
+    \begin{esempio}
+\begin{align*}
+	\boldsymbol{R} = \{ Studente(Matricola, Cognome, Nome, Datanascita),\\
+	Docente(Codice, Cognome, Nome, NumTel), \\ Supervisore(MatrSt CodDoc, DataInizio)\}
+\end{align*}
+    \end{esempio}
+    
+    \item \textbf{Tupla:} una tupla su in insieme di attributi $X$ è una \textit{funzione} che associa a ciascuno degli attributi $A$ in $X$ un valore del dominio di A. \begin{esempio}
+    	$t[A]$ denota il valore della tupla $t$ sull'attributo 'a'.
+    \end{esempio}
     \item \textbf{(ISTANZA di) RELAZIONE:} \small Quando parliamo di relazione spesso parliamo di istanza di relazione. \normalsize È data dal contenuto della relazione, cioè è formata dall'\textit{insieme delle tuple della relazione.}
     \item \textbf{Istanza di una relazione su uno schema $R(X)$}: insieme $r$ di tuple su X.
-    Esempio: dato lo schema di relazione Studente(Matricola, Cognome, Nome, DataNascita), l'istanza potrebbe essere \begin{align*}
-        r = \{(VR000001, Rossi, Mario, 12/04/2005), \\(VR000002, Gialli, Lucia, 27/0/2004),\\ (VR000003, Verdi, Luca, 21/08/2006)\}
-    \end{align*}
+    
+    \begin{esempio}
+    	Esempio: dato lo schema di relazione Studente(Matricola, Cognome, Nome, DataNascita), l'istanza potrebbe essere \begin{align*}
+    		r = \{(VR000001, Rossi, Mario, 12/04/2005), \\(VR000002, Gialli, Lucia, 27/0/2004),\\ (VR000003, Verdi, Luca, 21/08/2006)\}
+    	\end{align*}
+    \end{esempio}
     \item \textbf{(ISTANZA di) BASE di DATI:} istanza di basi di dati su uno schema \begin{equation*}
         \boldsymbol{R}= \{  R_1(X_1), R_2(X_2), ..., R_n(X_n) \}
     \end{equation*} è data dall'insieme di (istanze di) relazioni $r = 
@@ -316,7 +364,6 @@ In una relazione un \textbf{collegamento è basato sui valori}, infatti, ad esem
         \boldsymbol{R} = \{ Studente(Matricola, Cognome, Nome, Datanascita), \\ Docente(Codice, Cognome, Nome, NumTel), \\ Supervisore(MatrSt CodDoc, DataInizio)\}
     \end{align*}
     quindi
-    
     \begin{align*}
         r = \{ \quad \{(VR000001, Rossi, Mario, 12/12/2005), \quad (VR00002, Gialli, Lucia, 16/01/2005)\},\quad \\ \{(DO1, Oliboni, Barbara, 045 ...), \quad (DO2, Quintarelli, Elisa, 045 ...)\},\quad \\ \{VR00001, DO1, 01/10/2025), \quad (VR005, DO2, 20/09/2025)\} \quad \}
     \end{align*}
@@ -380,28 +427,30 @@ In una relazione un \textbf{collegamento è basato sui valori}, infatti, ad esem
 \captionof{table}{Rappresentante}
 \end{minipage}
 
-    Le informazioni delle tabelle sono collegate, e le relazioni possono essere anche con un solo attributo e si basano sui valori.
+\subsubsection{Informazioni incomplete}
+Le informazioni delle tabelle sono collegate, e le relazioni possono essere anche con un solo attributo e si basano sui valori.
 
-    \textbf{Lo schema della Base di Dati impone una struttura rigida definita a priore.} Tutti i dati inseriti nella base di dati infatti devono rispettare quello schema, una volta deciso. Questo significa che le tuple che posso inserire nella mia base di dati devono rispettare la struttura che ho definito. 
-    \end{itemize}
+\textbf{Lo schema della Base di Dati impone una struttura rigida definita a priore.} Tutti i dati inseriti nella base di dati infatti devono rispettare quello schema, una volta deciso. Questo significa che le tuple che posso inserire nella mia base di dati devono rispettare la struttura che ho definito. 
+\end{itemize}
 
-    Per alcune tuple, potrei non avere il valore di qualche attributo. $\to$ \textbf{Informazione incompleta}
+Per alcune tuple, potrei non avere il valore di qualche attributo. $\to$ \textbf{Informazione incompleta}
     
-    Ad esempio:
-    \begin{table}[h!]
-        \centering
-        \begin{tabular}{|c|c|c|c|c|}
-        \hline
-        \textbf{Matricola} & \textbf{Cognome} & \textbf{PrimoNome} & \textbf{SecondoNome} & \textbf{DataNascita}\\
-        \hline
-         VR00001 & Rossi & Mario & Francesco & 12/12/2005 \\
-         \hline
-         VR00002 & Gialli & Lucia & $\boldsymbol{NULL}$ & 16/01/2005 \\
-         \hline
-        \end{tabular}
-        \caption{Studente}
-        \label{tab:valorinull}
-    \end{table}
+\begin{esempio}
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			\textbf{Matricola} & \textbf{Cognome} & \textbf{PrimoNome} & \textbf{SecondoNome} & \textbf{DataNascita}\\
+			\hline
+			VR00001 & Rossi & Mario & Francesco & 12/12/2005 \\
+			\hline
+			VR00002 & Gialli & Lucia & $\boldsymbol{NULL}$ & 16/01/2005 \\
+			\hline
+		\end{tabular}
+		\caption{Studente}
+		\label{tab:valorinull}
+	\end{table}
+\end{esempio}
 
 \textit{Se non so un valore non metto testo "Placeholder" perché una tupla potrebbe aver bisogno di usare proprio quel valore, quindi non è consigliato cercare una stringa.} La soluzione è scegliere un \textbf{VALORE NULLO:} denota l'assenza di un valore nel dominio, NON È UN VALORE DEL DOMINIO. Quindi in una colonna o abbiamo un valore del dominio, o valore nullo.
 
@@ -412,65 +461,66 @@ In una relazione un \textbf{collegamento è basato sui valori}, infatti, ad esem
     \item \textbf{Valore senza informazione:} il valore può esistere o non esistere e se esiste non sappiamo quale sia. (Caso più generale). \textit{Nei DBMS un valore NULL è interpretato come questo caso, ovvero l' \textbf{"OR"} logico dei due precedenti casi}.
 \end{itemize}
 
-\textbf{Esempio:}
-    
-\noindent
-\begin{minipage}{.4\textwidth}
-  \centering
-    \begin{tabular}{|c|c|c|c|}
-        \hline
-        \textbf{Codice}&\textbf{Nominativo}&\textbf{Telefono}&\textbf{DataNascita} \\ 
-        \hline
-        NULL & A.A & 045 ... & 12/06/2000 \\
-        \hline
-        PO2 & B.B & NULL & 15/05/2005 \\
-        \hline
-        PO3 & C.C & 045... & NULL \\
-        \hline
-        \end{tabular}
-  \captionof{table}{Paziente}
-\end{minipage}%
-\hfill
-\begin{minipage}{.4\textwidth}
-  \centering
-   \begin{tabular}{|c|c|c|}
-    \hline
-    \textbf{Codice} & \textbf{Nominativo}& \textbf{Specializzazione} \\
-    
-    \hline  
-         MO1 & NULL & NULL \\
-         \hline  
-         MO2 & E.E & Ortopedia \\
-         \hline  
-         MO3 & F.F & Chirurgia \\
-         \hline  
-         NULL & E.E & NULL \\
-         \hline
-        \end{tabular}
-\captionof{table}{Medico}
-\hspace{1em}
-\end{minipage}
-\begin{table}[h!]
-    \centering
-    \begin{tabular}{|c|c|c|}
-    \hline
-        \textbf{CodP}& \textbf{CodM} & \textbf{Motivo}\\
-        \hline
-        PO2 & MO2 & NULL \\
-        \hline
-        NULL & MO1 & Artrite \\
-        \hline
-        PO3 & NULL & NULL \\
-        \hline
-    \end{tabular}
-    \caption{In cura}
-\end{table}
+\begin{esempio}
+	
+	\noindent
+	\begin{minipage}{.4\textwidth}
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Codice}&\textbf{Nominativo}&\textbf{Telefono}&\textbf{DataNascita} \\ 
+			\hline
+			NULL & A.A & 045 ... & 12/06/2000 \\
+			\hline
+			PO2 & B.B & NULL & 15/05/2005 \\
+			\hline
+			PO3 & C.C & 045... & NULL \\
+			\hline
+		\end{tabular}
+		\captionof{table}{Paziente}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}{.4\textwidth}
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Codice} & \textbf{Nominativo}& \textbf{Specializzazione} \\
+			
+			\hline  
+			MO1 & NULL & NULL \\
+			\hline  
+			MO2 & E.E & Ortopedia \\
+			\hline  
+			MO3 & F.F & Chirurgia \\
+			\hline  
+			NULL & E.E & NULL \\
+			\hline
+		\end{tabular}
+		\captionof{table}{Medico}
+		\hspace{1em}
+	\end{minipage}
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{CodP}& \textbf{CodM} & \textbf{Motivo}\\
+			\hline
+			PO2 & MO2 & NULL \\
+			\hline
+			NULL & MO1 & Artrite \\
+			\hline
+			PO3 & NULL & NULL \\
+			\hline
+		\end{tabular}
+		\caption{In cura}
+	\end{table}
+\end{esempio}
 
-\textit{Osservazioni relazione "paziente"}
+\textbf{\textit{Osservazioni relazione "paziente"}}
 
 \mybox{Se non ha un codice la prima tupla in paziente, non potrò mai connetterlo con la base di dati, quindi è un problema; non posso lasciare NULL il codice. Il numero di telefono, invece, non crea problemi; tantomeno la data di nascita; non creano problemi nello schema attuale della base di dati e delle sue istanze se assume valore NULL.}
 
-\textit{Osservazioni relazione "medico"}
+\textbf{\textit{Osservazioni relazione "medico"}}
 
 \mybox{Nel caso della prima tupla, la coppia null nominativo-specializzazione è un problema, perché \textbf{ci sono così tanti valori nulli che la tupla non esprime alcuna informazione!}
 NEL CASO  DELLA SECONDA E QUARTA TUPLA IL NULL CREA PROBLEMI PERCHÉ POTREBBE ESSERE LA STESSA TUPLA.}
@@ -495,19 +545,25 @@ Un \textbf{VINCOLO} è una funzione booleana che associa ad ogni istanza il valo
     \item \textbf{Vincoli INTRA-relazionali:} cioè sono vincoli riferiti ad una singola tabella alla volta, cioè su \textit{singole relazioni}. Tra questi abbiamo: \begin{enumerate}
         \item \textbf{Vincolo di TUPLA:} la valutazione avviene su ciascuna tupla indipendentemente dalle altre. Specifico una proprietà che vado a verificare su ogni singola tupla. La validazione della tupla e l'accettazione di questa quindi dipende singolarmente dai valori contenuti in essa. 
 
-        \textit{Ad esempio:} $voto\geq 18 \land voto \leq 30 \land EsameSuperato = SI$.
+        \begin{esempio} $voto\geq 18 \land voto \leq 30 \land EsameSuperato = SI$.\end{esempio}
 
         \item \textbf{Vincolo su VALORI (di DOMINIO):} vincolo riferito ad un singolo valore. 
 
-        \textit{Esempio:} $Settimana \geq 1 \land Settimana \leq 40 $.
+        \begin{esempio}
+        $Settimana \geq 1 \land Settimana \leq 40 $.
+        \end{esempio}
 
         \item \textbf{Vincolo di CHIAVE:} permette di specificare qual è l'insieme di attributi che identificano in maniera univoca ogni singola tupla. La chiave primaria è l'insieme \emph{minimo} di attributi, che non possono assumere valore NULL. \textbf{La chiave identifica UNIVOCAMENTE ogni tupla.}
 
-        \textbf{Esempio:} $STUDENTE(\underline{matricola}, cognome, nome, ...)$
+        \begin{esempio}
+        	$STUDENTE(\underline{matricola}, cognome, nome, ...)$
+        \end{esempio}
     \end{enumerate}
 
     
-\textit{Esempio: } $CORSO(\underline{codice}, titolo, descrizione*, CFU)$ dove $CFU \geq 2 \land CFU \leq 12.$
+\begin{esempio}
+	$CORSO(\underline{codice}, titolo, descrizione*, CFU)$ dove $CFU \geq 2 \land CFU \leq 12.$
+\end{esempio}
     \begin{table}[h!]
     \centering
     \begin{tabular}{|c|c|c|c|}
@@ -3241,6 +3297,7 @@ Dato $R_3(\underline{G},\underline{{H}},I)$, $1 \leq |\Pi_{G,I}| \leq N_3$ e non
 
 \newpage
 \section{SQL (Structured Query Language)}
+\mybox{SQL è stato definito nel 1973 ed è oggi il linguaggio universale dei sistemi relazionali.}
 Composto da diverse parti: \begin{itemize}
     \item \textbf{DDL (Data Definition Language):} Definizione della Base di Dati
     \item \textbf{DML (Data Manipulation Language):} Interrogare e modificare i dati della Base di Dati.
