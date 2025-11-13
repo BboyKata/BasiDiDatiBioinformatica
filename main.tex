@@ -4475,4 +4475,471 @@ FROM Docenti100Studenti
 WHERE ...
 \end{lstlisting}
 \end{esempio}
+
+\subsection{Esercizi}
+\begin{align*}
+	STUDENTE(\underline{Matricola},Nome, Cognome, Indirizzo, Citta, CAP, Genere)\\
+	DOCENTE(\underline{Matricola},Nome, Cognome, Citta, Telefono, Stipendio)\\
+	CORSO(\underline{Codice}, Titolo, CdL, NumCrediti)\\
+	ESAME(\underline{CodiceCorso},\underline{MatricolaStudente}, Voto)\\
+	INSGENAMENTO(\underline{CodiceCorso},\underline{MatricolaDocente},NumeroStudenti)\\
+\end{align*}
+
+\begin{enumerate}
+	\item \textbf{Elencare cognome e nome dei docenti con il relativo stipendio trimestrale:}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Cognome, Nome, Stipendio*3 AS StipendioTrimestrale
+FROM DOCENTE
+\end{lstlisting}
+
+\item \textbf{Elencare titolo e corso di laurea (CdL) dei corsi da 6 crediti o da 9 crediti}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Titolo, CdL
+FROM CORSO
+WHERE NumCrediti = 6 OR NumCrediti = 9
+\end{lstlisting}
+
+\item \textbf{Elencare il titolo, il CdL e il numero di crediti dei CdL di Bioinformatica o Informatica con un numero di crediti superiore a 10:}
+\begin{lstlisting}[style=sqlstyle]
+SELECT TITOLO, CdL, NumCrediti
+FROM CORSO
+WHERE NumCrediti > 10 AND CdL IN ('Bioinformatica','Informatica');
+\end{lstlisting}
+
+\item \textbf{Trovare la somma dei crediti offerti nel CdL in Bioinformatica}
+\begin{lstlisting}[style=sqlstyle]
+SELECT SUM(NumCrediti) as SommaCFUBioinfo
+FROM CORSO
+WHERE CdL = 'Bioinformatica';
+\end{lstlisting}
+
+\item \textbf{Trovare il numero di corsi che hanno meno di 6 crediti}
+\begin{lstlisting}[style=sqlstyle]
+SELECT COUNT(*) as NumCorsi
+FROM CORSO
+WHERE NumCrediti < 6;
+\end{lstlisting}
+
+\item \textbf{Da quante citta provengono i docenti memorizzati nella base di dati}
+\begin{lstlisting}[style=sqlstyle]
+SELECT COUNT(DISTINCT Citta) as NumCitta
+FROM DOCENTE
+\end{lstlisting}
+
+\item \textbf{Trovare la matricola di tutti gli studenti che hanno superato almeno due esami (in ESAME inserisco solo i voti positivi):}
+\begin{lstlisting}[style=sqlstyle]
+SELECT S.Matricola
+FROM STUDENTE S INNER JOIN ESAME E 
+	ON S.Matricola = E.MatricolaStudente
+GROUP BY S.Matricola
+HAVING COUNT(*) > 1;
+\end{lstlisting}
+
+\textit{Soluzione ugualmente valida della prof}
+\begin{lstlisting}[style=sqlstyle]
+SELECT DISTINCT E1.MatricolaStudente
+FROM Esame as E1, Esame as E2
+WHERE E1.MatricolaStudente =  E2.MatricolaStudente
+AND E1.CodiceCorso <> E2.CodiceCorso;
+\end{lstlisting}
+
+\item \textbf{Trovare la matricola degli studenti che hanno preso almeno due 30:}
+\begin{lstlisting}[style=sqlstyle]
+SELECT DISTINCT E1.MatricolaStudente
+FROM Esame AS E1, Esame AS E2
+WHERE E1.Voto = 33 AND E2.Voto = 30
+	AND E1.MatricolaStudente =  E2.MatricolaStudente;
+	-- non metto AND E1.CodiceCorso <> E2.CodiceCorso
+	-- perche i due voti sono differenti e quindi non devo controllare
+	-- che parlino dello stesso esame
+\end{lstlisting}
+
+OPPURE
+
+\begin{lstlisting}[style=sqlstyle]
+SELECT DISTINCT MatricolaStudente 
+FROM ESAME
+WHERE Voto = 30
+	INTERSECT
+SELECT DISTINCT MatricolaStudente 
+FROM ESAME
+WHERE Voto = 33
+\end{lstlisting}
+
+OPPURE
+
+\begin{lstlisting}[style=sqlstyle]
+SELECT MatricolaStudente
+FROM Esame
+WHERE Voto = 30
+AND MatricolaStudente IN ( 	SELECT MatricolaStudente
+						 	FROM Esame
+						 	WHERE Voto = 33);
+	--trovo prima tutti gli studenti che hanno trovato 33 e in quelle matricole cerco chi ha anche preso 30;
+\end{lstlisting}
+
+\item \textbf{Trovare la matricola degli studenti che hanno preso un 30 o un 30 e lode}(non è un \textit{OR} esclusivo a quanto pare)
+
+\begin{lstlisting}[style=sqlstyle]
+SELECT MatricolaStudente 
+FROM ESAME
+WHERE Voto = 30 OR Voto = 33
+\end{lstlisting}
+
+\begin{lstlisting}[style=sqlstyle]
+SELECT MatricolaStudente 
+FROM ESAME
+WHERE Voto = 30
+	UNION
+SELECT MatricolaStudente 
+FROM ESAME
+WHERE Voto = 30	
+\end{lstlisting}
+
+\item \textbf{Elencare il voto medio e il numero di esami sostenuti da ogni studente. Visualizzare anche la matricola dello studente.}
+\begin{lstlisting}[style=sqlstyle]
+SELECT MatricolaStudente, AVG(Voto) AS VotoMedio, COUNT(*) as Numesami
+FROM ESAME
+GROUP BY MatricolaStudente;
+\end{lstlisting}
+Se volevo indicare quelli che hanno media maggiore di 25
+\begin{lstlisting}[style=sqlstyle]
+SELECT MatricolaStudente, AVG(Voto) AS VotoMedio, COUNT(*) as Numesami
+FROM ESAME
+GROUP BY MatricolaStudente
+HAVING VotoMedio > 25;
+\end{lstlisting}
+\item \textbf{Trovare la matricola, il nome, il cognome degli studenti che hanno superato esami per un totale di almeno 20 crediti}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Matricola, Nome, Cognome
+FROM STUDENTE 
+WHERE Matricola IN (	SELECT MatricolaStudente
+						FROM ESAME E INNER JOIN Corso C
+						ON E.CodiceCorso = C.Codice
+						GROUP BY MatricolaStudente
+						HAVING SUM(NumCrediti) >= 20);
+\end{lstlisting}
+la prof invece l'ha scritto con
+\begin{lstlisting}[style=sqlstyle]
+SELECT S.Matricola,S.Cognome, S.Nome
+FROM STUDENTE S, ESAME E, CORSO C
+WHERE S.Matricola = E.MatricolaStudente 
+	AND E.CodiceCorso = C.Codice
+GROUP BY S.Matricola, S.Cognome, S.Nome 
+HAVING SUM(NumeroCrediti) >= 20;
+\end{lstlisting}
+Metto $GROUP BY S.Matricola, S.Cognome, S.Nome $ perché se nella \textit{SELECT} voglio Matricola, Cognome e Nome, allora devo includerli anche nel group by poiché nel select posso mettere solo un sottoinsieme degli attributi per cui raggruppo.
+\item \textbf{Selezionare le matricole degli studenti che hanno tra i voti qualche 30 ma non hanno un 30 e lode (33)}
+\begin{lstlisting}[style=sqlstyle]
+SELECT DISTINCT MatricolaStudente
+FROM Esame
+WHERE Voto = 30
+	EXCEPT
+SELECT DISTINCT MatricolaStudente
+FROM Esame
+WHERE Voto = 33
+\end{lstlisting}
+oppure è ugualmente valido fare
+\begin{lstlisting}[style=sqlstyle]
+SELECT DISTINCT MatricolaStudente
+FROM Esame
+WHERE MatricolaStudente IN (	SELECT MatricolaStudente
+								FROM Esame
+								WHERE Voto = 30)
+AND MatricolaStudente NOT IN (	SELECT MatricolaStudente
+								FROM Esame
+								WHERE Voto = 33)
+\end{lstlisting}
+devo stare attento a non usare $\neq 33$ in questo caso perché uno studente che ha preso 33 potrebbe aver preso anche un voto diverso da 33.
+\item \textbf{Selezionare le matricole degli studenti che hanno sostenuto almeno 10 esami, ma non hanno superato 'Basi di dati'}
+\begin{lstlisting}[style=sqlstyle]
+SELECT MatricolaStudente
+FROM ESAME
+GROUP BY MatricolaStudente
+HAVING COUNT(*) >= 10
+	AND MatricolaStudente NOT IN (	SELECT MatricolaStudente
+									FROM ESAME E
+									INNER JOIN CORSO
+										ON E.CodiceCorso = C.Codice
+									WHERE Titolo = 'Basi di Dati')
+\end{lstlisting}
+oppure sempre secondo me (e a quanto pare secondo la prof)
+\begin{lstlisting}[style=sqlstyle]
+SELECT MatricolaStudente
+FROM ESAME
+GROUP BY MatricolaStudente
+HAVING COUNT(*) >= 10
+	EXCEPT
+SELECT MatricolaStudente
+FROM ESAME E
+INNER JOIN CORSO
+ON E.CodiceCorso = C.Codice
+WHERE Titolo = 'Basi di Dati'
+\end{lstlisting}
+\item \textbf{Trovare il codice dei corsi i cui esami sono stati superati da un solo studente}
+\begin{lstlisting}[style=sqlstyle]
+SELECT CodiceCorso 
+FROM ESAME 
+GROUP BY CodiceCorso
+HAVING COUNT(*) = 1;
+\end{lstlisting}
+la soluzione della prof ugualmente valida è
+\begin{lstlisting}[style=sqlstyle]
+SELECT CodiceCorso
+FROM Esame
+	EXCEPT
+SELECT CodiceCorso
+FROM Esame as E1, Esame as E2
+WHERE E1.CodiceCorso = E2.CodiceCorso
+AND E1.MatricolaStudente <> E2.MatricolaStudente
+\end{lstlisting}
+
+Se volessi indicare quelli che hanno passato 0 o 1 esame
+\begin{lstlisting}[style=sqlstyle]
+SELECT Codice
+FROM Corso
+	EXCEPT
+SELECT CodiceCorso
+FROM Esame as E1, Esame as E2
+WHERE E1.CodiceCorso = E2.CodiceCorso
+AND E1.MatricolaStudente <> E2.MatricolaStudente
+\end{lstlisting}
+\item \textbf{Trovare le matricole degli studenti che hanno preso più 30 e lode che 30}
+
+\begin{lstlisting}[style=sqlstyle]
+SELECT MatricolaStudente
+FROM ESAME E
+WHERE Voto = 33
+GROUP BY MatricolaStudente
+HAVING COUNT(*) > (	SELECT COUNT(*)
+					FROM Esame 
+					WHERE Voto = 30
+					AND MatricolaStudente = E.MatricolaStudente);
+\end{lstlisting}
+\end{enumerate}
+
+\subsubsection{Esempio Esame}
+Dato il seguente schema relazionale
+\begin{align*}
+	PAZIENTE(\underline{CodiceSSN},Nome,Cognome,Ntelefono,Indirizzo, Regione)\\
+	VISITA(\underline{CodPaziente,CodMedico,Data,OraInizio}, DurataInMinuti)\\
+	MEDICO(\underline{CodFisc},Nome,Cognome,Specialita)
+\end{align*}
+
+\begin{enumerate}
+	\item \textbf{Trovare codice, nome e cognome dei pazienti che sono stati visitati da un medico cardiologo, ma non sono mai stati visitati da un medico neurologo.}
+	\begin{align*}
+		\Pi_{Nome,Cognome}(\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\\PAZIENTE\bowtie_{CodSSN = CodPaz}(\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\\\Pi_{CodPaz}(VISITA \bowtie_{CF=CodMed} \sigma_{Specialita = "Cardiologia"}MEDICO) \qquad\qquad\\- \Pi_{CodPaz}(VISITA \bowtie_{CF=CodMed} \sigma_{Specialita = "Neurologia"}MEDICO)))
+	\end{align*}
+	\begin{lstlisting}[style=sqlstyle]
+SELECT CodiceSSN, Nome, Cognome
+FROM PAZIENTE P
+INNER JOIN VISITA V
+	ON P.CodiceSSN = V.CodPaz
+INNER JOIN MEDICO M
+	ON M.CodFisc = V. CodMedico
+WHERE M.Specialita = 'Cardiologia'
+	EXCEPT
+SELECT CodiceSSN, Nome, Cognome
+FROM PAZIENTE P
+INNER JOIN VISITA V
+	ON P.CodiceSSN = V.CodPaz
+INNER JOIN MEDICO M
+	ON M.CodFisc = V. CodMedico
+WHERE M.Specialita = 'Neurologia'
+	\end{lstlisting}
+	
+OPPURE	 (integra da slide)
+		\begin{lstlisting}[style=sqlstyle]
+SELECT CodiceSSN, Nome, Cognome
+FROM Paziente
+WHERE CodiceSSN IN ()
+	\end{lstlisting}
+	
+\item \textbf{Trovare codice, nome e cognome dei pazienti che sono stati sottoposti a due visite nello stesso giorno}
+\begin{align*}
+	\Pi_{Nome,Cognome}(\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\\PAZIENTE \bowtie_{CodPaz = CodSSN }\Pi_{CodPaz}(\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\\(\rho_{x'\leftarrow x} VISITA) \bowtie_{CodPaz'= CodPaz \land Data' = Data\land OraInizio' \neq OraInizio}(VISITA)))
+\end{align*}
+\begin{lstlisting}[style=sqlstyle]
+SELECT P.CodiceSSN, P.Nome, P.Cognome
+FROM PAZIENTE P
+INNER JOIN VISITA V1
+	ON V1.CodPaz = P.CodSSN
+INNER JOIN VISITA V2
+	ON V2.CodPaz = V1.CodPaz
+WHERE V2.Data = V1.Data AND V2.OraInizio <> V1.OraInizio
+\end{lstlisting}
+\item \textbf{Trovare per ogni paziente la durata media delle visite a cui è stato sottoposto riportando nel risultato anche il codice del paziente.}
+\begin{lstlisting}[style=sqlstyle]
+SELECT CodPaziente, AVG(DurataInMinuti)
+FROM Visita
+GROUP BY CodPaziente;
+\end{lstlisting}
+\end{enumerate}
+
+\textbf{Dato il seguente schema relazionale (chiavi primarie sottolineate):}
+\begin{align*}
+	LIBRO(\underline{CODISBN},Titolo,Genere,AnnoPrimaUscita)\\
+	AUTORE(\underline{CodLibro},\underline{CodScrittore},Ordine)\\
+	SCRITTORE(\underline{CF},Nome,Cognome,Nazionalita,DataNascita,DataMorte*)
+\end{align*}
+
+\textbf{Esercizio 1:} dato lo schema indicato sopra, esprimere in algebra relazionale ottimizzata le seguenti interrogazioni:
+\begin{enumerate}
+	\item \textbf{Trovare il codice fiscale, il nome e il cognome degli scrittori che hanno pubblicato libri solo prima del 2000:}
+	\begin{align*}
+		\Pi_{CF,Nome,Cognome} (SCRITTORE &\bowtie_{CodScrittore = CF}\\(\Pi_{CodScrittore}(AUTORE&\bowtie_{CodLibro = CodISBN} \Pi_{CodISBN}(\sigma_{AnnoPubblicazione < 2000} LIBRO)) \\
+		- \Pi_{CodScrittore}(AUTORE&\bowtie_{CodLibro = CodISBN} \Pi_{CodISBN}(\sigma_{AnnoPubblicazione \geq 2000} LIBRO))))
+	\end{align*}
+	
+	
+	\item \textbf{Trovare il codice fiscale, il nome e il cognome degli scrittori che sono autori sia di libri di genere giallo che di libri di genere fantascienza:}
+	
+	\begin{align*}
+	&\Pi_{CF,Nome,Cognome}(SCRITTORE \bowtie_{CF = CodScrittore} (\\
+	&\Pi_{CodScrittore}(AUTORE \bowtie_{CodLibro = CodISBN} \sigma_{Genere = 'Giallo'} LIBRO)\\
+	\bigcap &\Pi_{CodScrittore}(AUTORE \bowtie_{CodLibro = CodISBN} \sigma_{Genere = 'Fantascienza'} LIBRO)
+	))
+	\end{align*}
+	\begin{center}
+		\begin{forest}
+			for tree={
+				align=center,
+				parent anchor=south,
+				child anchor=north,
+				l sep=10pt,
+				s sep=15pt,
+				font=\sffamily,
+			}
+			[
+			$\Pi_{\text{CF, Nome, Cognome}}$
+			[
+			$\bowtie_{\text{CF} = \text{CodScrittore}}$
+			[$SCRITTORE$]
+			[
+			$\cap$
+			[
+			$\Pi_{\text{CodScrittore}}$
+			[
+			$\bowtie_{CodLibro = CodISBN}$
+			[$AUTORE$]
+			[$\sigma_{\text{Genere} = 'giallo'}(LIBRO)$]
+			]
+			]
+			[
+			$\Pi_{\text{CodScrittore}}$
+			[
+			$\bowtie_{CodLibro = CodISBN}$
+			[$AUTORE$]
+			[$\sigma_{\text{Genere} = 'fantascienza'}(LIBRO)$]
+			]
+			]
+			]
+			]
+			]
+		\end{forest}
+	\end{center}
+	
+	
+	\item \textbf{Trovare gli scrittori che hanno scritto almeno due libri usciti nello stesso anno, come primo autore, ma di genere diverso, riportando il nome e cognome dello scrittore e il titolo dei due libri.}
+	\begin{align*}
+	\Pi_{Nome,Cognome,Titolo,Titolo'}(SCRITTORE \bowtie_{CF = CodScrittore}\\ \Pi_{CodScrittore,Titolo,Titolo'}((LIBRO \bowtie_{CodISBN = CodLibro} AUTORE) \\
+	\bowtie_{CodScrittore = CodScrittore' \land Ordine = 1\land Ordine'=1 \land AnnoPrimaPubblicazione = AnnoPrimaPubblicazione' \land Genere \neq Genere'}\\
+	\rho_{x'\leftarrow x}(LIBRO \bowtie_{CodISBN = CodLibro} AUTORE)))
+	\end{align*}
+	\begin{center}
+		\begin{forest}
+			for tree={
+				align=center,
+				parent anchor=south,
+				child anchor=north,
+				l sep=10pt,
+				s sep=15pt,
+				font=\sffamily,
+			}
+			[
+			$\pi_{\text{Nome, Cognome, Titolo, Titolo'}}$
+			[
+			$\bowtie_{\text{CF} = \text{CodScrittore}}$
+			[$SCRITTORE$]
+			[
+			$\pi_{\text{CodScrittore, Titolo, Titolo'}}$
+			[
+			$\bowtie_{\substack{
+					\text{CodScrittore = CodScrittore'} \\
+					\land \text{Ordine = 1} \\
+					\land \text{Ordine'} = 1 \\
+					\land \text{AnnoPrimaPubblicazione = AnnoPrimaPubblicazione'} \\
+					\land \text{Genere} \ne \text{Genere'}
+			}}$
+			[
+			$\bowtie_{\text{CodISBN = CodLibro}}$
+			[$LIBRO$]
+			[$AUTORE$]
+			]
+			[
+			$\rho_{x' \leftarrow x}$
+			[
+			$\bowtie_{\text{CodISBN = CodLibro}}$
+			[$LIBRO$]
+			[$AUTORE$]
+			]
+			]
+			]
+			]
+			]
+			]
+		\end{forest}
+	\end{center}
+	Porta giù le selezioni se vuoi
+\end{enumerate}
+
+\textbf{Esercizio 2:} Dato lo schema indicato sopra, formulare in SQL le seguenti interrogazioni:
+\begin{enumerate}
+	\item \textbf{Trovare il codice fiscale, il nome e il cognome degli scrittori che hanno pubblicato libri solo prima del 2000}
+		\begin{lstlisting}[style=sqlstyle]
+SELECT CF,Nome, Cognome
+FROM SCRITTORE S
+	INNER JOIN AUTORE A ON A.CodScrittore = S.CF
+	INNER JOIN LIBRO L	ON L.CodISBN = A.CodLibro
+WHERE AnnoPrimaUscita < 2000
+	EXCEPT
+SELECT CF,Nome, Cognome
+FROM SCRITTORE S
+	INNER JOIN AUTORE A	ON A.CodScrittore = S.CF
+	INNER JOIN LIBRO L	ON L.CodISBN = A.CodLibro
+WHERE AnnoPrimaUscita >= 2000;
+	\end{lstlisting}
+
+	\item \textbf{Trovare il codice fiscale, il nome e il conome degli scrittori che sono autori sia di libri di genere giallo che di libri di genere fantascienza}
+	
+\begin{lstlisting}[style=sqlstyle]
+SELECT DISTINCT S.CF, S.Nome, S.Cognome
+FROM SCRITTORE S
+	INNER JOIN AUTORE A ON S.CF = A.CodScrittore
+	INNER JOIN LIBRO L ON A.CodLibro = L.CodISBN
+WHERE L.Genere = 'Giallo'
+	INTERSECT
+SELECT DISTINCT S.CF, S.Nome, S.Cognome
+FROM SCRITTORE AS S
+	INNER JOIN AUTORE AS A ON S.CF = A.CodScrittore
+	INNER JOIN LIBRO AS L ON A.CodLibro = L.CodISBN
+WHERE L.Genere = 'fantascienza';
+\end{lstlisting}
+	
+	\item \textbf{Trovare per ogni scrittore il numero di libri di cui è autore, riportando nel risultato il codice fiscale dello scrittore e il conteggio richiesto}
+	\begin{lstlisting}[style=sqlstyle]
+SELECT CodScrittore, COUNT(*)
+FROM AUTORE
+GROUP BY CodScrittore;
+	\end{lstlisting}
+\end{enumerate}
+
+\newpage
+\section{Progettazione di una base di dati}
+\paragraph{Fase 1:} Per poter progettare una base di dati, sono richiesti dei \textbf{requisiti della base di dati}. A sequito della raccolta dei requisiti, il primo passaggio è la \textbf{progettazione concettuale}. Il risultato di una progettazione concettuale è uno \textbf{schema concettuale}. Uno schema concettuale è qualcosa che mi permette di descrivere ad alto livello i concetti coinvolti nel mio mondo di riferimento. Lo schema concettuale utilizzerà un \textbf{modello concettuale dei dati}, che nel nostro caso è lo \textbf{SCHEMA ENTITÀ-RELAZIONE} (ER). Questa fase ci permetterà di fare un'analisi che ci dirà \textit{che cosa} vogliamo rappresentare nella nostra base di dati.
+\paragraph{Fase 2:}
+Dato lo schema concettuale, segue come secondo step la \textbf{progettazione logica}, la quale avrà come risultato lo \textbf{schema logico}, dove in particolare noi studieremio il \textbf{modello relazionale dei dati} ($R_1(\underline{A_1},A2,A3)...$). In questa seconda fase, rappresentiamo \textit{come} rappresentare le nostre informazioni. 
+\paragraph{Fase 3:}
+L'ultima fase è la \textbf{progettazione fisica}, che ci permette di produrre \textbf{uno schema fisico}.
 \end{document} 
