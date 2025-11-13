@@ -76,7 +76,7 @@
 \begin{document}
 
 \maketitle
-\large
+\normalsize
 \tableofcontents  % <-- Questo genera l'indice
 \newpage
 \normalsize
@@ -607,7 +607,9 @@ Un \textbf{VINCOLO} è una funzione booleana che associa ad ogni istanza il valo
 \textbf{Vincolo di chiave:} intuitivamente una \textbf{CHIAVE} è uno o un insieme di attributi utilizzato per 
 \textbf{identificare univocamente le tuple di una relazione.}
 \newpage
-\textit{Esempio con paziente dell'ospedale:}
+\begin{esempio}
+	Paziente dell'ospedale
+\end{esempio}
 \begin{table}[h!]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
@@ -639,7 +641,9 @@ Il \textbf{CODICE} identifica univocamente i pazienti in questo esempio. Anche i
     \item Un insieme $K$ di attributi è \textbf{CHIAVE} per $r$ se è una \textbf{SUPERCHIAVE MINIMALE} per $r$ (cioè non contiene un'altra superchiave).
 \end{itemize}
 
-\textit{Esempio con paziente dell'ospedale:}
+\begin{esempio}
+	Paziente dell'ospedale
+\end{esempio}
 \begin{table}[h!]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
@@ -683,11 +687,12 @@ Quando come chiave primaria ho una coppia di attributi, è la coppia di valori c
 \subsection{Vincoli di integrità referenziale}
 Lo scopo è quello di rappresentare informazioni \textbf{coerenti.} Vengono usati in particolare i valori delle chiavi primarie.
 
-\textit{Esempio:}
-\begin{align*}
-    PAZIENTE(\underline{Codice}, Cognome, Nome, DataNascita, CodMedico) \\ MEDICO(\underline{Codice}, COgnome Nome, Ospedale, Reparto) \\
-    REPARTO (\underline{Ospedale, Reparto}, Indirizzo, Telefono, COD\_Primario)
-\end{align*}
+\begin{esempio}
+	\begin{align*}
+		PAZIENTE(\underline{Codice}, Cognome, Nome, DataNascita, CodMedico) \\ MEDICO(\underline{Codice}, COgnome Nome, Ospedale, Reparto) \\
+		REPARTO (\underline{Ospedale, Reparto}, Indirizzo, Telefono, COD\_Primario)
+	\end{align*}
+\end{esempio}
 
 \begin{table}[h!]
     \centering
@@ -741,14 +746,12 @@ Lo scopo è quello di rappresentare informazioni \textbf{coerenti.} Vengono usat
 \end{table}
 
 I vincoli di integrità referenziale in questo esempio sono:
-
-\textbf{TABELLE INTERNE $\to$ TABELLE ESTERNE}
-\begin{itemize}
-    \item $PAZIENTE.CodMedico \to MEDICO.Codice$
-    \item $MEDICO.[Ospedale, Reparto] \to REPARTO.[Ospedale, Reparto]$
-    \item $REPARTO.COD\_Primario \to MEDICO.Codice$
-\end{itemize}
-
+\begin{align*}
+\textbf{TABELLE INTERNE} &\to \textbf{TABELLE ESTERNE}\\
+PAZIENTE.CodMedico &\to MEDICO.Codice\\
+MEDICO.[Ospedale, Reparto] &\to REPARTO.[Ospedale, Reparto]\\
+REPARTO.COD\_Primario &\to MEDICO.Codice\\
+\end{align*}
 
 \mybox{\textbf{VINCOLO DI INTEGRITÀ REFERENZIALE (O DI FOREIGN KEY):}
 
@@ -822,12 +825,14 @@ L'Algebra Relazionale quindi è un linguaggio \textit{formale e procedurale}, co
 
     Le relazioni sono insiemi, si possono applicare solo a relazioni definite sugli stessi attributi. $R_1$ e $R_2$ devono essere \textbf{COMPATIBILI} quindi devono avere lo \textbf{stesso grado} e \textbf{domini ordinatamente dello stesso tipo.}
     
-    \begin{itemize}
+    \sitemize{
         \item \textbf{UNIONE} $R_1 \cup R_2$. Mette insieme tutte le tuple. 
         
         L'unione di due relazioni $r_1$ ed $r_2$ (istanze) definite sullo stesso insieme di attributi $X$, $r_1 \cup r_2$ è una relazione ancora su $X$ contenente tutte le tuple che appartengono ad $r_1$, oppure ad $r_2$, oppure ad entrambe.
 
-        \textit{Esempio:}
+        \begin{esempio}
+        	
+        \end{esempio}
 
  \begin{minipage}{.2\textwidth}
   \centering
@@ -885,6 +890,10 @@ L'Algebra Relazionale quindi è un linguaggio \textit{formale e procedurale}, co
         \item \textbf{Intersezione} $R_1 \cap R_2$ mette insieme le tuple comuni. 
         
         L'intersezione di due relazioni $r_1$ ed $r_2$ (istanze) definite sullo stesso insieme di attributi $X$, $r_1 \cap r_2$ è una relazione ancora su $X$ contenente tutte le tuple che appartengono sia ad $r_1$ che ad $r_2$.
+        
+        \begin{esempio}
+        	
+        \end{esempio}
 
          \begin{minipage}{.2\textwidth}
   \centering
@@ -938,6 +947,10 @@ L'Algebra Relazionale quindi è un linguaggio \textit{formale e procedurale}, co
 
         La differenza di due relazioni $r_1$ ed $r_2$ (istanze) definite sullo stesso insieme di attributi $X$, $r_1 - r_2$ è una relazione ancora su $X$ contenente tutte le tuple che appartengono ad $r_1$, ma che non appartengono ad $r_2$.
 
+		\begin{esempio}
+			
+		\end{esempio}
+		
  \begin{minipage}{.2\textwidth}
   \centering
             \begin{tabular}{|c|c|c|}
@@ -997,7 +1010,9 @@ L'Algebra Relazionale quindi è un linguaggio \textit{formale e procedurale}, co
 \hspace{1em}
 \end{minipage}
         
-    \end{itemize}
+}
+    
+    
     \begin{figure}[h!]
         \centering
         \includegraphics[width=0.4\linewidth]{immagine2.png}
@@ -1100,10 +1115,11 @@ Quindi ora ho $PATERNITA(Genitore, Figlio)$ e $MATERNITA(Genitore, Figlio)$ e qu
 
 \mybox{\textbf{Definizione}
 \begin{enumerate}
-    \item \textit{Sia $r$ una relazione definita sull'insieme di attributi X e sia Y un altro insieme di attributi con la stessa cardinalità.} Ad esempio:
-\begin{align*}
-    X = \{Padre, Figlio\}\\Y= \{Genitore,Figlio\}
-\end{align*}
+    \item \textit{Sia $r$ una relazione definita sull'insieme di attributi X e sia Y un altro insieme di attributi con la stessa cardinalità.} \begin{esempio}
+    	\begin{align*}
+    		X = \{Padre, Figlio\}\\Y= \{Genitore,Figlio\}
+    	\end{align*}
+    \end{esempio}
 
 \item Siano $A_1,A_2,...A_k$ e $B_1,B_2,...,B_k$ rispettivamente un ordinamento per gli attributi in X e un ordinamento per quelli in Y. 
 \item Allora la \textbf{ridenominazione} contiene una tupla $t'$ per ogni tupla $t$ in $r$. $\rho_{B_1,B_2,...,B_k} \leftarrow _{A_1,A_2,...,A_k}(r)$
@@ -1975,7 +1991,9 @@ Allora $IMPIEGATO \bowtie REPARTO \bowtie CAPOPROGETTO \bowtie PROGETTO$ avrà c
 Abbiamo due \textbf{casi} \textbf{estremi}: \sitemize{
 \item $X_1 = X_2$. Allora $R_1 \bowtie R_2 \equiv R_1 \cap R_2$ 
 
-\textit{Esempio:} $R_1(A,B) \bowtie R_2(A,B)$
+\begin{esempio}
+	$R_1(A,B) \bowtie R_2(A,B)$
+\end{esempio}
 
 \begin{minipage}{.25\textwidth}
   \centering
@@ -2030,7 +2048,9 @@ Abbiamo due \textbf{casi} \textbf{estremi}: \sitemize{
 
 Poiché $X_1$ e $X_2$ NON hanno attributi in comune, la condizione che le due tuple devono avere gli stessi valori sugli attributi comuni degenera in una condizione sempre verificata. Quindi il risultato contiene tutte le tuple ottenute dalla combinazione in tutti i modi possibili delle tuple degli operandi. 
 
-\textit{Esempio:} $R_1(A,B) \bowtie R_2(C,D)$
+\begin{esempio}
+	$R_1(A,B) \bowtie R_2(C,D)$
+\end{esempio}
 
 \begin{minipage}{.25\textwidth}
   \centering
@@ -2174,11 +2194,11 @@ Data la formula proposizionale $F$ (congiunzione \emph{AND} di atomi di confront
 
 \end{itemize}
 
-\textbf{Esempio:}
-\begin{align*}
-    \sigma_{Reparto =Codice} (IMPIEGATO \bowtie REPARTO) = IMPIEGATO \bowtie_{Reparto = Codice}REPARTO
-\end{align*}
-
+\begin{esempio}
+	\begin{align*}
+		\sigma_{Reparto =Codice} (IMPIEGATO \bowtie REPARTO) = IMPIEGATO \bowtie_{Reparto = Codice}REPARTO
+	\end{align*}
+\end{esempio}
 
 \noindent \begin{minipage}{.25\textwidth}
   \centering
@@ -2411,7 +2431,6 @@ for tree={
 
 \newpage
 \textbf{Soluzione in algebra relazionale:}
-
 \begin{align*}
     \Pi_{MatrC,NomeC,StpC,Matricola,Nome, Stipendio}(  \qquad \qquad\qquad\qquad\qquad\qquad\qquad\qquad \qquad\\
     \sigma_{Stipendio > StpC}( \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\\
@@ -3316,27 +3335,30 @@ CREATE TABLE NomeTabella (
 );
 \end{lstlisting}
 
-\textbf{Esempio:}
+\begin{esempio}
 \begin{align*}
-    IMPIEGATO(Matricola, Nome, Cognome, Qualifica^*, Stipendio)
+	IMPIEGATO(Matricola, Nome, Cognome, Qualifica^*, Stipendio)
 \end{align*}
 
 \begin{lstlisting}[style=sqlstyle]
-CREATE TABLE Impiegato (
-    Matricola CHAR(6) PRIMARY KEY,
-    Nome VARCHAR(20) NOT NULL,
-    Cognome VARCHAR(20) NOT NULL,
-    Qualifica VARCHAR(20),
-    Stipendio FLOAT NOT NULL,
-    UNIQUE (Nome, Cognome)
-);
-\end{lstlisting}
+	CREATE TABLE Impiegato (
+	Matricola CHAR(6) PRIMARY KEY,
+	Nome VARCHAR(20) NOT NULL,
+	Cognome VARCHAR(20) NOT NULL,
+	Qualifica VARCHAR(20),
+	Stipendio FLOAT NOT NULL,
+	UNIQUE (Nome, Cognome)
+	);
+\end{lstlisting}	
+\end{esempio}
 
 \textbf{VINCOLI INTRARELAZIONALI:}
 \begin{itemize}
     \item \textbf{NOT NULL:} l'attributo non può assumere valore NULL.
     \item \textbf{PRIMARY KEY:} l'attributo (o insieme di attributi) è chiave. Include i vincoli \textit{NOT NULL, UNIQUE} e \textit{INDEXED (non visto)}.
-    \item \textbf{UNIQUE}: valore che non si può ripetere all'interno della tabella, ad eccezione se sia chiave
+    \item \textbf{UNIQUE}: Impone che i valori di un attributo (o di un insieme di attributi) siano una superchiave, quindi righe differenti della tabella non possono avere gli stessi valori.
+    Si può definire su un solo attributo o su un insieme di attributi
+    \item \textbf{CHECK}
 \end{itemize}
 
 \textbf{ATTENZIONE:}
@@ -3372,7 +3394,55 @@ CREATE TABLE Studente(
 \begin{align*}
      Studente(\underline{Cognome},\underline{Nome}, Indirizzo^*,Telefono)
 \end{align*}
+\end{itemize}
 
+\subsubsection{Domini dei dati}
+\begin{itemize}
+	\item Dominio \textbf{CARATTERE}: Permette di rappresentare singoli caratteri oppure stringhe. La lunghezza delle stringhe può essere fissa o variabile.
+	\begin{lstlisting}[style=sqlstyle]
+character [varying][(Lunghezza)]
+character CHAR
+character(20)VARCHAR(20)
+	\end{lstlisting}
+	\item Dominio \textbf{BIT}: Tipicamente usato per rappresentare attributi, detti FLAG, che 	specificano se l’oggetto rappresentato da una tupla possiede o meno 	quella proprietà. Si può anche definire un dominio “stringa di bit”.
+
+		\begin{lstlisting}[style=sqlstyle]
+bit [varying][(Lunghezza)]
+	\end{lstlisting}
+	\item Dominio \textbf{TIPI NUMERICI ESATTI}: Permette di rappresentare valori interi o valori decimali in virgola
+	fissa. Numeri in base decimale se non interessa avere una rappresentazione precisa della parte frazionaria. SQL mette a disposizione 4 diversi tipi: \sitemize{ 
+		\item NUMERIC:
+		\item DECIMAL
+		\item INTEGER
+		\item SMALLINT
+}	
+\begin{lstlisting}[style=sqlstyle]
+numeric [(Precisione [, Scala])]
+decimal [(Precisione [, Scala])]
+Numeric(4,2) 4 cifre significative, 2 cifre dopo la virgola
+\end{lstlisting}
+\item Dominio \textbf{TIPI NUMERICI APPROSSIMATI}: Permette di rappresentare valori numerici approssimati mediante una
+rappresentazione in virgola mobile. SQL mette a disposizione 3 diversi tipi: \sitemize{
+\item FLOAT
+\item DOUBLE PRECISION
+\item REAL
+}
+\begin{lstlisting}[style=sqlstyle]
+float [(Precisione)]
+\end{lstlisting}
+\item Dominio \textbf{DATA e ORA:} Permette di rappresentare istanti di tempo.\sitemize{
+\item DATE (year, month, day)
+\item TIME (hour, minute, second)
+\item TIMESTAMP
+}
+\begin{lstlisting}[style=sqlstyle]
+time [(Precisione)][with time zone]
+timestamp [(Precisione)][with time zone]
+\end{lstlisting}
+
+\end{itemize}
+
+\begin{itemize}
 \item \textbf{INSERT INTO:} inserisce i valori che si desiderano nella tabella scelta.
 
 \begin{lstlisting}[style=sqlstyle]
@@ -3399,7 +3469,7 @@ Darebbe come risultato:
     L'attributo della tabella esterna deve essere soggetto a vincolo di UNIQUE o PRIMARY KEY.
 \end{itemize}
 
-
+%%%%% RIPRENDI DA QUA A SISTEMARE GLI APPUNTI %%%%
 
 \textbf{ESEMPIO:}
 \begin{align*}
@@ -4105,9 +4175,11 @@ GROUP BY Attributo1 -- < -- attributo su cui faccio i raggruppamenti
 \end{lstlisting}
 Un sottoinsieme di tuple finisce nel risultato solo se soddisfa la condizione della clausola \textit{HAVING}.
 
-\textbf{INSERISCI DISCLAIMER SULL'ORDINE DEGLI OPERANDI}
+\mybox{\textbf{ATTENZIONE} c'è un \textit{ordine} nell'esecuzione delle varie clausole all'interno di un'interrogazione. Infatti, usare un \textit{WHERE} su un attributo raggruppato darà errore poiché \textit{WHERE} viene eseguito prima del \textit{GROUP BY}. L'ordine di esecuzione è \textit{FROM} $\to$ \textit{WHERE}  $\to$ \textit{GROUP BY} $\to$ \textit{HAVING}  $\to$ \textit{SELECT}  $\to$ \textit{ORDER BY}}
 
-\textbf{Esempio:} visualizzare la città e il numero di studenti provenienti da quella città solo se gli studenti provenienti da quella città sono almeno 2.
+\begin{esempio}
+	 visualizzare la città e il numero di studenti provenienti da quella città solo se gli studenti provenienti da quella città sono almeno 2.
+\end{esempio}
 \begin{lstlisting}[style=sqlstyle]
 SELECT Citta, COUNT(*) as NStud
 FROM STUDENTE
@@ -4135,7 +4207,7 @@ HAVING Predicato  --opzionale
 ORDER BY Attributi --opzionale
 \end{lstlisting}
 
-\subsubsection{JOIN}
+\subsection{JOIN}
 \begin{lstlisting}[style=sqlstyle]
 SELECT ListaAttributi
 FROM Tabella1,Tabella2
@@ -4295,18 +4367,18 @@ FROM T2,...
 \textbf{ATTENZIONE:} questi operatori assumono come \textit{DEFAULT} di eseguire sempre una \textbf{eliminazione dei duplicati}, a meno dell'uso dell'\textbf{ALL}. 
 SQL non impone che gli schemi siano uguali, cioè non dobbiamo avere lo stesso nome dell'attrbuto, differentemente dall'algebra relazionale, \textbf{purché il tipo dei dati sia compatibile}. \textit{Se unisco due tabelle con due nomi di attributi diversi, il risultato avrà come nome quello dell'attributo della prima tabella.} 
 
-\textbf{ESEMPIO: trovare i cognomi e le città degli studenti maschi}
-\begin{lstlisting}[style=sqlstyle]
+\begin{esempio}
+	\textbf{trovare i cognomi e le città degli studenti maschi}
+	\begin{lstlisting}[style=sqlstyle]
 SELECT Cognome
 FROM STUDENTE
 WHERE Genere = 'M'
-
 	UNION
-
 SELECT Citta
 FROM STUDENTE
 WHERE Genere = 'M'
-\end{lstlisting}
+	\end{lstlisting}
+\end{esempio}
 
 Il risultato avrà come nome dell'attributo "Cognome", cioè il nome del primo operando. Inoltre, \textbf{i duplicati vengono eliminati.}
 \begin{tabular}{|c|}
@@ -4324,14 +4396,16 @@ Verona\\
 \end{tabular}
 
 
-\textbf{ESEMPIO 2: Trovare cognome e città di docenti e studenti}
-\begin{lstlisting}[style=sqlstyle]
+\begin{esempio}
+	\textbf{Trovare cognome e città di docenti e studenti}
+	\begin{lstlisting}[style=sqlstyle]
 SELECT Cognome, Citta
 FROM STUDENTE
 	UNION
 SELECT Cognome, Citta -- facciamo finta che docente abbia citta
 FROM DOCENTE
-\end{lstlisting}
+	\end{lstlisting}
+\end{esempio}
 
 In questi casi in cui ho più di un attriuto, la corrispondenza non si basa sul nome degli attributi , ma sulla loro posizione. Cioè il primo attributo della prima tabella si unisce al primo attributo della seconda tabella, il secondo con il secondo e così via...
 Infatti, scrivendo
@@ -4388,14 +4462,16 @@ Se invece voglio mantenere i duplicati devo inserire la clausola \textbf{ALL}.
 	\hline
 \end{tabular}
 
-\textbf{ESEMPIO 3: trovare i cognomi degli studenti che sono anche città}
-\begin{lstlisting}[style=sqlstyle]
+\begin{esempio}
+	\textbf{trovare i cognomi degli studenti che sono anche città}
+	\begin{lstlisting}[style=sqlstyle]
 SELECT Cognome 
 FROM Studente
 	INTERSECT
 SELECT Citta
 FROM Studente
-\end{lstlisting}
+	\end{lstlisting}
+\end{esempio}
 
 \textbf{Trovare i cognomi degli studenti che non sono città}
 \begin{lstlisting}[style=sqlstyle]
@@ -4407,13 +4483,14 @@ FROM Studente
 \end{lstlisting}
 
 \subsubsection{INTERROGAZIONI NIDIFICATE}
-\textbf{Esempio:}
-\begin{lstlisting}[style=sqlstyle]
+\begin{esempio}
+	\begin{lstlisting}[style=sqlstyle]
 SELECT Cognome
 FROM Docente
 WHERE Stipendio < (	SELECT AVG(Stipendio)
-					FROM DOCENTE			)
-\end{lstlisting}
+					FROM DOCENTE		)
+	\end{lstlisting}
+\end{esempio}
 
 Le interrogazioni nidificate si trovano nella clausola \textit{WHERE}. Il problema sorge quando il risultato dell'interrogazione nidificata non è un valore singolo, e cerco di confrontare un attributo con un insieme di valori. Per risolvere questo problema vengono in aiuto le parole chiave \textbf{ANY} e \textbf{ALL} che mi permettono di estendere i normali operatori di confronto ($<,>,=,...$).
 \begin{itemize}
