@@ -82,14 +82,14 @@
 \normalsize
 \section{Descrizione corso}
 \mybox{\textit{La prof di basi di dati è disponibile a fare un preappello l'ultimo mercoledì di lezione di gennaio (quindi nella prima metà di gennaio secondo le sue previsioni)}}
-\subsection{Modalità d’esame}
-L’esame è scritto e si compone di più parti:
+\subsection{Modalità d'esame}
+L'esame è scritto e si compone di più parti:
 
 \textbf{Domande di teoria (3 domande)}\begin{itemize}
     \item Sono considerate bloccanti.
-    \item Significa che, se non si raggiunge la sufficienza in questa sezione, l’intero esame non viene superato.
-    \item La docente corregge comunque la prova, ma se le risposte teoriche non sono sufficienti, l’esame non è valido.
-    \item Durante il corso verranno indicati chiaramente i possibili argomenti di domanda, e prima della fine del corso si farà anche una simulazione d’esame.
+    \item Significa che, se non si raggiunge la sufficienza in questa sezione, l'intero esame non viene superato.
+    \item La docente corregge comunque la prova, ma se le risposte teoriche non sono sufficienti, l'esame non è valido.
+    \item Durante il corso verranno indicati chiaramente i possibili argomenti di domanda, e prima della fine del corso si farà anche una simulazione d'esame.
 \end{itemize}
 \textbf{Esercizio di progettazione concettuale}
 \begin{itemize}
@@ -166,7 +166,7 @@ dati. Sono i dati veri e propri, che possono cambiare nel tempo.
 
 \emph{Schema = struttura dei dati. Istanza = valori memorizzati.}
 
-Il concetto di schema e istanza non vale solo per il modello logico (relazionale), ma anche per il livello concettuale. In un diagramma E-R (Entità-Relazioni) lo \textbf{schema} è costituito dalle \textbf{entità} (rettangoli) e dalle \textbf{relazioni} (rombi) che collegano le entità. L’\textbf{istanza} è costituita dalle \textbf{occorrenze} delle entità e dalle \textbf{coppie} (o tuple) che formano le \textbf{relazioni}.
+Il concetto di schema e istanza non vale solo per il modello logico (relazionale), ma anche per il livello concettuale. In un diagramma E-R (Entità-Relazioni) lo \textbf{schema} è costituito dalle \textbf{entità} (rettangoli) e dalle \textbf{relazioni} (rombi) che collegano le entità. L'\textbf{istanza} è costituita dalle \textbf{occorrenze} delle entità e dalle \textbf{coppie} (o tuple) che formano le \textbf{relazioni}.
 
 \begin{esempio}
 		\begin{figure}[h!]
@@ -195,25 +195,25 @@ Il concetto di schema e istanza non vale solo per il modello logico (relazionale
     \end{esempio}
 
 \item \textbf{Livello logico (schema logico):}
-L’utente interagisce con le tabelle (modello relazionale). Scrive query SQL che operano sui dati organizzati in tabelle. Non si preoccupa di come i dati siano memorizzati fisicamente.
+L'utente interagisce con le tabelle (modello relazionale). Scrive query SQL che operano sui dati organizzati in tabelle. Non si preoccupa di come i dati siano memorizzati fisicamente.
 
-\item\textbf{Livello fisico (schema interno):} Descrive come i dati sono realmente memorizzati nei dispositivi (file, puntatori, strutture di archiviazione). Questo livello è gestito dal DBMS, non dall’utente.
+\item\textbf{Livello fisico (schema interno):} Descrive come i dati sono realmente memorizzati nei dispositivi (file, puntatori, strutture di archiviazione). Questo livello è gestito dal DBMS, non dall'utente.
 
-\item \textbf{Indipendenza dei dati:} il livello logico è indipendente da quello fisico: una tabella è utilizzata nello stesso modo qualunque sia la sua realizzazione fisica. L’utente e il progettista interagiscono solo col modello logico (tabelle, attributi, tuple). Non devono preoccuparsi di come i dati siano fisicamente memorizzati. È il DBMS che si occupa di gestire la memorizzazione fisica. Per questo motivo, nello studio ci si concentra soprattutto sul modello relazionale e sulle query SQL: è il livello con cui realmente si interagisce.
+\item \textbf{Indipendenza dei dati:} il livello logico è indipendente da quello fisico: una tabella è utilizzata nello stesso modo qualunque sia la sua realizzazione fisica. L'utente e il progettista interagiscono solo col modello logico (tabelle, attributi, tuple). Non devono preoccuparsi di come i dati siano fisicamente memorizzati. È il DBMS che si occupa di gestire la memorizzazione fisica. Per questo motivo, nello studio ci si concentra soprattutto sul modello relazionale e sulle query SQL: è il livello con cui realmente si interagisce.
 \end{itemize}
 
 \subsubsection{Utente, sistema informativo e modello relazionale}\begin{itemize}
 
 
-\item\textbf{Interazione dell’utente con il DBMS:} L’utente che utilizza un DBMS (Database Management System) non interagisce con il modello concettuale in modo diretto. Può usarlo come documentazione per capire quali sono i concetti importanti. Quando interagisce, lo fa direttamente a livello logico, cioè lavora con le tabelle, le relazioni, i dati organizzati secondo lo schema logico. Il modello concettuale serve al progettista per rappresentare i concetti rilevanti del dominio, ma l’utente
+\item\textbf{Interazione dell'utente con il DBMS:} L'utente che utilizza un DBMS (Database Management System) non interagisce con il modello concettuale in modo diretto. Può usarlo come documentazione per capire quali sono i concetti importanti. Quando interagisce, lo fa direttamente a livello logico, cioè lavora con le tabelle, le relazioni, i dati organizzati secondo lo schema logico. Il modello concettuale serve al progettista per rappresentare i concetti rilevanti del dominio, ma l'utente
 finale non deve preoccuparsene.
 
-\item\textbf{Sistema informativo e dati}: Un sistema informativo esprime l’informazione di interesse. Differenza tra dato e informazione: Dato → valore grezzo, singolo elemento. Informazione → interpretazione dei dati in un contesto applicativo, utile per prendere decisioni o
+\item\textbf{Sistema informativo e dati}: Un sistema informativo esprime l'informazione di interesse. Differenza tra dato e informazione: Dato → valore grezzo, singolo elemento. Informazione → interpretazione dei dati in un contesto applicativo, utile per prendere decisioni o
 rispondere a domande concrete. Contesto applicativo: determina quali dati sono rilevanti. \begin{esempio}
 	memorizzare i dati degli studenti. Il numero di scarpe non è rilevante, a meno che non serva per un contesto particolare.
 \end{esempio}
 
-\item\textbf{Modello di dati:} La base di dati è un insieme organizzato di dati, gestito da un DBMS. L’organizzazione dei dati è rappresentata tramite modelli di dati, che forniscono costrutti concettuali per strutturare le informazioni.Tipi di modelli di dati: \textbf{Concettuali} → rappresentano concetti importanti (E-R). \textbf{Logici} → rappresentano la struttura reale delle tabelle e delle relazioni (modello relazionale).
+\item\textbf{Modello di dati:} La base di dati è un insieme organizzato di dati, gestito da un DBMS. L'organizzazione dei dati è rappresentata tramite modelli di dati, che forniscono costrutti concettuali per strutturare le informazioni.Tipi di modelli di dati: \textbf{Concettuali} → rappresentano concetti importanti (E-R). \textbf{Logici} → rappresentano la struttura reale delle tabelle e delle relazioni (modello relazionale).
 \item \textbf{Schema e istanza}
 \textbf{Schema} → organizzazione dei dati secondo il modello scelto. \begin{itemize}[label=$\diamond$]
     \item Relazionale: struttura delle tabelle, attributi, tipi di dati.
@@ -223,8 +223,8 @@ rispondere a domande concrete. Contesto applicativo: determina quali dati sono r
 \item Relazionale: tuple della tabella.
 \item Concettuale: occorrenze delle entità e delle relazioni.
 \end{itemize}
-L’utente interagisce con lo schema logico, non con quello fisico, garantendo indipendenza dei dati.
-\item \textbf{Modello relazionale di dati}: Proposto negli anni ’60 per favorire l’indipendenza dei dati: gli utenti non devono preoccuparsi di file o puntatori. Pubblicato negli anni ’70 e diventato operativo negli anni ’80 (1981) È il modello più utilizzato nella pratica (quasi il 99$\%$ dei DB reali). Si basa su due concetti principali: \begin{enumerate}
+L'utente interagisce con lo schema logico, non con quello fisico, garantendo indipendenza dei dati.
+\item \textbf{Modello relazionale di dati}: Proposto negli anni '60 per favorire l'indipendenza dei dati: gli utenti non devono preoccuparsi di file o puntatori. Pubblicato negli anni '70 e diventato operativo negli anni '80 (1981) È il modello più utilizzato nella pratica (quasi il 99$\%$ dei DB reali). Si basa su due concetti principali: \begin{enumerate}
     \item Relazione matematica → insieme di tuple su uno o più domini.
     \item Tabella → rappresentazione concreta delle relazioni, con righe e colonne.
 \end{enumerate}
@@ -251,7 +251,7 @@ La parola relazione ha tre accezioni: \begin{enumerate}
 \end{esempio}
 
 \textbf{L'ordine dei valori nel prodotto cartesiano è posizionale.} 
-\item \textbf{Relazione nel modello relazionale (Codd):} Codd introduce una variante della relazione matematica per rendere la relazione non posizionale: Nelle tabelle, \textbf{i valori non dipendono dalla posizione della colonna.} Ogni colonna ha un ruolo distinguibile tramite il nome, non tramite l’ordine. Questo semplifica le interrogazioni e la gestione dei dati: non occorre ricordare quale colonna rappresenta quale informazione. 
+\item \textbf{Relazione nel modello relazionale (Codd):} Codd introduce una variante della relazione matematica per rendere la relazione non posizionale: Nelle tabelle, \textbf{i valori non dipendono dalla posizione della colonna.} Ogni colonna ha un ruolo distinguibile tramite il nome, non tramite l'ordine. Questo semplifica le interrogazioni e la gestione dei dati: non occorre ricordare quale colonna rappresenta quale informazione. 
 
 \begin{esempio}
 	\textbf{tabella “partite”:} \begin{itemize}
@@ -606,7 +606,7 @@ Un \textbf{VINCOLO} è una funzione booleana che associa ad ogni istanza il valo
 \subsection{Chiavi}
 \textbf{Vincolo di chiave:} intuitivamente una \textbf{CHIAVE} è uno o un insieme di attributi utilizzato per 
 \textbf{identificare univocamente le tuple di una relazione.}
-\newpage
+
 \begin{esempio}
 	Paziente dell'ospedale
 \end{esempio}
@@ -3404,7 +3404,7 @@ character [varying][(Lunghezza)]
 character CHAR
 character(20)VARCHAR(20)
 	\end{lstlisting}
-	\item Dominio \textbf{BIT}: Tipicamente usato per rappresentare attributi, detti FLAG, che 	specificano se l’oggetto rappresentato da una tupla possiede o meno 	quella proprietà. Si può anche definire un dominio “stringa di bit”.
+	\item Dominio \textbf{BIT}: Tipicamente usato per rappresentare attributi, detti FLAG, che 	specificano se l'oggetto rappresentato da una tupla possiede o meno 	quella proprietà. Si può anche definire un dominio “stringa di bit”.
 
 		\begin{lstlisting}[style=sqlstyle]
 bit [varying][(Lunghezza)]
@@ -3441,7 +3441,7 @@ timestamp [(Precisione)][with time zone]
 \end{lstlisting}
 
 \end{itemize}
-
+\subsection{Data Manipulation Language(DML)}
 \begin{itemize}
 \item \textbf{INSERT INTO:} inserisce i valori che si desiderano nella tabella scelta.
 
@@ -3465,8 +3465,12 @@ Darebbe come risultato:
 \textbf{VINCOLI INTERRELAZIONALI:}
 \begin{itemize}
     \item \textbf{FOREIGN KEY:} crea un vincolo tra i valori dell'attributo della tabella corrente (INTERNA) 
-    e i valori dell'attributo di un'altra tabella (ESTERNA). 
+    e i valori dell'attributo di un'altra tabella (ESTERNA). Impone che per ogni riga della tabella interna il valore
+    dell'attributo, se diverso dal valore nullo, sia presente tra i valori di un attributo della tabella esterna.
     L'attributo della tabella esterna deve essere soggetto a vincolo di UNIQUE o PRIMARY KEY.
+    Nel vincolo possono essere coinvolti più attributi, ad esempio
+    quando la chiave della tabella esterna è costituita da un insieme di
+    attributi.
 \end{itemize}
 
 %%%%% RIPRENDI DA QUA A SISTEMARE GLI APPUNTI %%%%
@@ -3507,27 +3511,42 @@ CREATE TABLE Anagrafica(
 \end{lstlisting}
 
 \textbf{VIOLAZIONE DEI VINCOLI:} $\to$ \textit{OPERAZIONI NON PERMESSE}
-
+Tabella Interna = \textbf{Tabella Slave}
+Tabella Esterna = \textbf{Tabella Master}
 \begin{itemize}
-\item \textbf{Operando sulla tabella interna:} modifico il valore dell'attributo della tabella referente, o inserisco una nuova riga.
+\item \textbf{Operando sulla tabella interna:} modifico il valore dell'attributo della tabella referente, o inserisco una nuova riga con un valore inesistente. (nulla da fare)
+\item \textbf{Operando sulla tabella esterna:} per modifiche dell'attributo riferito (MA), o per cancellazione di righe dalla tabella \textbf{Master}.
 \end{itemize}
 
-Diverse alternative per rispondere a vuolazioni generate da modifiche sulla tabella esterna (o Master)
+Diverse alternative per rispondere a violazioni generate da modifiche sulla tabella esterna (o Master).
 La tabella interna (o tabella Slave) deve adeguarsi alle modifiche che avvengono sulla tabella Master.
 
-La modifica che faccio sull'attributo riferito la propago. Reazione \textbf{cascade}.
 
-Politiche di reazione per modifica attributo riferito:\begin{itemize}
+
+\textbf{Politiche di reazione per modifica attributo riferito:}\begin{itemize}
+	\item \textbf{Cascade:} La modifica che faccio sull'attributo riferito la propago.
 	\item \textbf{Set null:} all'attributo referente(tabella \textit{interna}) viene assegnato valore nullo al posto del valore modificato nella tabella \textit{esterna}. Non voglio propagare la modifica, ma voglio farla sostare in uno stato transitorio con valore NULL. Infatti, il vincolo di integrità referenziale non è violato dal valore NULL. 
 	\item \textbf{set default:} scelgo un valore di default \textit{che deve essere presente nella tabella riferita}. All'attributo referente viene assegnato un valore di default al posto del valore modificato nella tabella esterna. 
 	\item no action...? vincolo non rispettato?  
 \end{itemize}
 
-Modificazioni tabella interna
+\textbf{Modificazioni tabella interna per cancellazione attributo riferito}
 \begin{itemize}
 	
-	\item cascade: tutte le righe della tabella interna corrispondenti alla riga cancellata vengono cancellate.
+	\item \textbf{Cascade:} tutte le righe della tabella interna corrispondenti alla riga cancellata vengono cancellate.
+	\item \textbf{Set null}: all'attributo referente viene assegnato il valore nullo
+	al posto del valore presente nella riga cancellata dalla tabella	esterna.
+	\item \textbf{Set default}: all'attributo referente viene assegnato valore di
+	default. (esistente nella tabella esterna)
+	\item \textbf{No action:} nessuna reazione. Il sistema può generare messaggio di errore ma la tabella interna non viene
+	modificata.
 \end{itemize}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\linewidth]{screenshot001}
+\end{figure}
+
 
 \item \textbf{UPDATE:}
 
@@ -3552,22 +3571,22 @@ UPDATE Impiegato
 SET Stipendio = Stipendio + 100;
 \end{lstlisting}
 lo dò a tutti
+\end{itemize}
 
-\item \textbf{SELECT:}
+\newpage
+\subsection{Query Language (QL)}
+
+\textbf{SELECT:}
 \begin{lstlisting}[style=sqlstyle]
 SELECT NomeAttributo {,Attributo}
 FROM NomeTabella {,Tabella}
 [ WHERE Condizione ]
 \end{lstlisting}
-Lista degli attributi che voglio vedere nel risultato
-Tabelle conivolte nell'interrogazione
-\begin{lstlisting}[style=sqlstyle]
-	SELECT Nome, Cognome
-	FROM Impiegato
-\end{lstlisting}
 
-$\Pi_{Nome,Cognome} Impiegato$
+Data la seguente tabella
 
+\begin{table}[h!]
+	\centering
 \begin{tabular}{|c|c|c|c|c|}
 	\hline
 	\textbf{Matricola} & \textbf{Nome} & \textbf{Cognome} & \textbf{NomeDIp} & \textbf{Stipendio} \\
@@ -3579,27 +3598,43 @@ $\Pi_{Nome,Cognome} Impiegato$
 	A34567 & Luca & Gialli & Vendite & 1300\\
 	\hline
 \end{tabular}
+\end{table}
 
-Condizioni che i dati devono soddisfare per appartenere al risultato. 
+La query  $\Pi_{Nome,Cognome} Impiegato$
 
+\begin{minipage}{0.45\linewidth}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Nome, Cognome
+FROM Impiegato
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+	\hfill
+	Dà come risultato \hfill
 \begin{tabular}{|c|c|}
 	\hline \textbf{Nome} & \textbf{Cognome} \\
 	\hline
-	 Mario & Rossi \\
+	Mario & Rossi \\
 	\hline
-	 Lucia & Verdi \\
+	Lucia & Verdi \\
 	\hline
-	 Luca & Gialli \\
+	Luca & Gialli \\
 	\hline
 \end{tabular}
+\end{minipage}
 
+$\Pi_{Nome,Cognome}(\sigma_{NomeDip = "Vendite" IMPIEGATO})$
 
+\begin{minipage}{0.45\linewidth}
 \begin{lstlisting}[style=sqlstyle]
-	SELECT Nome, Cognome
-	FROM Impiegato
-	WHERE NomeDip = "Vendite"
+SELECT Nome, Cognome
+FROM Impiegato
+WHERE NomeDip = "Vendite"
 \end{lstlisting}
-
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+	\hfill
+	Dà come risultato \hfill
 \begin{tabular}{|c|c|}
 	\hline
 	\textbf{Nome} & \textbf{Cognome} \\
@@ -3609,17 +3644,19 @@ Condizioni che i dati devono soddisfare per appartenere al risultato.
 	Luca & Gialli \\
 	\hline
 \end{tabular}
+\end{minipage}
 
-$\Pi_{Nome,Cognome}(\sigma_{NomeDip = "Vendite" IMPIEGATO})$
-
-
+\begin{minipage}{0.45\linewidth}
 \begin{lstlisting}[style=sqlstyle]
-	SELECT Nome, Cognome
-	FROM Impiegato
-	WHERE NomeDip = "Vendite"
-	AND Stipendio > 1500;
+SELECT Nome, Cognome
+FROM Impiegato
+WHERE NomeDip = "Vendite"
+AND Stipendio > 1500;
 \end{lstlisting}
-
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+	\hfill
+	Dà come risultato \hfill
 \begin{tabular}{|c|c|}
 	\hline
 	\textbf{Nome} & \textbf{Cognome} \\
@@ -3627,8 +3664,10 @@ $\Pi_{Nome,Cognome}(\sigma_{NomeDip = "Vendite" IMPIEGATO})$
 	Mario & Rossi \\
 	\hline
 \end{tabular}
+\end{minipage}
 
-Vedere tutti i dati della tabella
+
+Invece, per \textbf{vedere tutti i dati della tabella} si usa\textbf{*}
 \begin{lstlisting}[style=sqlstyle]
 	SELECT *
 	FROM Impiegato
@@ -3653,22 +3692,32 @@ Vedere tutti i dati della tabella
 	\hline
 \end{tabular}
 
+\vspace{1em}
+
+\begin{minipage}{0.45\linewidth}
 \begin{lstlisting}[style=sqlstyle]
-	SELECT Nome AS NomeI, Cognome AS CognomeI
-	FROM Impiegato
-	WHERE NomeDip = "Vendite"
-	AND Stipendio > 1500;
+SELECT Nome AS NomeI, Cognome AS CognomeI
+FROM Impiegato
+WHERE NomeDip = "Vendite"
+AND Stipendio > 1500;
 \end{lstlisting}
 
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+	\hfill
+	Dà come risultato \hfill
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{NomeI} & \textbf{CognomeI} \\
+		\hline
+		Mario & Rossi \\
+		\hline
+	\end{tabular}
+\end{minipage}
 
-\begin{tabular}{|c|c|}
-	\hline
-	\textbf{NomeI} & \textbf{CognomeI} \\
-	\hline
-	Mario & Rossi \\
-	\hline
-\end{tabular}
-
+\begin{esempio}
+	\textbf{Dato il seguente schema:}
+\end{esempio}
 \begin{align*}
 	STUDENTE(\underline{Matricola}, Nome, Indirizzo, Citta, CAP, Genere) \\
 	CORSO(\underline{Codice}, NomeCorso, NumCrediti)\\
@@ -3678,68 +3727,67 @@ Vedere tutti i dati della tabella
 \begin{enumerate}
 	\item \textbf{Visualizzare tutte le informazioni sui corsi disponibili:}
 	\begin{lstlisting}[style=sqlstyle]
-		SELECT *
-		FROM CORSO;
+SELECT *
+FROM CORSO;
 	\end{lstlisting}
 	
 	\item \textbf{Visualizzare tutte le ifnormazioni sui corsi disponibili di 6 CFU:}
 		\begin{lstlisting}[style=sqlstyle]
-		SELECT *
-		FROM CORSO
-		WHERE NumCrediti = 6;
+SELECT *
+FROM CORSO
+WHERE NumCrediti = 6;
 	\end{lstlisting}
 	\item \textbf{Visualizzare il nome dei corsi disponibili di 6 CFU:}
 	\begin{lstlisting}[style=sqlstyle]
-		SELECT NomeCorso
-		FROM CORSO
-		WHERE NumCrediti = 6;
+SELECT NomeCorso
+FROM CORSO
+WHERE NumCrediti = 6;
 	\end{lstlisting} 
 	\item \textbf{Visualizzare matricola e nome degli studenti:}
 		\begin{lstlisting}[style=sqlstyle]
-		SELECT Matricola, Nome
-		FROM STUDENTE;
+SELECT Matricola, Nome
+FROM STUDENTE;
 	\end{lstlisting} 
 	\item \textbf{Visualizzare il nome e lo stipendio settimanale dei docenti:}
 		\begin{lstlisting}[style=sqlstyle]
-		SELECT Nome, Stipendio/4 AS StipendioSettimanale
-		FROM DOCENTE;
+SELECT Nome, Stipendio/4 AS StipendioSettimanale
+FROM DOCENTE;
 	\end{lstlisting} 
-\end{enumerate}
 
-List degli attributi si chiama anche target list. Nella target list possono apparire espressioni generiche sul valore degli attributi di ciascuna riga selezionata. 
+La lista degli attributi si chiama anche\textbf{ target list.} Nella target list possono apparire espressioni generiche sul valore degli attributi di ciascuna riga selezionata. 
 
-\item Visualizzare il nome e lo stipendio annuale di docenti che guadagnano più di 1600
-	\begin{lstlisting}[style=sqlstyle]
-	SELECT Nome, Stipendio * 13 AS StipendioAnnuale
-	FROM DOCENTE
-	WHERE Stipendio > 1600;
+\item \textbf{Visualizzare il nome e lo stipendio annuale di docenti che guadagnano più di 1600}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Nome, Stipendio * 13 AS StipendioAnnuale
+FROM DOCENTE
+WHERE Stipendio > 1600;
 \end{lstlisting} 
 
 WHERE Nome att OPERATORE valore
 
 Predicati combinati mediante gli operatori AND OR NOT
 
-\item Visualizzare Nome e Indirizzo delle studentesse di Verona
+\item \textbf{Visualizzare Nome e Indirizzo delle studentesse di Verona}
 	\begin{lstlisting}[style=sqlstyle]
 SELECT Nome, Indirizzo
 FROM STUDENTE
 WHERE Citta = "Verona" AND Genere = "F"
 \end{lstlisting} 
 
-\item Visualizzare nome e indirizzo di tutti gli studenti di Verona o Padova
+\item \textbf{Visualizzare nome e indirizzo di tutti gli studenti di Verona o Padova}
 	\begin{lstlisting}[style=sqlstyle]
 SELECT Nome, Indirizzo
 FROM STUDENTE
 WHERE Citta = "Verona" OR Citta = "Padova"
 \end{lstlisting} 
 
-\item Visualizzare nome e indirizzo degli studenti che non abitano a Verona
+\item \textbf{Visualizzare nome e indirizzo degli studenti che non abitano a Verona}
 	\begin{lstlisting}[style=sqlstyle]
 	SELECT Nome, Indirizzo
 	FROM STUDENTE
 	WHERE NOT Citta = "Verona"
 \end{lstlisting} 
-\end{itemize}
+\end{enumerate}
 
 % Vi ho pensato stanotte 
 % 5/11/2205
