@@ -16,7 +16,7 @@
 \usepackage{xcolor}
 \usepackage{tikz}
 \usetikzlibrary{shapes, intersections}
-
+\usepackage{multicol}
 \usepackage{listings} %for code
 \lstdefinestyle{sqlstyle}{
   language=SQL,
@@ -76,8 +76,10 @@
 \begin{document}
 
 \maketitle
-\normalsize
+\small
+\begin{multicols}{2}
 \tableofcontents  % <-- Questo genera l'indice
+\end{multicols}
 \newpage
 \normalsize
 \section{Descrizione corso}
