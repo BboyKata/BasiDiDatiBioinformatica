@@ -3827,13 +3827,17 @@ Dove $\_$ rappresenta un \textbf{carattere}, mentre $\%$ rappresenta una stringa
 \end{table}
 
 Quindi 
+
+\begin{minipage}{0.45\textwidth}
 \begin{lstlisting}[style=sqlstyle]
 SELECT Matricola, Nome
 FROM STUDENTE
 WHERE Citta LIKE '_a%a'
 \end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
 
-\begin{table}[h!]
 	\begin{tabular}{|c|c|}
 		\hline
 		\textbf{Matricola} & \textbf{Nome} \\
@@ -3843,20 +3847,19 @@ WHERE Citta LIKE '_a%a'
 		VR4 & Gialli Marco \\
 		\hline
 	\end{tabular}
-\end{table}
+\end{minipage}
 
+mentre la query seguente darà tutti i risultati tranne Padova.
 
-Darà VR3 e VR4
-
-mentre
+\begin{minipage}{0.45\textwidth}
 \begin{lstlisting}[style=sqlstyle]
 SELECT Matricola, Nome
 FROM STUDENTE
 WHERE Citta NOT LIKE 'P%'
 \end{lstlisting}
-darà tutti i risultati tranne Padova.
-
-\begin{table}[h!]
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
 	\begin{tabular}{|c|c|}
 		\hline
 		\textbf{Matricola} & \textbf{Nome} \\
@@ -3870,9 +3873,9 @@ darà tutti i risultati tranne Padova.
 		VR5 & Bianchi Luca \\
 		\hline
 	\end{tabular}
-\end{table}
+\end{minipage}
 
-
+\vspace{1em}
 \textbf{BETWEEN e NOT BETWEEN}: specifica i valori che può assumere un attributo all'interno di un intervallo concesso o vietato.
 \begin{lstlisting}[style=sqlstyle]
 SELECT Nome, Stipendio
@@ -3897,12 +3900,12 @@ WHERE NumeroCrediti IS NULL;
 
 \textbf{DISTINCT:} se facessi
 \begin{lstlisting}[style=sqlstyle]
-	SELECT Citta
-	FROM Studente
+SELECT Citta
+FROM Studente
 \end{lstlisting}
 Mi mostrerebbe tutte le città degli studenti presentando più volte lo stesso valore.
 
-\begin{table}[h!]
+\begin{minipage}{0.45\textwidth}
 	\begin{tabular}{|c|}
 		\hline  \textbf{Citta} \\
 		\hline
@@ -3917,15 +3920,9 @@ Mi mostrerebbe tutte le città degli studenti presentando più volte lo stesso v
 		   Vicenza \\
 		\hline
 	\end{tabular}
-\end{table}
-
-Mentre se scrivessi 
-\begin{lstlisting}[style=sqlstyle]
-SELECT DISTINCT Citta
-FROM Studente
-\end{lstlisting}
-Mi farebbe comparire i valori delle città al più una volta.
-\begin{table}[h!]
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
 	\begin{tabular}{|c|}
 		\hline  \textbf{Citta} \\
 		\hline
@@ -3938,12 +3935,19 @@ Mi farebbe comparire i valori delle città al più una volta.
 		Vicenza \\
 		\hline
 	\end{tabular}
-\end{table}
+\end{minipage}
+
+Mentre se scrivessi 
+\begin{lstlisting}[style=sqlstyle]
+SELECT DISTINCT Citta
+FROM Studente
+\end{lstlisting}
+Mi farebbe comparire i valori delle città al più una volta.
 
 
 Questa query corrisponde ora a $\Pi_{Citta} STUDENTE$.
 
-\textbf{Attenzione:} quando non mettiamo \textit{DISTINCT} è come specificare implicitamente che mettiamo la clausola \textit{ALL} che include tutti i valori anche ripetuti.
+\mybox{\textbf{Attenzione:} quando non mettiamo \textit{DISTINCT} è come specificare implicitamente che mettiamo la clausola \textit{ALL} che include tutti i valori anche ripetuti.}
 
 \textbf{ORDER BY:} visualizza i risultati stabilendo un ordine in base al valore di uno o più attributi. \textbf{N.B. \textit{Il valore ascendente è di default.}}
 
@@ -3973,10 +3977,10 @@ ORDER BY Nome [ASC | DESC]
 \end{table}
 
 \begin{lstlisting}[style=sqlstyle]
-	SELECT Nome, Citta
-	FROM Studente
-	WHERE Citta = 'Verona'
-	ORDER BY Nome
+SELECT Nome, Citta
+FROM Studente
+WHERE Citta = 'Verona'
+ORDER BY Nome
 \end{lstlisting}
 
 \begin{table}[h!]
@@ -3991,17 +3995,19 @@ ORDER BY Nome [ASC | DESC]
 \end{table}
 
 Posso ordinare anche per coppie o liste di attributi, ordinando quindi prima per il primo attributo, poi per il secondo, etc...
-Ad esempio
+
+\begin{esempio}
 \begin{lstlisting}[style=sqlstyle]
-	SELECT Nome, Citta
-	FROM Studente
-	WHERE Citta = 'Verona'
-	ORDER BY Nome, Citta
+SELECT Nome, Citta
+FROM Studente
+WHERE Citta = 'Verona'
+ORDER BY Nome, Citta
 \end{lstlisting}
+\end{esempio}
 
 Ordinerebbe prima per il nome, e poi per la città.
 
-\textbf{OPERATORI DI AGGREGAZIONE:}
+\subsubsection{OPERATORI DI AGGREGAZIONE:}
 Vengono applicati ad un insieme di righe. \begin{itemize}
 	\item \textbf{COUNT:} conta le tuple;
 	\item \textbf{MAX, MIN, AVG, SUM:} operazioni sui valori della tabella.
@@ -4032,71 +4038,79 @@ Se uso $*$ \textit{( COUNT(*) )} restituisce il numero di righe del risultato, s
 	\end{tabular}
 \end{table}
 
-Se scrivo 
+Se scrivo \hfill\begin{minipage}{0.33\textwidth}
 \begin{lstlisting}[style=sqlstyle]
-	SELECT COUNT(*)
-	FROM Corso 
+SELECT COUNT(*)
+FROM Corso 
 \end{lstlisting}
+\end{minipage}
+\hfill
+ottengo\hfill
+\begin{minipage}{0.33\textwidth}
+	\begin{tabular}{|c|}
+		\hline
+	\textbf{	COUNT(*)} \\
+		\hline
+		4\\
+		\hline
+	\end{tabular} 
+\end{minipage}
 
-ottengo
-
-\begin{tabular}{|c|}
-\hline
-COUNT(*) \\
-\hline
-4\\
-\hline
-\end{tabular} 
-
-Se scrivo 
+Se scrivo \hfill\begin{minipage}{0.33\textwidth}
 \begin{lstlisting}[style=sqlstyle]
-	SELECT COUNT(Codice)
-	FROM Corso 
+SELECT COUNT(Codice)
+FROM Corso 
 \end{lstlisting}
-
-ottengo
-
+\end{minipage}\hfill
+ottengo\hfill
+\begin{minipage}{0.33\textwidth}
 \begin{tabular}{|c|}
 	\hline
-	COUNT(Codice) \\
+	\textbf{COUNT(Codice)} \\
 	\hline
 	4\\
 	\hline
 \end{tabular} 
 
-Se invece scrivo 
+\end{minipage}
 
-Se scrivo 
+Se scrivo \hfill
+\begin{minipage}{0.33\textwidth}
 \begin{lstlisting}[style=sqlstyle]
-	SELECT DISTINCT COUNT(NumCFU) AS NC
-	FROM Corso 
+SELECT DISTINCT COUNT(NumCFU) AS NC
+FROM Corso 
 \end{lstlisting}
-
+\end{minipage}
+\hfill
 ottengo
-
+\hfill
+\begin{minipage}{0.33\textwidth}
 \begin{tabular}{|c|}
 	\hline
-	NC \\
+	\textbf{NC}\\
 	\hline
 	2\\
 	\hline
 \end{tabular} 
+\end{minipage}
 
-Se scrivo 
+
+Se scrivo \hfill \begin{minipage}{0.33\textwidth}
 \begin{lstlisting}[style=sqlstyle]
-	SELECT COUNT(NumCFU) AS CFUPresenti
-	FROM Corso 
+SELECT COUNT(NumCFU) AS CFUPresenti
+FROM Corso 
 \end{lstlisting}
-
-ottengo
-
-\begin{tabular}{|c|}
-	\hline
-	CFUPresenti \\
-	\hline
-	3\\
-	\hline
-\end{tabular} 
+\end{minipage}
+\hfill ottengo \hfill
+\begin{minipage}{0.33\textwidth}
+	\begin{tabular}{|c|}
+		\hline
+		\textbf{CFUPresenti} \\
+		\hline
+		3\\
+		\hline
+	\end{tabular} 
+\end{minipage}
 
 \textbf{SUM:} somma dei valori numerici posseduti da un attributo sull'insieme di tuple selezionate. \textit{Se non abbiamo una clausola WHERE è sui valori di  tutte le tuple.}
 
@@ -4121,68 +4135,87 @@ Attenzione, \textit{DISTINCT} elimina i duplicati, mentre \textit{ALL} trascura 
 				DOC2 & B.B. & ... & 1900 \\
 				\hline
 				DOC3 & C.C. & ... & 3000 \\
-		
+		\hline
 	\end{tabular}
 \end{table}
 
 
+\begin{minipage}{0.45\textwidth}
 \begin{lstlisting}[style=sqlstyle]
 SELECT MAX(Stipendio)
 FROM Docente
 \end{lstlisting}
-\begin{tabular}{|c|}
-\hline
-MAX(STIPENDIO)\\
-\hline
-3000\\
-\hline
-\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+	\begin{tabular}{|c|}
+		\hline
+		\textbf{MAX(STIPENDIO)}\\
+		\hline
+		3000\\
+		\hline
+	\end{tabular}
+\end{minipage}
 
+\begin{minipage}{0.45\textwidth}
 \begin{lstlisting}[style=sqlstyle]
-	SELECT MIN(Stipendio)
-	FROM Docente
+SELECT MIN(Stipendio)
+FROM Docente
 \end{lstlisting}
-\begin{tabular}{|c|}
+\end{minipage}\hfill
+\begin{minipage}{0.45\textwidth}
+	\begin{tabular}{|c|}
 	\hline
-	MIN(STIPENDIO)\\
+\textbf{MIN(STIPENDIO)}\\
 	\hline
 	1900\\
 	\hline
-\end{tabular}
+	\end{tabular}
+\end{minipage}
 
+\begin{minipage}{0.45\textwidth}
 \begin{lstlisting}[style=sqlstyle]
-	SELECT AVG(Stipendio)
-	FROM Docente
+SELECT AVG(Stipendio)
+FROM Docente
 \end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
 \begin{tabular}{|c|}
 	\hline
-	AVG(STIPENDIO)\\
+	\textbf{AVG(STIPENDIO)}\\
 	\hline
 	2466\\
 	\hline
 \end{tabular}
+\end{minipage}
 
+\begin{minipage}{0.45\textwidth}
 \begin{lstlisting}[style=sqlstyle]
-	SELECT AVG(Stipendio)
-	FROM Docente
-	WHERE Stipendio > 2000
+SELECT AVG(Stipendio)
+FROM Docente
+WHERE Stipendio > 2000
 \end{lstlisting}
+\end{minipage}
+\hfill\begin{minipage}{0.45\textwidth}
 \begin{tabular}{|c|}
 	\hline
-	AVG(STIPENDIO)\\
+	\textbf{AVG(STIPENDIO)}\\
 	\hline
 	2750\\
 	\hline
 \end{tabular}
+\end{minipage}
 
-\textbf{INTERROGAZIONI CON RAGGRUPPAMENTO:} sono interrogazioni che utilizzano la clausola \textbf{GROUP BY}.
+\subsubsection{INTERROGAZIONI CON RAGGRUPPAMENTO:} sono interrogazioni che utilizzano la clausola \textbf{GROUP BY}.
 
 \begin{lstlisting}[style=sqlstyle]
 GROUP BY Attributo
 \end{lstlisting}
 
-Specifica come dividere le tuple di una tabella in sottoinsiemi raggruppando le tuple che hanno valori comuni in un sottoinsieme di attributi. 
-\textbf{ATTENZIONE:} SQL impone che in una interrogazione in cui si fa uso del \textit{GROUP BY}, possono comparire come argomento della \textit{SELECT} solamente un sottoinsieme degli attributi utilizzati per il raggruppamento ed eventuali funzioni di aggregazione (MIN, MAX, COUNT, ...) valutate sugli altri attributi. 
+Specifica come dividere le tuple di una tabella in sottoinsiemi raggruppando le tuple che hanno valori comuni in un sottoinsieme di attributi.
+
+\mybox{\textbf{ATTENZIONE:} SQL impone che in una interrogazione in cui si fa uso del \textit{GROUP BY}, possono comparire come argomento della \textit{SELECT} solamente un sottoinsieme degli attributi utilizzati per il raggruppamento ed eventuali funzioni di aggregazione (MIN, MAX, COUNT, ...) valutate sugli altri attributi. }
 
 \begin{lstlisting}[style=sqlstyle]
 SELECT Attributi 
@@ -4191,14 +4224,18 @@ WHERE Condizione
 GROUP BY Attributo1 -- < -- attributo su cui faccio i raggruppamenti 
 \end{lstlisting}
 
-\textbf{Esempio:} visualizzare il numero degli studenti che provengono da ogni città, visualizzando anche la città.
-\begin{lstlisting}[style=sqlstyle]
-	SELECT Citta, COUNT(*) AS NStud
-	FROM STUDENTE
-	GROUP BY Citta
-\end{lstlisting}
+\begin{esempio}
+	visualizzare il numero degli studenti che provengono da ogni città, visualizzando anche la città.
+\end{esempio}
 
-\begin{table}[h!]
+\begin{minipage}{0.45\textwidth}
+	\begin{lstlisting}[style=sqlstyle]
+SELECT Citta, COUNT(*) AS NStud
+FROM STUDENTE
+GROUP BY Citta
+\end{lstlisting}
+\end{minipage}\hfill
+\begin{minipage}{0.45\textwidth}
 	\begin{tabular}{|c|c|}
 		\hline \textbf{Citta} & \textbf{NStud} \\
 		\hline
@@ -4211,15 +4248,15 @@ GROUP BY Attributo1 -- < -- attributo su cui faccio i raggruppamenti
 		   Vicenza & 1\\
 		\hline
 	\end{tabular}
-\end{table}
+\end{minipage}\vspace{1em}
 
 \textbf{HAVING:} posso descrivere le condizioni che si devono applicare al termine dell'esecuzione di un'interrogazione che fa uso del \textit{GROUP BY.}
 \begin{lstlisting}[style=sqlstyle]
-	SELECT Attributi 
-	FROM Tabella
-	WHERE Condizione 
-	GROUP BY Attributo1 -- < -- attributo su cui faccio i raggruppamenti 
-	HAVING Predicato -- Condizione sul raggruppamento
+SELECT Attributi 
+FROM Tabella
+WHERE Condizione 
+GROUP BY Attributo1 -- < -- attributo su cui faccio i raggruppamenti 
+HAVING Predicato -- Condizione sul raggruppamento
 \end{lstlisting}
 Un sottoinsieme di tuple finisce nel risultato solo se soddisfa la condizione della clausola \textit{HAVING}.
 
@@ -4228,13 +4265,16 @@ Un sottoinsieme di tuple finisce nel risultato solo se soddisfa la condizione de
 \begin{esempio}
 	 visualizzare la città e il numero di studenti provenienti da quella città solo se gli studenti provenienti da quella città sono almeno 2.
 \end{esempio}
+\begin{minipage}{0.45\textwidth}
 \begin{lstlisting}[style=sqlstyle]
 SELECT Citta, COUNT(*) as NStud
 FROM STUDENTE
 GROUP BY Citta
 HAVING NStud >= 2
 \end{lstlisting}
-\begin{table}[h!]
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
 	\begin{tabular}{|c|c|}
 		\hline \textbf{Citta} & \textbf{NStud} \\
 		\hline
@@ -4243,7 +4283,7 @@ HAVING NStud >= 2
 		Padova & 2 \\
 		\hline
 	\end{tabular}
-\end{table}
+\end{minipage}
 
 QUINDI
 \begin{lstlisting}[style=sqlstyle]
@@ -4255,7 +4295,7 @@ HAVING Predicato  --opzionale
 ORDER BY Attributi --opzionale
 \end{lstlisting}
 
-\subsection{JOIN}
+\subsubsection{JOIN}
 \begin{lstlisting}[style=sqlstyle]
 SELECT ListaAttributi
 FROM Tabella1,Tabella2
@@ -4429,19 +4469,23 @@ WHERE Genere = 'M'
 \end{esempio}
 
 Il risultato avrà come nome dell'attributo "Cognome", cioè il nome del primo operando. Inoltre, \textbf{i duplicati vengono eliminati.}
-\begin{tabular}{|c|}
-	\hline
-\textbf{Cognome}\\
-\hline
-Rossi\\
-\hline
-Padova \\
-\hline
-Verdi \\
-\hline
-Verona\\
-\hline
-\end{tabular}
+
+\begin{table}[h!]
+	\begin{tabular}{|c|}
+		\hline
+		\textbf{Cognome}\\
+		\hline
+		Rossi\\
+		\hline
+		Padova \\
+		\hline
+		Verdi \\
+		\hline
+		Verona\\
+		\hline
+	\end{tabular}
+\end{table}
+
 
 
 \begin{esempio}
@@ -4481,15 +4525,13 @@ Verona & Oliboni \\
 Se invece voglio mantenere i duplicati devo inserire la clausola \textbf{ALL}.
 
 \begin{lstlisting}[style=sqlstyle]
-	SELECT Cognome
-	FROM STUDENTE
-	WHERE Genere = 'M'
-	
+SELECT Cognome
+FROM STUDENTE
+WHERE Genere = 'M'
 	UNION ALL
-	
-	SELECT Citta
-	FROM STUDENTE
-	WHERE Genere = 'M'
+SELECT Citta
+FROM STUDENTE
+WHERE Genere = 'M'
 \end{lstlisting}
 
 \begin{tabular}{|c|}
