@@ -5111,4 +5111,70 @@ GROUP BY CodScrittore;
 Dato lo schema concettuale, segue come secondo step la \textbf{progettazione logica}, la quale avrà come risultato lo \textbf{schema logico}, dove in particolare noi studieremio il \textbf{modello relazionale dei dati} ($R_1(\underline{A_1},A2,A3)...$). In questa seconda fase, rappresentiamo \textit{come} rappresentare le nostre informazioni. 
 \paragraph{Fase 3:}
 L'ultima fase è la \textbf{progettazione fisica}, che ci permette di produrre \textbf{uno schema fisico}.
+
+\subsubsection{Modellazione concettuale}
+La progettazione concettuale ci serve per dire quali informazioni vogliamo andare a modellare nella nostra base di dati. Nella fase di progettazione della base di dati ragioniamo ad un alto livello di astrazione, quindi non \textit{come} implementiamo i dati, ma \textit{cosa} vogliamo rappresentare. \textbf{Ragioniamo sulla realtà di interesse}, in particolare questo ragionamento lo facciamo per capire \textbf{COSA} inserire nella base di dati, ad un \textbf{alto livello di astrazione}. I modelli di dati, ci permettono di costruire \textbf{rappresentazioni grafiche della realtà di interesse.} Il modello concettuale più diffuso è il modello \textbf{Entità-Relazione (ER).}
+\subsection{Costrutti principali del modello E-R:} Attraverso questo modello possiamo rappresentare graficamente la nostra realtà di interesse, producendo uno \textbf{SCHEMA ER.}
+\subsubsection{Entità} Classe di oggetti (fatti, persone, cose) dell'applicazione di interesse con \textit{proprietà comuni ed esistenza "autonoma"}. Si rappresenta con un rettangolo ed il nome della classe che voglio rappresentare.
+Vi è una mappatura tra l'entità nello schema ER, la relazione nello schema logico, e l'istanza come tupla.
+\subsubsection{Relazione} Rappresenta un legame logico tra due o più entità, rilevante per l'applicazione di interesse. La relazione si rappresenta con un rombo.
+\subsubsection{Attributo} Proprietà elementare di un'entità o di una relazione, di interesse ai fini dell'applicazione. Lo rappresento tramite delle "puntine" e con il loro nome di appartenenza (guarda immagine).
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\linewidth]{Er1.pdf}
+\end{figure}
+
+%8/4/1973
+\mybox{\textbf{Note di stile:} i nomi delle entità vanno al singolare. In uno schema ER non posso ripetere i nomi, ma deve essere presente al più una volta. Le relazioni devono avere, se possibile, come nome un "sostantivo", e non un verbo. Tra due entità posso rappresentare anche due relazioni diverse. 
+
+\textbf{I nomi degli attributi non si possono ripetere nell'entità, ma nello schema ER sì}, cioè due entità diverse possono avere un attributo con lo stesso nome.}
+
+\subsubsection{Relazioni Ternaria (N-Arie)}
+Ad esempio, se abbiamo la relazione che rappresenta
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\linewidth]{RelazTern.pdf}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\linewidth]{er2.pdf}
+\end{figure}
+
+\subsubsection{Relazione Ricorsiva}
+Relazioni che mettono in relazione entità con sè stesse. Non è detto che siano simmetriche, ad esempio se metto in relazione un sovrano col successore dovrò rappresentare chi viene prima e chi viene dopo.
+
+\subsubsection{Attributi composti}
+Ad esempio se ho un'entità "Persona" che ha come attributi \textit{Nome, Cognome, CF, Indirizzo}, o se ho sempre un'entità "Persona" che ha come attributi \textit{Nome, Cognome, CF, Via, Civico, Città}. Oppure 
+
+\begin{esempio}
+	Studenti, corsi che seguono, città dove risiedono e studiano. Si vogliono rappresentare anche gli esami sostenuti dagli studenti. Studente è rappresentato da Matricola, Cognome, Nome, DataNascita. Corso ha codice, titolo e numcrediti. Le città hanno un nome ed un numero di abitanti, ed una regione di appartenenza. Degli esami memorizziamo il voto e la data in cui gli studenti superano l'esame. 
+\end{esempio}
+
+%%inserisci schema
+
+\subsubsection{Altri costrutti del modello E-R}
+\textbf{Cardinalità:}\begin{itemize}
+	\item \textbf{Di relazione:} coppia di valori associati ad ogni entità che partecipa ad una relazione. Specifica il \textbf{numero minimo }e il \textbf{numero massimo} di occorrenze della relazione a cui ciascuna occorrenza (o istanza) di un'entità può partecipare. 
+	\begin{esempio}
+		Inserisci schema impiegato Incarico, in cui dico che all'impiegato posso assegnare \textit{minimo} un incarico, \textit{massimo} 3 incarichi. Mentre, dico, che un incarico può \textit{non essere assegnato a nessuno}, oppure al massimo assegnato a 10 impiegati.
+	\end{esempio}
+	Per semplicità, però, usiamo solo 3 simboli, cioè \sitemize{
+		\item \textbf{0 e 1} per la cardinalità minima, volendo significare che se metto 0 è una partecipazione \textit{opzionale}, mentre se metto 1 è una partecipazione \textit{obbligatoria}. 
+		\item \textbf{1 o N} per la cardinalità massima, dove \textit{N} non pone alcun limite di cardinalità.
+		}
+	Con riferimento alle cardinalità massime, abbiamo dei tipi di relazione: \sitemize{\item \textbf{Relazione UNO a UNO}: fai un ER ORDINE (0,1) - <Vendita> - (1,1) FATTURA 
+	\item \textbf{Relazione UNO a MOLTI} ER con PERSONA (1,1) - <RESIDENZA> (0,n) - Città
+	\item \textbf{Relazione MOLTI a MOLTI}
+	Fai un ER TURISTA (1,n) Prenotazione (0,n) VIAGGIO
+	}
+	\item Di attributo
+\end{itemize}
+\textbf{Identificatore:}\begin{itemize}
+	\item Interno
+	\item Esterno
+\end{itemize}
+\textbf{Generalizzazione}
+
+
 \end{document} 
