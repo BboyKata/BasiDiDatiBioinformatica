@@ -5124,57 +5124,246 @@ Vi è una mappatura tra l'entità nello schema ER, la relazione nello schema log
 	\includegraphics[width=1\linewidth]{Er1.pdf}
 \end{figure}
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{er2.pdf}
+\end{figure}
+
 %8/4/1973
 \mybox{\textbf{Note di stile:} i nomi delle entità vanno al singolare. In uno schema ER non posso ripetere i nomi, ma deve essere presente al più una volta. Le relazioni devono avere, se possibile, come nome un "sostantivo", e non un verbo. Tra due entità posso rappresentare anche due relazioni diverse. 
 
 \textbf{I nomi degli attributi non si possono ripetere nell'entità, ma nello schema ER sì}, cioè due entità diverse possono avere un attributo con lo stesso nome.}
 
 \subsubsection{Relazioni Ternaria (N-Arie)}
-Ad esempio, se abbiamo la relazione che rappresenta
+Ad esempio, se abbiamo le relazioni sotto rappresentate, è possibile avere una relazione ternaria
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=1\linewidth]{RelazTern.pdf}
-\end{figure}
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=1\linewidth]{er2.pdf}
+	\includegraphics[width=1\linewidth]{relaztern.pdf}
 \end{figure}
 
 \subsubsection{Relazione Ricorsiva}
 Relazioni che mettono in relazione entità con sè stesse. Non è detto che siano simmetriche, ad esempio se metto in relazione un sovrano col successore dovrò rappresentare chi viene prima e chi viene dopo.
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{relazrec.pdf}
+\end{figure}
+
 \subsubsection{Attributi composti}
-Ad esempio se ho un'entità "Persona" che ha come attributi \textit{Nome, Cognome, CF, Indirizzo}, o se ho sempre un'entità "Persona" che ha come attributi \textit{Nome, Cognome, CF, Via, Civico, Città}. Oppure 
+Sono attributi che sono composti da più valori. Un esempio classico è l'indirizzo: ad esempio se ho un'entità "Persona" che ha come attributi \textit{Nome, Cognome, CF, Indirizzo}, o se ho sempre un'entità "Persona" che ha come attributi \textit{Nome, Cognome, CF, Via, Civico, Città}. Questo si rappresenta come segue:
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{attrcomp.pdf}
+\end{figure}
 
 \begin{esempio}
-	Studenti, corsi che seguono, città dove risiedono e studiano. Si vogliono rappresentare anche gli esami sostenuti dagli studenti. Studente è rappresentato da Matricola, Cognome, Nome, DataNascita. Corso ha codice, titolo e numcrediti. Le città hanno un nome ed un numero di abitanti, ed una regione di appartenenza. Degli esami memorizziamo il voto e la data in cui gli studenti superano l'esame. 
+	Si progetti una base di dati che rappresenti gli studenti, i corsi che seguono, le città dove risiedono e studiano. Si vogliono rappresentare anche gli esami sostenuti dagli studenti. Studente è rappresentato da Matricola, Cognome, Nome, DataNascita. Corso ha codice, titolo e numcrediti. Le città hanno un nome ed un numero di abitanti, ed una regione di appartenenza. Degli esami memorizziamo il voto e la data in cui gli studenti superano l'esame. 
 \end{esempio}
 
-%%inserisci schema
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\linewidth]{er3.pdf}
+\end{figure}
+
 
 \subsubsection{Altri costrutti del modello E-R}
 \textbf{Cardinalità:}\begin{itemize}
 	\item \textbf{Di relazione:} coppia di valori associati ad ogni entità che partecipa ad una relazione. Specifica il \textbf{numero minimo }e il \textbf{numero massimo} di occorrenze della relazione a cui ciascuna occorrenza (o istanza) di un'entità può partecipare. 
+	
 	\begin{esempio}
-		Inserisci schema impiegato Incarico, in cui dico che all'impiegato posso assegnare \textit{minimo} un incarico, \textit{massimo} 3 incarichi. Mentre, dico, che un incarico può \textit{non essere assegnato a nessuno}, oppure al massimo assegnato a 10 impiegati.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.6\linewidth]{er5.pdf}
+		\end{figure}
+		
+		Incarico, in cui dico che all'impiegato posso assegnare \textit{minimo} un incarico, \textit{massimo} 3 incarichi. Mentre, dico, che un incarico può \textit{non essere assegnato a nessuno}, oppure al massimo assegnato a 10 impiegati.
 	\end{esempio}
 	Per semplicità, però, usiamo solo 3 simboli, cioè \sitemize{
 		\item \textbf{0 e 1} per la cardinalità minima, volendo significare che se metto 0 è una partecipazione \textit{opzionale}, mentre se metto 1 è una partecipazione \textit{obbligatoria}. 
 		\item \textbf{1 o N} per la cardinalità massima, dove \textit{N} non pone alcun limite di cardinalità.
 		}
-	Con riferimento alle cardinalità massime, abbiamo dei tipi di relazione: \sitemize{\item \textbf{Relazione UNO a UNO}: fai un ER ORDINE (0,1) - <Vendita> - (1,1) FATTURA 
-	\item \textbf{Relazione UNO a MOLTI} ER con PERSONA (1,1) - <RESIDENZA> (0,n) - Città
-	\item \textbf{Relazione MOLTI a MOLTI}
-	Fai un ER TURISTA (1,n) Prenotazione (0,n) VIAGGIO
+	Con riferimento alle cardinalità massime, abbiamo dei tipi di relazione: \sitemize{\item \textbf{Relazione UNO a UNO}: ad esempio tra ordine e fattura.
+	\item \textbf{Relazione UNO a MOLTI}: ad esempio tra persona e città.
+	\item \textbf{Relazione MOLTI a MOLTI}: ad esempio tra turista e viaggio.
 	}
-	\item Di attributo
-\end{itemize}
-\textbf{Identificatore:}\begin{itemize}
-	\item Interno
-	\item Esterno
-\end{itemize}
-\textbf{Generalizzazione}
+	\begin{esempio}
+			\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.5\linewidth]{R11.pdf}
+		\end{figure}
+	\end{esempio}
 
+\begin{esempio}
+		\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\linewidth]{er4.pdf}
+	\end{figure}
+\end{esempio}
+\newpage
+	\item \textbf{Di attributo:} È possibile associare anche agli attributi delle cardinalità, per rappresentare \sitemize{\item \textbf{Opzionalità:} attributi il cui valore può essere opzionale.
+	\item \textbf{Attributo multivalore:} attributi composti da più valori, o sottoattributi.}	
+	Le cardinaità possibili, quindi, sono:	
+	\begin{itemize}
+		\item 	\textbf{(1,1) attributo obbligatorio} e dicitura implicita(non si specifica);
+		\item \textbf{(0,1) attributo opzionale};
+		\item \textbf{(0,n) attributo multivalore opzionale};
+		\item \textbf{(1,n) attributo multivlore obbligatorio}.
+	\end{itemize}
+	
+	\begin{esempio}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.6\linewidth]{er6.pdf}
+		\end{figure}
+	\end{esempio}
+\end{itemize}
+\vspace{1em}
+\hrule
+\vspace{1em}
+\textbf{Identificatore di entità:} è qualcosa che mi permette di \textbf{identificare in modo univoco} le occorrenze (istanze) di un'entità. \begin{itemize}
+	\item \textbf{Interno:} costituito dagli attributi dell'entità. È detto \emph{CHIAVE}. Ovviamente l'attributo (o l'insieme) deve avere cardinalità (1,1)
+	\item \textbf{Esterno:} significa che gli attributi dell'entità non sono sufficienti a rappresentare univocamente l'entità. Quindi, un identificatore esterno è costituito da \textbf{attributi dell'entità più entità esterne attraverso le relazioni}.
+\end{itemize}
+
+\mybox{\textbf{ATTENZIONE:} Non esiste l'identificatore di relazione. L'identificativo è sull'entità.}
+
+	\begin{esempio}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.6\linewidth]{ER7.pdf}
+	\end{figure}
+\end{esempio}
+In questo esempio, nel secondo caso (prodotto) abbiamo un'\textbf{entità debole}, ovvero un'entità la cui identificazione univoca è possibile unicamente per mezzo della relazione che effettua con un'altra entità. Cioé, il nome da solo non riesce univocamente a rappresentare il prodotto, ma è l'insieme di nome e azienda produttrice (con cui è in relazione) che lo identifica. Si rappresentano come mostrato. Le \textbf{chiavi composte}, invece, sono rappresentate attraverso una chiave che incrocia tutti gli attributi chiave parziali.
+\begin{esempio}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\linewidth]{er8.pdf}
+	\end{figure}
+\end{esempio}
+
+\begin{esempio}
+	Progettare una base di dati clinici di pazienti sottoposti a controllo medico. Per ogni paziente si memorizzano: codice sanitario, nome, data di nascita, indirizzo composto da via, numero, civico e città e il numero di telefono che potrebbe avere più valori. Il paziente viene periodicamente sottoposto ad una visita di controllo e per ogni visita memorizzo il codice, pressione minima, pressione massima, frequenza cardiaca. Tengo traccia anche della data della visita di controllo. Ad un paziente possono essere consigliate più terapie. Per ogni terapia memorizzo il nome del farmaco somministrato, e l'inizio e la fine della terapia, il principio attivo e la dose consigliata. Si memorizzano anche i dati relativi alle case produttrici dei farmaci prestando attenzione al fatto che un farmaco viene identificato dal suo nome e la sua casa produttrice. Per ogni casa produttrice si memorizzano p.iva, nome e telefono.
+	
+		\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\linewidth]{er9.pdf}
+	\end{figure}
+\end{esempio}
+
+\newpage
+\subsubsection{Generalizzazione:} Rappresenta un legame logico tra una entità $E$ (detta entità \textit{padre}) e una o più entità $E_1, E_2, ..., E_n$ dette \textit{figlie}. $E$ è più generale e comprende le entità figlie come casi particolari:
+\begin{esempio}
+			\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\linewidth]{gen1.pdf}
+	\end{figure}
+\end{esempio}
+
+$E$ è \textbf{generalizzazione} di $E_1, E_2, ..., E_n$, mentre $E_1, E_2, ..., E_n$ sono \textbf{specializzazioni} di $E$. 
+
+\begin{esempio}
+	\label{ex:gen1}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\linewidth]{gen2.pdf}
+	\end{figure}
+\end{esempio}
+
+\mybox{\textbf{RICORDA:} \textit{Ogni occorrenza di una entità figlia è occorrenza anche dell'entità padre. Ogni proprietà dell'entità padre è anche proprietà delle entità figlie.}
+
+Un'altra cosa ereditata dalle figlie sono le \textbf{relazioni.} Ci sono, invece, relazioni delle figlie, che non appartengono a tutte le altre, o al padre, ma solo all'entità figlia, come nell'esempio di "direzione". 
+}
+
+Come visto nell'esempio \ref{ex:gen1}, abbiamo \textbf{due tipi di generalizzazione}:\begin{itemize}
+	\item \textbf{TOTALE:} rappresentata con una freccia piena, in cui ogni occorrenza dell'entità genitore è almeno un'occorrenza delle entità figlie. Cioé, riesco a rappresentare completamente la realtà rappresentata attraverso le entità figlie.
+	\item \textbf{PARZIALE:} non totale. Si usa una freccia vuota.
+\end{itemize}
+Vi è una \textbf{generalizzazione esclusiva} se ogni occorrenza dell'entità genitore è occorrenza di \textbf{al più} una delle entità figlie, altrimenti è \textbf{sovrapposta}. 
+
+\mybox{\textbf{N.B.} Entità padre e figlia condividono la stessa \textit{chiave}, quindi questa sarà solamente sull'entità padre.}
+
+
+
+Le generalizzazioni possono avere più livelli, ad esempio:
+\begin{esempio}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\linewidth]{gen3.pdf}
+	\end{figure}
+\end{esempio}
+
+\subsection{Documentazione di uno schema ER}
+	\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{doc1.pdf}
+\end{figure}
+
+Per descrivere contesti e realtà che non conosco uso il
+\textbf{Dizionario dei dati:}
+\begin{itemize}
+	\item \textbf{Entità} \sitemize{
+		\item Nome
+		\item Descrizione informale
+		\item Elenco attributi
+		\item Identificatori
+	}
+	\item \textbf{Relazioni} \sitemize{
+	\item Nome
+	\item Descrizione
+	\item Attributi
+	\item Elenco delle entità coinvolte
+	}
+	\item\textbf{ Annotazioni per vincoli non esprimibili altrimenti}
+\end{itemize}
+
+\begin{table}[h!]
+\centering
+\caption{\textbf{ENTITÀ}}
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	\textbf{Nome} & \textbf{Descrizione} & \textbf{Attributi} & \textbf{Identificatore}\\
+	\hline
+	PAZIENTE & Paziente sottoposto a controlli medici periodici &  CodSanitario, Numero & CodSanitario \\
+	\hline
+	CONTROLLO & ... & ... & ... \\
+	\hline
+\end{tabular}
+
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\caption{RELAZIONI}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Nome} & \textbf{Descrizione} & \textbf{Attributi} & \textbf{Entità coinvolte}\\
+		\hline
+		VISITA & Associa un paziente ai controlli medici a cui è sottoposto & Data & Paziente, Controllo \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\textbf{Annotazioni ulteriori:}\begin{enumerate}
+	\item  la pressione minima deve essere inferiore alla massima 
+	\item la data di inizio della terapia deve essere antecedente alla data di fine. 
+	\item ...
+\end{enumerate}
+
+\mybox{\textbf{Domanda d'esame:}
+	Rispetto alla cardinalità delle relazioni si descrivano i possibili tipi di relazione, facendo un esempio. (1-1,1-N,N-N).}
+
+Per la costruzione di uno schema ER, abbiamo detto che è importante scegliere il costrutto appropriato per rappresentare ogni concetto. \begin{enumerate}
+	\item Se il concetto ha proprietà significative e descrive oggetti con esistenza autonoma, allora il costrutto appropriato è l'\textbf{ENTITÀ}.
+	\item Se il concetto è semplice e non ha proprietà, il costrutto è un \textbf{ATTRIBUTO}.
+	\item Se il concetto lega due o più concetti, il costrutto è una \textbf{RELAZIONE}.
+	\item Se il concetto è un caso particolare di un altro, allora il costrutto è una \textbf{GENERALIZZAZIONE}.
+\end{enumerate}
+Uno schema ER deve avere le seguenti qualità:\begin{itemize}
+	\item \textbf{CORRETTEZZA:} quando utilizzo correttamente i costrutti che ho a disposizione per rappresentare la realtà di interesse in modo appropriato.
+	\item \textbf{COMPLETEZZA:} quando lo schema rappresenta tutti i dati di interesse.
+	\item \textbf{LEGGIBILITÀ:} schema facilmente comprensibile;
+	\item \textbf{MINIMALITÀ:} ogni concetto è rappresentato una sola volta. 
+\end{itemize}
 
 \end{document} 
