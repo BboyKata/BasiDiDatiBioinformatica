@@ -5368,9 +5368,372 @@ Uno schema ER deve avere le seguenti qualità:\begin{itemize}
 \end{itemize}
 \part{Tutorato}
 \section{Esercizi Algebra Relazionale}
-%da integrare
-devo ancora metterli, non agitatevi
+Dato il seguente schema di base di dati: \begin{align*}
+	RIVISTA&(\underline{CodR},NomeRiv,Tema,Editore)\\
+	ARTICOLO&(\underline{CodA},Titolo, Argomento, CFAut,CodRivista, DataUscita)\\
+	AUTORE&(\underline{CF},Nome, Cognome, Email)\\
+\end{align*}
 
+\begin{enumerate}
+	\item \textbf{Trovare titolo e data degli articoli di astronomia:} \begin{align*}
+		\Pi_{Titolo,DataUscita}(\sigma_{Argomento = "Astronomia"}ARTICOLO)
+	\end{align*}
+	
+	\begin{center}
+		\begin{forest}
+			for tree={
+				align=center,
+				parent anchor=south,
+				child anchor=north,
+				l sep=10pt,
+				s sep=15pt,
+				font=\sffamily,
+			}
+			[
+			$\pi_{\text{Titolo, DataUscita}}$
+			[
+			$\sigma_{\text{Argomento} = \text{"Astronomia"}}$
+			[ARTICOLO]
+			]
+			]
+		\end{forest}
+	\end{center}
+	\item \textbf{Trovare titolo e data degli articoli di astronomia scritti da Luca Perri:} \begin{align*}
+	\Pi_{Titolo,Data}(&\Pi_{CFAut,Titolo,Data}(\sigma_{Argomento = "Astronomia"}ARTICOLO)\\ &\bowtie_{CFAut = CF} \Pi_CF(\sigma_{Nome = "Luca" \land Cognome = "Perri"} AUTORE))
+	\end{align*}
+\begin{center}
+	\begin{forest}
+		for tree={
+			align=center,
+			parent anchor=south,
+			child anchor=north,
+			l sep=10pt,
+			s sep=15pt,
+			font=\sffamily,
+		}
+		[
+		$\pi_{\text{Titolo, Data}}$
+		[
+		$\bowtie_{\text{CFAut} = \text{CF}}$
+		[
+		$\pi_{\text{CFAut, Titolo, Data}}$
+		[
+		$\sigma_{\text{Argomento} = \text{"Astronomia"}}$
+		[ARTICOLO]
+		]
+		]
+		[
+		$\pi_{\text{CF}}$
+		[
+		$\sigma_{\text{Nome} = \text{"Luca"} \land \text{Cognome} = \text{"Perri"}}$
+		[AUTORE]
+		]
+		]
+		]
+		]
+	\end{forest}
+\end{center}
+\item \textbf{Trovare i nomi delle riviste che hanno pubblicato articoli di astronomia scritti da Luca Perri}
+	\begin{center}
+		\begin{forest}
+			for tree={
+				align=center,
+				parent anchor=south,
+				child anchor=north,
+				l sep=10pt,
+				s sep=15pt,
+				font=\sffamily,
+			}
+			[
+			$\Pi_{\text{NomeRivista}}$
+			[
+			$\bowtie_{\text{CodRivista} = \text{CodRivista}}$
+			[
+			$\pi_{\text{CodRivista}}$
+			[
+			$\bowtie_{\text{CFAut} = \text{CF}}$
+			[
+			$\sigma_{\text{Argomento} = \text{"Astronomia"}}$
+			[ARTICOLO]
+			]
+			[
+			$\sigma_{\text{Nome} = \text{"Luca"} \land \text{Cognome} = \text{"Perri"}}$
+			[AUTORE]
+			]
+			]
+			]
+			[RIVISTA]
+			]
+			]
+		\end{forest}
+	\end{center}
+\item \textbf{Trovare il nome delle riviste che hanno pubblicato almeno 2 articoli di astronomia}
+\begin{center}
+	\begin{forest}
+		for tree={
+			align=center,
+			parent anchor=south,
+			child anchor=north,
+			l sep=10pt,
+			s sep=15pt,
+			font=\sffamily,
+		}
+		[
+		$\Pi_{\text{NomeRiv}}$
+		[
+		$\bowtie_{\text{CodR} = \text{CodRivista}}$
+		[
+		$\Pi_{\text{CodRivista}}$
+		[
+		$\bowtie_{\substack{\text{CodRivista} = \text{CodRivista}' \\ \land\ \text{CodA} \neq \text{CodA}'}}$
+		[
+		$\sigma_{\text{Argomento} = \text{"Astronomia"}}$
+		[ARTICOLO]
+		]
+		[
+		$\rho_{x' \leftarrow x}$
+		[
+		$\sigma_{\text{Argomento} = \text{"Astronomia"}}$
+		[ARTICOLO]
+		]
+		]
+		]
+		]
+		[RIVISTA]
+		]
+		]
+	\end{forest}
+\end{center}
+
+\item \textbf{Nome delle riviste che non hanno MAI pubblicato articoli di astronomia, ma che hanno altri articoli}
+\begin{align*}
+	\Pi_{NomeRiv}&(\\
+	&\Pi_{CodRivista}(\sigma_{Argomento = "Astronomia"}ARTICOLO) - \Pi_{CodRivista}ARTICOLO)\\
+	&\bowtie_{CodRivista = CodR} RIVISTA
+\end{align*}
+\begin{center}
+	\begin{forest}
+		for tree={
+			align=center,
+			parent anchor=south,
+			child anchor=north,
+			l sep=10pt,
+			s sep=15pt,
+			font=\sffamily,
+		}
+		[
+		$\Pi_{\text{NomeRiv}}$
+		[
+		$\bowtie_{\text{CodRivista} = \text{CodR}}$
+		[
+		$\; - \;$
+		[
+		$\Pi_{\text{CodRivista}}$
+		[ARTICOLO]
+		]
+		[
+		$\Pi_{\text{CodRivista}}$
+		[
+		$\sigma_{\text{Argomento} = \text{"Astronomia"}}$
+		[ARTICOLO]
+		]
+		]
+		]
+		[RIVISTA]
+		]
+		]
+	\end{forest}
+\end{center}
+
+\item \textbf{Nome delle riviste che non hanno MAI pubblicto articoli di astronomia, ma che possono avere anche altri 0 articoli:}
+\begin{center}
+	\begin{forest}
+		for tree={
+			align=center,
+			parent anchor=south,
+			child anchor=north,
+			l sep=10pt,
+			s sep=15pt,
+			font=\sffamily,
+		}
+		[
+		$\Pi_{\text{NomeRiv}}$
+		[
+		$\bowtie_{\text{CodRivista} = \text{CodR}}$
+		[
+		$\; - \;$
+		[
+		$\rho_{\text{CodR} \leftarrow \text{CodRivista}}$
+		[
+		$\Pi_{\text{CodRivista}}$
+		[
+		$\sigma_{\text{Argomento} = \text{"Astronomia"}}$
+		[ARTICOLO]
+		]
+		]
+		]
+		[
+		$\Pi_{\text{CodR}}$
+		[RIVISTA]
+		]
+		]
+		[RIVISTA]
+		]
+		]
+	\end{forest}
+\end{center}
+\item \textbf{Nomi delle riviste che hanno pubblicato articoli di Astronomia, ma non di Astrofisica}
+\begin{center}
+	\begin{forest}
+		for tree={
+			align=center,
+			parent anchor=south,
+			child anchor=north,
+			l sep=10pt,
+			s sep=15pt,
+			font=\sffamily,
+		}
+		[
+		$\Pi_{\text{NomeRiv}}$
+		[
+		$\bowtie_{\text{CodRivista} = \text{CodR}}$
+		[
+		$\; - \;$
+		[
+		$\Pi_{\text{CodRivista}}$
+		[
+		$\sigma_{\text{Argomento} = \text{"Astronomia"}}$
+		[ARTICOLO]
+		]
+		]
+		[
+		$\Pi_{\text{CodRivista}}$
+		[
+		$\sigma_{\text{Argomento} = \text{"Astrofisica"}}$
+		[ARTICOLO]
+		]
+		]
+		]
+		[RIVISTA]
+		]
+		]
+	\end{forest}
+\end{center}
+
+\item \textbf{Nomi delle riviste che hanno pubblicato sia articoli di Astronomia che di Astrofisica}
+\begin{center}
+	\begin{forest}
+		for tree={
+			align=center,
+			parent anchor=south,
+			child anchor=north,
+			l sep=10pt,
+			s sep=15pt,
+			font=\sffamily,
+		}
+		[
+		$\Pi_{\text{NomeRiv}}$
+		[
+		$\bowtie_{\text{CodRivista} = \text{CodR}}$
+		[
+		$\; \bigcap \;$
+		[
+		$\Pi_{\text{CodRivista}}$
+		[
+		$\sigma_{\text{Argomento} = \text{"Astronomia"}}$
+		[ARTICOLO]
+		]
+		]
+		[
+		$\Pi_{\text{CodRivista}}$
+		[
+		$\sigma_{\text{Argomento} = \text{"Astrofisica"}}$
+		[ARTICOLO]
+		]
+		]
+		]
+		[RIVISTA]
+		]
+		]
+	\end{forest}
+\end{center}
+
+\item \textbf{Nomi delle riviste che hanno pubblicato articoli di Astronomia o di Astrofisica}
+\begin{center}
+	\begin{forest}
+		for tree={
+			align=center,
+			parent anchor=south,
+			child anchor=north,
+			l sep=10pt,
+			s sep=15pt,
+			font=\sffamily,
+		}
+		[
+		$\Pi_{\text{NomeRiv}}$
+		[
+		$\bowtie_{\text{CodRivista} = \text{CodR}}$
+		[
+		$\; \bigcup \;$
+		[
+		$\Pi_{\text{CodRivista}}$
+		[
+		$\sigma_{\text{Argomento} = \text{"Astronomia"}}$
+		[ARTICOLO]
+		]
+		]
+		[
+		$\Pi_{\text{CodRivista}}$
+		[
+		$\sigma_{\text{Argomento} = \text{"Astrofisica"}}$
+		[ARTICOLO]
+		]
+		]
+		]
+		[RIVISTA]
+		]
+		]
+	\end{forest}
+\end{center}
+
+\item \textbf{Nome e cognome degli autori dell stessa rivista con la stessa data}
+\begin{center}
+	\begin{forest}
+		for tree={
+			align=center,
+			parent anchor=south,
+			child anchor=north,
+			l sep=10pt,
+			s sep=15pt,
+			font=\sffamily,
+		}
+		[
+		$\Pi_{\text{Nome}, \text{Cognome}}$
+		[
+		$\bowtie_{\text{CFAut} = \text{CF}}$
+		[
+		$\Pi_{\text{CFAut}}$
+		[
+		$\bowtie_{\substack{
+				\text{DataUscita} = \text{DataUscita}' \\
+				\land\ \text{CodRivista} = \text{CodRivista}' \\
+				\land\ \text{CodA} \neq \text{CodA}' \\
+				\land\ \text{CFAut} \neq \text{CFAut}'}}$
+		[ARTICOLO]
+		[
+		$\rho_{x' \leftarrow x}$
+		[ARTICOLO]
+		]
+		]
+		]
+		[AUTORE]
+		]
+		]
+	\end{forest}
+\end{center}
+\end{enumerate}
+\textit{ce ne sarebbero altre, ma non ho intenzione di trascriverle tutte}
+\newpage
 \section{Esercizi SQL}
 Collegamenti logici tra operatori relazionali e clausole SQL: \begin{itemize}
 	\item $\Pi \to$ \textbf{SELECT} (DISTINCT)
