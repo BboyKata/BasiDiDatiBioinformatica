@@ -82,6 +82,7 @@
 \end{multicols}
 \newpage
 \normalsize
+\part{Teoria}
 \section{Descrizione corso}
 \mybox{\textit{La prof di basi di dati è disponibile a fare un preappello l'ultimo mercoledì di lezione di gennaio (quindi nella prima metà di gennaio secondo le sue previsioni)}}
 \subsection{Modalità d'esame}
@@ -5365,5 +5366,205 @@ Uno schema ER deve avere le seguenti qualità:\begin{itemize}
 	\item \textbf{LEGGIBILITÀ:} schema facilmente comprensibile;
 	\item \textbf{MINIMALITÀ:} ogni concetto è rappresentato una sola volta. 
 \end{itemize}
+\part{Tutorato}
+\section{Esercizi Algebra Relazionale}
+%da integrare
+devo ancora metterli, non agitatevi
+
+\section{Esercizi SQL}
+Collegamenti logici tra operatori relazionali e clausole SQL: \begin{itemize}
+	\item $\Pi \to$ \textbf{SELECT} (DISTINCT)
+	\item \textit{NomeTabelle} $\to$ \textbf{FROM}
+	\item $\sigma \to$ \textbf{WHERE}
+	\item $\rho_{N_2 \leftarrow N_1} \to$ \textbf{AS}
+	\item $\bowtie \to$ \textbf{JOIN}
+	\item $\bowtie_{CONDIZIONI} \to$ \textbf{JOIN ON Condizione}
+	\item $\cup,\cap, - \to$ \textbf{UNION, INTERSECT, EXCEPT}
+\end{itemize}
+
+\subsection{Esercizio 1}
+Dato il seguente schema di basi di dati:
+\begin{align*}
+	PITTORE&(\underline{Nominativo}, DataNascita, DataMorte*,LuogoNascita)\\
+	QUADRO&(\underline{Titolo,NomePittore}, Anno,NomeMuseo)\\
+	MUSEO&(\underline{Nome}, Indirizzo, Citta)
+\end{align*}
+
+\begin{enumerate}
+	\item \textbf{Trovare il titolo dei quadri di Vincent Van Gogh}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Titolo
+FROM QUADRO
+WHERE NomePittore = "Vincent Van Gogh"
+\end{lstlisting}
+\item \textbf{Trovare il nome dei pittori nati a Parigi dopo il 1968 (incluso)}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Nominativo
+FROM PITTORE
+WHERE LuogoNascita = "Parigi" AND DataNascita > '31/12/1967'
+\end{lstlisting}
+
+\item \textbf{Nome dei pittori che hanno dipinto almeno un quadro che è esposto in un museo di New York}
+\begin{lstlisting}[style=sqlstyle]
+SELECT P.Nominativo
+FROM Pittore P
+JOIN QUADRO Q 
+	ON P.Nominativo = Q.NomePittore
+JOIN MUSEO M
+	ON M.Nome = Q.NomeMuseo
+WHERE M.Citta = "New York"
+\end{lstlisting}
+\item \textbf{Trovare il nome dei pittori nati a parigi dopo il 1968 che hanno dipinto almeno un quadro esposto al MOMA di New York}
+\begin{lstlisting}[style=sqlstyle]
+SELECT P.Nominativo
+FROM Pittore P
+JOIN QUADRO Q 
+	ON P.Nominativo = Q.NomePittore
+JOIN MUSEO M
+	ON M.Nome = Q.NomeMuseo
+WHERE M.Citta = "New York" AND M.Nome = "MOMA"
+	AND P.LuogoNascita = "Parigi" AND P.DataNascita > '31/12/1967'
+\end{lstlisting}
+\item \textbf{Quanti quadri espone il museo del Louvre?}
+\begin{lstlisting}[style=sqlstyle]
+SELECT COUNT(*) AS NQuadri
+FROM QUADRO
+WHERE NomeMuseo = "Louvre"
+\end{lstlisting}
+
+\item \textbf{Trovare il numero di quadri esposti in ogni museo}
+\begin{lstlisting}[style=sqlstyle]
+SELECT NomeMuseo, COUNT(*) AS NQuadri
+FROM QUADRO
+GROUP BY NomeMuseo
+\end{lstlisting}
+\item \textbf{Nome dei pittori che hanno almeno 3 quadri esposti al Moma di New York}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Q.NomePittore
+FROM QUADRO Q
+INNER JOIN MUSEO M
+	ON Q.NomeMuseo = M.Nome
+WHERE M.Nome = "MOMA" AND M.Citta = "New York"
+GROUP BY Q.NomePittore
+HAVING COUNT(*) >= 3;
+\end{lstlisting}
+\item \textbf{Nome dei musei che espongono almeno un quadro dipinto fra il 1400 e il 1500, ma non espongono quadri di Leonardo Da Vinci}
+\begin{lstlisting}[style=sqlstyle]
+SELECT DISTINCT NomeMuseo
+FROM QUADRO
+WHERE Anno BETWEEN 1400 AND 1500
+	EXCEPT
+SELECT DISTINCT Nome
+FROM QUADRO 
+WHERE NomePittore = "Leonardo Da Vinci";
+\end{lstlisting}
+\item \textbf{Nome dei musei che espongono quadri di Leonardo da Vinci ma non di Raffaello Sanzio}
+\begin{lstlisting}[style=sqlstyle]
+SELECT DISTINCT NomeMuseo
+FROM QUADRO 
+WHERE NomePittore = "Leonardo Da Vinci"
+	EXCEPT
+SELECT DISTINCT Nome
+FROM QUADRO 
+WHERE NomePittore = "Raffello Sanzio";
+\end{lstlisting}
+\item \textbf{Nomi dei musei che espongono quadri di Leonardo Da Vinci O di Raffaello Sanzio}
+\begin{lstlisting}[style=sqlstyle]
+SELECT DISTINCT NomeMuseo
+FROM QUADRO
+WHERE NomePittore = "Raffaello Sanzio"
+	UNION
+SELECT DISTINCT Nome
+FROM QUADRO
+WHERE NomePittore = "Leonardo Da Vinci";
+\end{lstlisting}
+
+\item \textbf{Nome dei musei che espongono almeno due quadri di Sandro Botticelli}
+\begin{lstlisting}[style=sqlstyle]
+SELECT Q1.NomeMuseo
+FROM QUADRO Q1, QUADRO Q2
+WHERE Q1.NomePittore = "Sandro Botticelli" AND Q2.NomePittore = "Sandro Botticelli"
+	AND Q1.Titolo != Q2.Titolo
+	AND Q1.NomeMuseo = Q2.NomeMuseo
+\end{lstlisting}
+\textit{si può fare anche col COUNT ma vabbè}
+\begin{lstlisting}[style=sqlstyle]
+SELECT NomeMuseo
+FROM QUADRO
+WHERE NomePittore = "Sandro Botticelli"
+GROUP BY NomeMuseo
+HAVING COUNT(*) > 2
+\end{lstlisting}
+\end{enumerate}
+
+Cambiamo base di dati
+\begin{align*}
+	UTENTE&(\underline{Codice}, Cognome, Nome, Indirizzo, DataNascita,NumTel,Email) \\
+	PRENOTAZIONE&(\underline{CodUtente, CodVisita, Data, Ora}, Prezzo, NomeGuida)\\
+	VISITA&(\underline{Codice}, Nome, Descrizione, Percorso, DurataInMinuti)\\
+\end{align*}
+
+\begin{enumerate}
+	\item \textbf{Trovare codice, cognome e nome degli utenti che hanno prenotato visite di 60 minuti sia sul percorso "arte nel medioevo", che sul percorso "La luce nell'impressionismo"}
+	
+\begin{lstlisting}[style=sqlstyle]
+SELECT U.Codice,U.Cognome,U.Nome
+FROM UTENTE
+INNER JOIN PRENOTAZIONE P
+	ON U.Codice = P.CodUtente
+INNER JOIN Visita V
+	ON P.CodVisita = V.Codice
+WHERE V.DurataInMinuti = 60 AND V.Percorso = "Arte nel Medioevo"
+
+	INTERSECT
+	
+SELECT U.Codice,U.Cognome,U.Nome
+FROM UTENTE
+INNER JOIN PRENOTAZIONE P
+	ON U.Codice = P.CodUtente
+INNER JOIN Visita V
+	ON P.CodVisita = V.Codice
+WHERE V.DurataInMinuti = 60 AND V.Percorso = "La luce nell'impressionismo"
+\end{lstlisting}
+\item \textbf{Trovare il codice degli utenti che hanno prenotato due volte la stessa visita in due date diverse, riportare nel risultato il nome delle guide coinvolte nelle due visite}
+
+\begin{lstlisting}[style=sqlstyle]
+SELECT P1.CodUtente, P1.NomeGuida, P2.NomeGuida
+FROM Prenotazione P1, Prenotazione P2
+WHERE P1.CodVisita = P2.CodVisita
+	AND P2.CodUtente = P2.CodUtente
+	AND P1.Data <> P2.Data
+\end{lstlisting}
+\item Trovare codice utente, nome e cognome di utenti che hanno prenotato visite solo maggiori di 30 minuti:
+
+\begin{lstlisting}[style=sqlstyle]
+SELECT DISTINCT U.Codice, U.Nome, U.Cognome
+FROM UTENTE U
+JOIN PRENOTAZIONE P ON U.Codice = P.CodUtente
+JOIN VISITA V ON P.CodVisita = V.Codice
+WHERE V.DurataInMinuti >= 30
+	EXCEPT
+SELECT DISTINCT U.Codice, U.Nome, U.Cognome
+FROM UTENTE U
+JOIN PRENOTAZIONE P ON U.Codice = P.CodUtente
+JOIN VISITA V ON P.CodVisita = V.Codice
+WHERE V.DurataInMinuti < 30
+\end{lstlisting}
+
+
+\item \textbf{Per ogni utente il numero di visite guidate che ha prenotato:}
+
+\begin{lstlisting}[style=sqlstyle]
+SELECT U.Cognome, U.Nome, COUNT(*)
+FROM UTENTE U
+INNER JOIN PRENOTAZIONE P
+ON P.CodUtente = U.CodUtente
+GROUP BY P.CodUtente,U.Cognome,U.Nome
+\end{lstlisting}
+
+\end{enumerate}
+
+
+
 
 \end{document} 

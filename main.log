@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2025.10.12)  20 NOV 2025 11:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2025.10.12)  25 NOV 2025 10:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -950,7 +950,7 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count369
  (./main.toc
-Underfull \hbox (badness 7944) in paragraph at lines 35--35
+Underfull \hbox (badness 7944) in paragraph at lines 36--36
  [][] [][]\OT1/cmr/m/n/9 INTERROGAZIONI CON RAG- 
  []
 
@@ -961,684 +961,683 @@ Underfull \hbox (badness 7944) in paragraph at lines 35--35
  [1
 
 {/app/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 86--87
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 87--88
 [] 
  []
 
-<schema1.png, id=303, 848.16875pt x 335.2525pt>
+<schema1.png, id=328, 848.16875pt x 335.2525pt>
 File: schema1.png Graphic file (type png)
 <use schema1.png>
-Package pdftex.def Info: schema1.png  used on input line 119.
+Package pdftex.def Info: schema1.png  used on input line 120.
 (pdftex.def)             Requested size: 338.5863pt x 133.83261pt.
-[2{/app/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./schema
-1.png>]
-<ger1.png, id=315, 697.60625pt x 340.27126pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[2{/app/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+<ger1.png, id=338, 697.60625pt x 340.27126pt>
 File: ger1.png Graphic file (type png)
 <use ger1.png>
-Package pdftex.def Info: ger1.png  used on input line 128.
+Package pdftex.def Info: ger1.png  used on input line 129.
 (pdftex.def)             Requested size: 241.84842pt x 117.96483pt.
- [3 <./ger1.png>]
-<er.png, id=322, 316.18124pt x 65.24374pt>
+ [3 <./schema1.png> <./ger1.png>]
+<er.png, id=348, 316.18124pt x 65.24374pt>
 File: er.png Graphic file (type png)
 <use er.png>
-Package pdftex.def Info: er.png  used on input line 176.
+Package pdftex.def Info: er.png  used on input line 177.
 (pdftex.def)             Requested size: 120.92421pt x 24.95215pt.
-<immagine.png, id=323, 624.3325pt x 300.12125pt>
+<immagine.png, id=349, 624.3325pt x 300.12125pt>
 File: immagine.png Graphic file (type png)
 <use immagine.png>
-Package pdftex.def Info: immagine.png  used on input line 188.
+Package pdftex.def Info: immagine.png  used on input line 189.
 (pdftex.def)             Requested size: 241.84842pt x 116.25456pt.
- [4 <./er.png> <./immagine.png>] [5]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 271--272
-[] 
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 305--306
-[] 
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 309--310
-[] 
- []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[4 <./er.png>] [5 <./immagine.png>]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 272--273
+[] 
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 306--307
+[] 
+ []
+
 [6]
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 387.
-See the caption package documentation for explanation.
-
-
-Overfull \hbox (43.44815pt too wide) in paragraph at lines 378--387
- [][] 
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 310--311
+[] 
  []
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 401.
-See the caption package documentation for explanation.
-
-
-Overfull \hbox (13.78798pt too wide) in paragraph at lines 392--401
- [][] 
- []
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 417.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 429.
-See the caption package documentation for explanation.
 
 [7]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 482.
+(caption)                particular \caption on input line 388.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (53.68422pt too wide) in paragraph at lines 471--482
+Overfull \hbox (43.44815pt too wide) in paragraph at lines 379--388
  [][] 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 501.
+(caption)                particular \caption on input line 402.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (17.31773pt too wide) in paragraph at lines 487--501
+Overfull \hbox (13.78798pt too wide) in paragraph at lines 393--402
  [][] 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 523--524
-[] 
- []
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 418.
+See the caption package documentation for explanation.
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 528--529
-[] 
- []
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 430.
+See the caption package documentation for explanation.
 
 [8]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 483.
+See the caption package documentation for explanation.
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 606--607
+Overfull \hbox (53.68422pt too wide) in paragraph at lines 472--483
+ [][] 
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 502.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (17.31773pt too wide) in paragraph at lines 488--502
+ [][] 
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 524--525
+[] 
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 529--530
 [] 
  []
 
 [9]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 607--608
+[] 
+ []
+
+[10]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 6
-31.
+32.
  (/app/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 631.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 632.
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 639--640
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 640--641
 [] 
  []
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 666.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 667.
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 677--678
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 678--679
 [] 
  []
 
-[10] [11]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 768--769
+[11]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 769--770
 [] 
  []
 
-[12]
+[12] [13]
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./SchemaBD1.pdf): PDF inclusion
 : found PDF version <1.7>, but at most version <1.5> allowed
-<SchemaBD1.pdf, id=425, 591.16856pt x 389.5353pt>
+<SchemaBD1.pdf, id=456, 591.16856pt x 389.5353pt>
 File: SchemaBD1.pdf Graphic file (type pdf)
 <use SchemaBD1.pdf>
-Package pdftex.def Info: SchemaBD1.pdf  used on input line 808.
+Package pdftex.def Info: SchemaBD1.pdf  used on input line 809.
 (pdftex.def)             Requested size: 483.69684pt x 318.71962pt.
-[13 <./SchemaBD1.pdf>]
+[14 <./SchemaBD1.pdf>]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1015.
+(caption)                particular \caption on input line 1016.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (36.63936pt too wide) in paragraph at lines 1015--1015
+Overfull \hbox (36.63936pt too wide) in paragraph at lines 1016--1016
  [][] 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1015.
+(caption)                particular \caption on input line 1016.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (36.63936pt too wide) in paragraph at lines 1015--1015
+Overfull \hbox (36.63936pt too wide) in paragraph at lines 1016--1016
  [][] 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1015.
+(caption)                particular \caption on input line 1016.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1015.
+(caption)                particular \caption on input line 1016.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (36.63936pt too wide) in paragraph at lines 1015--1015
+Overfull \hbox (36.63936pt too wide) in paragraph at lines 1016--1016
  [][] 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1015.
+(caption)                particular \caption on input line 1016.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (36.63936pt too wide) in paragraph at lines 1015--1015
+Overfull \hbox (36.63936pt too wide) in paragraph at lines 1016--1016
  [][] 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1015.
+(caption)                particular \caption on input line 1016.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1015.
+(caption)                particular \caption on input line 1016.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (36.63936pt too wide) in paragraph at lines 1015--1015
+Overfull \hbox (36.63936pt too wide) in paragraph at lines 1016--1016
  [][] 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1015.
+(caption)                particular \caption on input line 1016.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (36.63936pt too wide) in paragraph at lines 1015--1015
+Overfull \hbox (36.63936pt too wide) in paragraph at lines 1016--1016
  [][] 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1015.
+(caption)                particular \caption on input line 1016.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1015.
+(caption)                particular \caption on input line 1016.
 See the caption package documentation for explanation.
 
-[14]
-<immagine2.png, id=458, 803.0pt x 576.1525pt>
+[15]
+<immagine2.png, id=487, 803.0pt x 576.1525pt>
 File: immagine2.png Graphic file (type png)
 <use immagine2.png>
-Package pdftex.def Info: immagine2.png  used on input line 1020.
+Package pdftex.def Info: immagine2.png  used on input line 1021.
 (pdftex.def)             Requested size: 193.47577pt x 138.81569pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1049.
+(caption)                particular \caption on input line 1050.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1066.
+(caption)                particular \caption on input line 1067.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1089.
+(caption)                particular \caption on input line 1090.
 See the caption package documentation for explanation.
 
-[15 <./immagine2.png>]
+[16 <./immagine2.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1111.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rho' on input line 1111.
+(hyperref)                removing `math shift' on input line 1112.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1111.
+(hyperref)                removing `\rho' on input line 1112.
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 1128--1129
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1112.
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 1129--1130
 [] 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1134.
+(hyperref)                removing `math shift' on input line 1135.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sigma' on input line 1134.
+(hyperref)                removing `\sigma' on input line 1135.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1134.
+(hyperref)                removing `math shift' on input line 1135.
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 1149--1150
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 1150--1151
 [] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[16]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 1210--1211
-[] 
- []
-
 [17]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1280.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\pi' on input line 1280.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1280.
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 1327--1328
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 1211--1212
 [] 
  []
 
 [18]
 
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1485.
-See the caption package documentation for explanation.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1281.
 
 
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1499.
-See the caption package documentation for explanation.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\pi' on input line 1281.
 
 
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1515.
-See the caption package documentation for explanation.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1281.
 
 
-Overfull \hbox (10.03745pt too wide) in paragraph at lines 1504--1515
- [][] 
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 1328--1329
+[] 
  []
 
 [19]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1544.
+(caption)                particular \caption on input line 1486.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1558.
+(caption)                particular \caption on input line 1500.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1572.
+(caption)                particular \caption on input line 1516.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (34.22375pt too wide) in paragraph at lines 1563--1572
+Overfull \hbox (10.03745pt too wide) in paragraph at lines 1505--1516
  [][] 
- []
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1603.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1617.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1629.
-See the caption package documentation for explanation.
-
-
-Overfull \hbox (34.22375pt too wide) in paragraph at lines 1622--1629
- [][] 
- []
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1650.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1664.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1682.
-See the caption package documentation for explanation.
-
-
-Overfull \hbox (34.22375pt too wide) in paragraph at lines 1669--1682
- [][] 
- []
-
-
-Overfull \hbox (31.80002pt too wide) in paragraph at lines 1693--1694
-[] 
- []
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1804.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1804.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1804.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1804.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1804.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1804.
-See the caption package documentation for explanation.
-
-
-Overfull \hbox (31.80002pt too wide) in paragraph at lines 1804--1805
-[] 
  []
 
 [20]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1965.
+(caption)                particular \caption on input line 1545.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1965.
+(caption)                particular \caption on input line 1559.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1965.
+(caption)                particular \caption on input line 1573.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (35.36981pt too wide) in paragraph at lines 1965--1965
+Overfull \hbox (34.22375pt too wide) in paragraph at lines 1564--1573
  [][] 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1965.
+(caption)                particular \caption on input line 1604.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1965.
+(caption)                particular \caption on input line 1618.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1965.
+(caption)                particular \caption on input line 1630.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (34.22375pt too wide) in paragraph at lines 1965--1965
+Overfull \hbox (34.22375pt too wide) in paragraph at lines 1623--1630
  [][] 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1965.
+(caption)                particular \caption on input line 1651.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1965.
+(caption)                particular \caption on input line 1665.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1965.
+(caption)                particular \caption on input line 1683.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (35.36981pt too wide) in paragraph at lines 1965--1965
+Overfull \hbox (34.22375pt too wide) in paragraph at lines 1670--1683
  [][] 
+ []
+
+
+Overfull \hbox (31.80002pt too wide) in paragraph at lines 1694--1695
+[] 
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1805.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1805.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1805.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1805.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1805.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1805.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (31.80002pt too wide) in paragraph at lines 1805--1806
+[] 
  []
 
 [21]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2122.
+(caption)                particular \caption on input line 1966.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2122.
+(caption)                particular \caption on input line 1966.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2122.
+(caption)                particular \caption on input line 1966.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (35.36981pt too wide) in paragraph at lines 1966--1966
+ [][] 
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1966.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2122.
+(caption)                particular \caption on input line 1966.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2122.
+(caption)                particular \caption on input line 1966.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (34.22375pt too wide) in paragraph at lines 1966--1966
+ [][] 
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1966.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2122.
+(caption)                particular \caption on input line 1966.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (31.80002pt too wide) in paragraph at lines 2122--2123
-[] 
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1966.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (35.36981pt too wide) in paragraph at lines 1966--1966
+ [][] 
  []
 
 [22]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2146.
+(caption)                particular \caption on input line 2123.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2160.
+(caption)                particular \caption on input line 2123.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2183.
-See the caption package documentation for explanation.
-
-
-Overfull \hbox (33.6668pt too wide) in paragraph at lines 2133--2185
-$[]$  $[]$   $[]$ 
- []
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2218.
+(caption)                particular \caption on input line 2123.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2232.
+(caption)                particular \caption on input line 2123.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2248.
+(caption)                particular \caption on input line 2123.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (17.66672pt too wide) in paragraph at lines 2205--2251
-$[]$  $[]$   $[]$
- []
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 2123.
+See the caption package documentation for explanation.
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 2257--2280
+Overfull \hbox (31.80002pt too wide) in paragraph at lines 2123--2124
 [] 
- []
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2304.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2317.
-See the caption package documentation for explanation.
-
-
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2285--2319
-[]$[]$ $[]$ 
  []
 
 [23]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2378.
+(caption)                particular \caption on input line 2147.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2397.
+(caption)                particular \caption on input line 2161.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2359--2399
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 2184.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (33.6668pt too wide) in paragraph at lines 2134--2186
+$[]$  $[]$   $[]$ 
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 2219.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 2233.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 2249.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (17.66672pt too wide) in paragraph at lines 2206--2252
+$[]$  $[]$   $[]$
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 2258--2281
+[] 
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 2305.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 2318.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 2286--2320
 []$[]$ $[]$ 
  []
 
 [24]
-Overfull \hbox (6.89421pt too wide) detected at line 2451
-[]
- []
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 2379.
+See the caption package documentation for explanation.
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 2507--2508
-[] 
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 2398.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 2360--2400
+[]$[]$ $[]$ 
  []
 
 [25]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 2636--2637
+Overfull \hbox (6.89421pt too wide) detected at line 2452
+[]
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 2508--2509
 [] 
  []
 
-[26] [27]
-Overfull \hbox (31.80002pt too wide) in paragraph at lines 2776--2778
+[26]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 2637--2638
+[] 
+ []
+
+[27] [28]
+Overfull \hbox (31.80002pt too wide) in paragraph at lines 2777--2779
 []
  []
 
 
-Overfull \hbox (18.57332pt too wide) detected at line 2826
+Overfull \hbox (18.57332pt too wide) detected at line 2827
 []
  []
 
-[28] [29]
-Overfull \hbox (21.01654pt too wide) detected at line 2962
-[]
- []
-
-[30]
-Overfull \hbox (8.27832pt too wide) detected at line 2985
-[]
- []
-
-
-Overfull \hbox (37.16415pt too wide) detected at line 3050
+[29] [30]
+Overfull \hbox (21.01654pt too wide) detected at line 2963
 []
  []
 
 [31]
-Overfull \hbox (2.27025pt too wide) detected at line 3118
+Overfull \hbox (8.27832pt too wide) detected at line 2986
+[]
+ []
+
+
+Overfull \hbox (37.16415pt too wide) detected at line 3051
 []
  []
 
 [32]
-Overfull \hbox (86.52371pt too wide) detected at line 3152
+Overfull \hbox (2.27025pt too wide) detected at line 3119
 []
  []
 
 [33]
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 3316.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 3316.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 3316.
-See the caption package documentation for explanation.
+Overfull \hbox (86.52371pt too wide) detected at line 3153
+[]
+ []
 
 [34]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 3321--3323
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 3317.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 3317.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 3317.
+See the caption package documentation for explanation.
+
+[35]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 3322--3324
 []
  []
 
@@ -1646,168 +1645,168 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 3321--3323
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 3333.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 3334.
 
- [35] [36] [37]
-<screenshot001.png, id=736, 608.2725pt x 270.25969pt>
+ [36] [37] [38]
+<screenshot001.png, id=765, 608.2725pt x 270.25969pt>
 File: screenshot001.png Graphic file (type png)
 <use screenshot001.png>
-Package pdftex.def Info: screenshot001.png  used on input line 3549.
+Package pdftex.def Info: screenshot001.png  used on input line 3550.
 (pdftex.def)             Requested size: 483.69684pt x 214.91315pt.
 
-[38 <./screenshot001.png>] [39]
+[39 <./screenshot001.png>] [40]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[40]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 3952--3953
+[41]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 3953--3954
 [] 
  []
 
-[41] [42]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 4220--4221
+[42] [43]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 4221--4222
 [] 
  []
 
-[43]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 4265--4266
+[44]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 4266--4267
 [] 
  []
 
-[44] [45] [46]
-Overfull \hbox (16.83713pt too wide) in paragraph at lines 4587--4589
+[45] [46] [47]
+Overfull \hbox (16.83713pt too wide) in paragraph at lines 4588--4590
 []\OT1/cmr/m/n/10 Le in-ter-rogazioni ni-d-ifi-cate si trovano nella clau-sola 
 \OT1/cmr/m/it/10 WHERE\OT1/cmr/m/n/10 . Il prob-lema sorge quando il risul-tato
  dell'interrogazione
  []
 
-[47]
-Underfull \hbox (badness 3098) in paragraph at lines 4624--4624
+[48]
+Underfull \hbox (badness 3098) in paragraph at lines 4625--4625
 []\OT1/cmr/m/n/10 Nelle \OT1/cmr/bx/n/10 in-ter-rogazioni ni-d-ifi-cate com-p-l
 esse\OT1/cmr/m/n/10 , l'interrogazione ni-d-i-fi-cata fa rifer-i-mento al con-t
 esto
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 4624--4625
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 4625--4626
 [] 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 4626--4627
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 4627--4628
 [] 
  []
 
-[48] [49] [50] [51] [52] [53]
-Overfull \hbox (11.52832pt too wide) detected at line 5018
+[49] [50] [51] [52] [53] [54]
+Overfull \hbox (11.52832pt too wide) detected at line 5019
 []
  []
 
-[54] [55]
+[55] [56]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 5115.
+(hyperref)                than one, level fixed on input line 5116.
 
 
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./Er1.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<Er1.pdf, id=1425, 442.53331pt x 174.6525pt>
+<Er1.pdf, id=1454, 442.53331pt x 174.6525pt>
 File: Er1.pdf Graphic file (type pdf)
 <use Er1.pdf>
-Package pdftex.def Info: Er1.pdf  used on input line 5124.
+Package pdftex.def Info: Er1.pdf  used on input line 5125.
 (pdftex.def)             Requested size: 483.69684pt x 190.89778pt.
 
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er2.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<er2.pdf, id=1426, 427.5975pt x 166.7028pt>
+<er2.pdf, id=1455, 427.5975pt x 166.7028pt>
 File: er2.pdf Graphic file (type pdf)
 <use er2.pdf>
-Package pdftex.def Info: er2.pdf  used on input line 5129.
+Package pdftex.def Info: er2.pdf  used on input line 5130.
 (pdftex.def)             Requested size: 386.95894pt x 150.86035pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 5135--5136
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 5136--5137
 [] 
  []
 
-[56 <./Er1.pdf>]
+[57 <./Er1.pdf>]
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./relaztern.pdf): PDF inclusion
 : found PDF version <1.7>, but at most version <1.5> allowed
-<relaztern.pdf, id=1449, 391.4625pt x 174.6525pt>
+<relaztern.pdf, id=1478, 391.4625pt x 174.6525pt>
 File: relaztern.pdf Graphic file (type pdf)
 <use relaztern.pdf>
-Package pdftex.def Info: relaztern.pdf  used on input line 5141.
+Package pdftex.def Info: relaztern.pdf  used on input line 5142.
 (pdftex.def)             Requested size: 483.69684pt x 215.81532pt.
 
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./relazrec.pdf): PDF inclusion:
  found PDF version <1.7>, but at most version <1.5> allowed
-<relazrec.pdf, id=1450, 375.32219pt x 143.5764pt>
+<relazrec.pdf, id=1479, 375.32219pt x 143.5764pt>
 File: relazrec.pdf Graphic file (type pdf)
 <use relazrec.pdf>
-Package pdftex.def Info: relazrec.pdf  used on input line 5149.
+Package pdftex.def Info: relazrec.pdf  used on input line 5150.
 (pdftex.def)             Requested size: 290.22105pt x 111.02298pt.
-[57 <./er2.pdf> <./relaztern.pdf> <./relazrec.pdf>]
+[58 <./er2.pdf> <./relaztern.pdf> <./relazrec.pdf>]
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./attrcomp.pdf): PDF inclusion:
  found PDF version <1.7>, but at most version <1.5> allowed
-<attrcomp.pdf, id=1500, 268.12169pt x 81.4242pt>
+<attrcomp.pdf, id=1530, 268.12169pt x 81.4242pt>
 File: attrcomp.pdf Graphic file (type pdf)
 <use attrcomp.pdf>
-Package pdftex.def Info: attrcomp.pdf  used on input line 5157.
+Package pdftex.def Info: attrcomp.pdf  used on input line 5158.
 (pdftex.def)             Requested size: 290.22105pt x 88.1443pt.
 
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er3.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<er3.pdf, id=1501, 623.44919pt x 131.53139pt>
+<er3.pdf, id=1531, 623.44919pt x 131.53139pt>
 File: er3.pdf Graphic file (type pdf)
 <use er3.pdf>
-Package pdftex.def Info: er3.pdf  used on input line 5166.
+Package pdftex.def Info: er3.pdf  used on input line 5167.
 (pdftex.def)             Requested size: 483.69684pt x 102.04814pt.
 
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er5.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<er5.pdf, id=1502, 377.49028pt x 251.9814pt>
+<er5.pdf, id=1532, 377.49028pt x 251.9814pt>
 File: er5.pdf Graphic file (type pdf)
 <use er5.pdf>
-Package pdftex.def Info: er5.pdf  used on input line 5177.
+Package pdftex.def Info: er5.pdf  used on input line 5178.
 (pdftex.def)             Requested size: 290.22105pt x 193.7379pt.
-[58 <./attrcomp.pdf> <./er3.pdf> <./er5.pdf>]
+[59 <./attrcomp.pdf> <./er3.pdf> <./er5.pdf>]
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./R11.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<R11.pdf, id=1555, 179.7114pt x 147.67169pt>
+<R11.pdf, id=1584, 179.7114pt x 147.67169pt>
 File: R11.pdf Graphic file (type pdf)
 <use R11.pdf>
-Package pdftex.def Info: R11.pdf  used on input line 5193.
+Package pdftex.def Info: R11.pdf  used on input line 5194.
 (pdftex.def)             Requested size: 241.84842pt x 198.73753pt.
 
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er4.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<er4.pdf, id=1556, 623.44919pt x 131.53139pt>
+<er4.pdf, id=1585, 623.44919pt x 131.53139pt>
 File: er4.pdf Graphic file (type pdf)
 <use er4.pdf>
-Package pdftex.def Info: er4.pdf  used on input line 5200.
+Package pdftex.def Info: er4.pdf  used on input line 5201.
 (pdftex.def)             Requested size: 483.69684pt x 102.04814pt.
-[59 <./R11.pdf> <./er4.pdf>]
+[60 <./R11.pdf> <./er4.pdf>]
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er6.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<er6.pdf, id=1593, 274.1442pt x 177.7842pt>
+<er6.pdf, id=1622, 274.1442pt x 177.7842pt>
 File: er6.pdf Graphic file (type pdf)
 <use er6.pdf>
-Package pdftex.def Info: er6.pdf  used on input line 5217.
+Package pdftex.def Info: er6.pdf  used on input line 5218.
 (pdftex.def)             Requested size: 290.22105pt x 188.22244pt.
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 5229--5230
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 5230--5231
 [] 
  []
 
@@ -1815,54 +1814,54 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 5229--5230
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./ER7.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<ER7.pdf, id=1594, 348.34138pt x 186.6975pt>
+<ER7.pdf, id=1623, 348.34138pt x 186.6975pt>
 File: ER7.pdf Graphic file (type pdf)
 <use ER7.pdf>
-Package pdftex.def Info: ER7.pdf  used on input line 5234.
+Package pdftex.def Info: ER7.pdf  used on input line 5235.
 (pdftex.def)             Requested size: 290.22105pt x 155.55711pt.
 
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er8.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<er8.pdf, id=1595, 477.70468pt x 234.8775pt>
+<er8.pdf, id=1624, 477.70468pt x 234.8775pt>
 File: er8.pdf Graphic file (type pdf)
 <use er8.pdf>
-Package pdftex.def Info: er8.pdf  used on input line 5241.
+Package pdftex.def Info: er8.pdf  used on input line 5242.
 (pdftex.def)             Requested size: 483.69684pt x 237.83008pt.
-[60 <./er6.pdf> <./ER7.pdf>]
+[61 <./er6.pdf> <./ER7.pdf>]
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er9.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<er9.pdf, id=1632, 527.08919pt x 237.7683pt>
+<er9.pdf, id=1663, 527.08919pt x 237.7683pt>
 File: er9.pdf Graphic file (type pdf)
 <use er9.pdf>
-Package pdftex.def Info: er9.pdf  used on input line 5250.
+Package pdftex.def Info: er9.pdf  used on input line 5251.
 (pdftex.def)             Requested size: 483.69684pt x 218.20163pt.
-[61 <./er8.pdf> <./er9.pdf>]
+[62 <./er8.pdf> <./er9.pdf>]
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./gen1.pdf): PDF inclusion: fou
 nd PDF version <1.7>, but at most version <1.5> allowed
-<gen1.pdf, id=1671, 478.66827pt x 275.10779pt>
+<gen1.pdf, id=1700, 478.66827pt x 275.10779pt>
 File: gen1.pdf Graphic file (type pdf)
 <use gen1.pdf>
-Package pdftex.def Info: gen1.pdf  used on input line 5259.
+Package pdftex.def Info: gen1.pdf  used on input line 5260.
 (pdftex.def)             Requested size: 483.69684pt x 278.00357pt.
 
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./gen2.pdf): PDF inclusion: fou
 nd PDF version <1.7>, but at most version <1.5> allowed
-<gen2.pdf, id=1672, 601.28638pt x 434.58359pt>
+<gen2.pdf, id=1701, 601.28638pt x 434.58359pt>
 File: gen2.pdf Graphic file (type pdf)
 <use gen2.pdf>
-Package pdftex.def Info: gen2.pdf  used on input line 5269.
+Package pdftex.def Info: gen2.pdf  used on input line 5270.
 (pdftex.def)             Requested size: 483.69684pt x 349.59702pt.
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 5276--5277
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 5277--5278
 [] 
  []
 
-[62 <./gen1.pdf> <./gen2.pdf>]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 5284--5285
+[63 <./gen1.pdf> <./gen2.pdf>]
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 5285--5286
 [] 
  []
 
@@ -1870,42 +1869,42 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 5284--5285
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./gen3.pdf): PDF inclusion: fou
 nd PDF version <1.7>, but at most version <1.5> allowed
-<gen3.pdf, id=1712, 561.05606pt x 235.8411pt>
+<gen3.pdf, id=1741, 561.05606pt x 235.8411pt>
 File: gen3.pdf Graphic file (type pdf)
 <use gen3.pdf>
-Package pdftex.def Info: gen3.pdf  used on input line 5292.
+Package pdftex.def Info: gen3.pdf  used on input line 5293.
 (pdftex.def)             Requested size: 483.69684pt x 203.33037pt.
 
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./doc1.pdf): PDF inclusion: fou
 nd PDF version <1.7>, but at most version <1.5> allowed
-<doc1.pdf, id=1713, 341.35529pt x 153.6942pt>
+<doc1.pdf, id=1742, 341.35529pt x 153.6942pt>
 File: doc1.pdf Graphic file (type pdf)
 <use doc1.pdf>
-Package pdftex.def Info: doc1.pdf  used on input line 5299.
+Package pdftex.def Info: doc1.pdf  used on input line 5300.
 (pdftex.def)             Requested size: 386.95894pt x 174.23055pt.
-[63 <./gen3.pdf> <./doc1.pdf>]
-Overfull \hbox (2.49109pt too wide) in paragraph at lines 5323--5332
+[64 <./gen3.pdf> <./doc1.pdf>]
+Overfull \hbox (2.49109pt too wide) in paragraph at lines 5324--5333
  [][] 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 5354--5355
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 5355--5356
 [] 
  []
 
-[64] (./main.aux)
+[65] [66] [67] [68] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C5DC48FDD7B1D2C283A4B199CAFE01E2;10168.
+(rerunfilecheck)             Checksum: 4893A01A0AE2B9F1300DED2922A31B18;10812.
  ) 
 Here is how much of TeX's memory you used:
- 38369 strings out of 476041
- 807005 string characters out of 5793173
- 2064388 words of memory out of 6000000
- 57321 multiletter control sequences out of 15000+600000
- 526900 words of font info for 82 fonts, out of 8000000 for 9000
+ 38540 strings out of 476041
+ 809409 string characters out of 5793173
+ 2066388 words of memory out of 6000000
+ 57349 multiletter control sequences out of 15000+600000
+ 527207 words of font info for 83 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 162i,21n,145p,2644b,2175s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 162i,21n,145p,2667b,2175s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></app/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></app/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></app/texlive/texmf-dist/fonts/ty
@@ -1933,10 +1932,10 @@ ist/fonts/type1/public/amsfonts/cm/cmti9.pfb></app/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmtt9.pfb></app/texlive/texmf-dist/fonts/type1/public/ams
 fonts/latxfont/line10.pfb></app/texlive/texmf-dist/fonts/type1/public/cm-super/
 sfrm1000.pfb>
-Output written on main.pdf (64 pages, 1898529 bytes).
+Output written on main.pdf (68 pages, 1915895 bytes).
 PDF statistics:
- 2100 PDF objects out of 2487 (max. 8388607)
- 1853 compressed objects within 19 object streams
- 999 named destinations out of 1000 (max. 500000)
- 573 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2307 PDF objects out of 2487 (max. 8388607)
+ 2054 compressed objects within 21 object streams
+ 1142 named destinations out of 1200 (max. 500000)
+ 613 words of extra memory for PDF output out of 10000 (max. 10000000)
 

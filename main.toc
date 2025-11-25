@@ -1,58 +1,63 @@
+\contentsline {part}{I\hspace {1em}Teoria}{2}{part.1}%
 \contentsline {section}{\numberline {1}Descrizione corso}{2}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Modalità d'esame}{2}{subsection.1.1}%
 \contentsline {section}{\numberline {2}Introduzione}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Possibili domande di teoria:}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Modellazione dei dati}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}Modellazione dei dati}{4}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Schema, Istanza e Architettura delle basi di dati}{4}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Architettura semplificata di un DBMS}{5}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2}Architettura semplificata di un DBMS}{4}{subsubsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.3}Utente, sistema informativo e modello relazionale}{5}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.4}Concetto di relazione}{5}{subsubsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.3}DEFINIZIONI relative al MODELLO RELAZIONALE DEI DATI}{7}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Informazioni incomplete}{8}{subsubsection.2.3.1}%
-\contentsline {section}{\numberline {3}Modello relazionale}{9}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Vincoli di integrità:}{9}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Chiavi}{10}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Vincoli di integrità referenziale}{11}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Algebra relazionale}{14}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Operatori dell'algebra relazionale}{14}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Ridenominazione $\rho $}{16}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Selezione $\sigma $}{16}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Proiezione $\pi $}{18}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}JOIN}{19}{subsubsection.4.1.4}%
-\contentsline {subsection}{\numberline {4.2}Rappresentazione delle espressioni tramite gli alberi}{24}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Equivalenza di espressioni algebriche}{25}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Trasformazioni di equivalenza}{26}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Algebra con valori nulli}{27}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Esercizi da esame:}{32}{subsection.4.6}%
-\contentsline {subsubsection}{\numberline {4.6.1}Algebra relazionale}{32}{subsubsection.4.6.1}%
-\contentsline {subsubsection}{\numberline {4.6.2}Domanda 3 sulla cardinalità}{34}{subsubsection.4.6.2}%
-\contentsline {section}{\numberline {5}SQL (Structured Query Language)}{35}{section.5}%
-\contentsline {subsection}{\numberline {5.1}ISTRUZIONI DDL:}{35}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Domini dei dati}{36}{subsubsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.2}Data Manipulation Language(DML)}{37}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Query Language (QL)}{39}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}OPERATORI DI AGGREGAZIONE:}{42}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}INTERROGAZIONI CON RAGGRUPPAMENTO:}{43}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}JOIN}{44}{subsubsection.5.3.3}%
-\contentsline {subsubsection}{\numberline {5.3.4}USO DI VARIABILI}{46}{subsubsection.5.3.4}%
-\contentsline {subsubsection}{\numberline {5.3.5}Interrogazioni di tipo insiemistico}{46}{subsubsection.5.3.5}%
-\contentsline {subsubsection}{\numberline {5.3.6}INTERROGAZIONI NIDIFICATE}{47}{subsubsection.5.3.6}%
-\contentsline {subsubsection}{\numberline {5.3.7}INTERROGAZIONI NIDIFICATE \textbf {\textit {COMPLESSE}}}{48}{subsubsection.5.3.7}%
-\contentsline {subsubsection}{\numberline {5.3.8}VISTE SQL:}{48}{subsubsection.5.3.8}%
-\contentsline {subsection}{\numberline {5.4}Esercizi}{49}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}Esempio Esame}{52}{subsubsection.5.4.1}%
-\contentsline {section}{\numberline {6}Progettazione di una base di dati}{56}{section.6}%
-\contentsline {paragraph}{Fase 1:}{56}{section*.34}%
-\contentsline {paragraph}{Fase 2:}{56}{section*.35}%
-\contentsline {paragraph}{Fase 3:}{56}{section*.36}%
-\contentsline {subsubsection}{\numberline {6.0.1}Modellazione concettuale}{56}{subsubsection.6.0.1}%
-\contentsline {subsection}{\numberline {6.1}Costrutti principali del modello E-R:}{56}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Entità}{56}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Relazione}{56}{subsubsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.3}Attributo}{56}{subsubsection.6.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.4}Relazioni Ternaria (N-Arie)}{57}{subsubsection.6.1.4}%
-\contentsline {subsubsection}{\numberline {6.1.5}Relazione Ricorsiva}{57}{subsubsection.6.1.5}%
-\contentsline {subsubsection}{\numberline {6.1.6}Attributi composti}{58}{subsubsection.6.1.6}%
-\contentsline {subsubsection}{\numberline {6.1.7}Altri costrutti del modello E-R}{58}{subsubsection.6.1.7}%
-\contentsline {subsubsection}{\numberline {6.1.8}Generalizzazione:}{62}{subsubsection.6.1.8}%
-\contentsline {subsection}{\numberline {6.2}Documentazione di uno schema ER}{63}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {2.2.4}Concetto di relazione}{6}{subsubsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.3}DEFINIZIONI relative al MODELLO RELAZIONALE DEI DATI}{8}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Informazioni incomplete}{9}{subsubsection.2.3.1}%
+\contentsline {section}{\numberline {3}Modello relazionale}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Vincoli di integrità:}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Chiavi}{11}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Vincoli di integrità referenziale}{12}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Algebra relazionale}{15}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Operatori dell'algebra relazionale}{15}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Ridenominazione $\rho $}{17}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Selezione $\sigma $}{17}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Proiezione $\pi $}{19}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}JOIN}{20}{subsubsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.2}Rappresentazione delle espressioni tramite gli alberi}{25}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Equivalenza di espressioni algebriche}{26}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Trasformazioni di equivalenza}{27}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Algebra con valori nulli}{28}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Esercizi da esame:}{33}{subsection.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}Algebra relazionale}{33}{subsubsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.2}Domanda 3 sulla cardinalità}{35}{subsubsection.4.6.2}%
+\contentsline {section}{\numberline {5}SQL (Structured Query Language)}{36}{section.5}%
+\contentsline {subsection}{\numberline {5.1}ISTRUZIONI DDL:}{36}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Domini dei dati}{37}{subsubsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.2}Data Manipulation Language(DML)}{38}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Query Language (QL)}{40}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}OPERATORI DI AGGREGAZIONE:}{43}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}INTERROGAZIONI CON RAGGRUPPAMENTO:}{44}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}JOIN}{45}{subsubsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.4}USO DI VARIABILI}{47}{subsubsection.5.3.4}%
+\contentsline {subsubsection}{\numberline {5.3.5}Interrogazioni di tipo insiemistico}{47}{subsubsection.5.3.5}%
+\contentsline {subsubsection}{\numberline {5.3.6}INTERROGAZIONI NIDIFICATE}{48}{subsubsection.5.3.6}%
+\contentsline {subsubsection}{\numberline {5.3.7}INTERROGAZIONI NIDIFICATE \textbf {\textit {COMPLESSE}}}{49}{subsubsection.5.3.7}%
+\contentsline {subsubsection}{\numberline {5.3.8}VISTE SQL:}{49}{subsubsection.5.3.8}%
+\contentsline {subsection}{\numberline {5.4}Esercizi}{50}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Esempio Esame}{53}{subsubsection.5.4.1}%
+\contentsline {section}{\numberline {6}Progettazione di una base di dati}{57}{section.6}%
+\contentsline {paragraph}{Fase 1:}{57}{section*.34}%
+\contentsline {paragraph}{Fase 2:}{57}{section*.35}%
+\contentsline {paragraph}{Fase 3:}{57}{section*.36}%
+\contentsline {subsubsection}{\numberline {6.0.1}Modellazione concettuale}{57}{subsubsection.6.0.1}%
+\contentsline {subsection}{\numberline {6.1}Costrutti principali del modello E-R:}{57}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Entità}{57}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Relazione}{57}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Attributo}{57}{subsubsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Relazioni Ternaria (N-Arie)}{58}{subsubsection.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.1.5}Relazione Ricorsiva}{58}{subsubsection.6.1.5}%
+\contentsline {subsubsection}{\numberline {6.1.6}Attributi composti}{59}{subsubsection.6.1.6}%
+\contentsline {subsubsection}{\numberline {6.1.7}Altri costrutti del modello E-R}{59}{subsubsection.6.1.7}%
+\contentsline {subsubsection}{\numberline {6.1.8}Generalizzazione:}{63}{subsubsection.6.1.8}%
+\contentsline {subsection}{\numberline {6.2}Documentazione di uno schema ER}{64}{subsection.6.2}%
+\contentsline {part}{II\hspace {1em}Tutorato}{65}{part.2}%
+\contentsline {section}{\numberline {7}Esercizi Algebra Relazionale}{65}{section.7}%
+\contentsline {section}{\numberline {8}Esercizi SQL}{66}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Esercizio 1}{66}{subsection.8.1}%
