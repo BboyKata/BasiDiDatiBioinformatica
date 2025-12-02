@@ -57,7 +57,7 @@
 \contentsline {subsubsection}{\numberline {6.1.7}Altri costrutti del modello E-R}{59}{subsubsection.6.1.7}%
 \contentsline {subsubsection}{\numberline {6.1.8}Generalizzazione:}{63}{subsubsection.6.1.8}%
 \contentsline {subsection}{\numberline {6.2}Documentazione di uno schema ER}{64}{subsection.6.2}%
-\contentsline {part}{II\hspace {1em}Tutorato}{67}{part.2}%
-\contentsline {section}{\numberline {7}Esercizi Algebra Relazionale}{67}{section.7}%
-\contentsline {section}{\numberline {8}Esercizi SQL}{71}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Esercizio 1}{71}{subsection.8.1}%
+\contentsline {part}{II\hspace {1em}Tutorato}{68}{part.2}%
+\contentsline {section}{\numberline {7}Esercizi Algebra Relazionale}{68}{section.7}%
+\contentsline {section}{\numberline {8}Esercizi SQL}{72}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Esercizio 1}{72}{subsection.8.1}%

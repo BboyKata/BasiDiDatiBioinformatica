@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2025.10.12)  26 NOV 2025 10:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2025.10.12)  2 DEC 2025 17:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -965,7 +965,7 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 87--88
 [] 
  []
 
-<schema1.png, id=333, 848.16875pt x 335.2525pt>
+<schema1.png, id=328, 848.16875pt x 335.2525pt>
 File: schema1.png Graphic file (type png)
 <use schema1.png>
 Package pdftex.def Info: schema1.png  used on input line 120.
@@ -974,18 +974,18 @@ Package pdftex.def Info: schema1.png  used on input line 120.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [2{/app/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<ger1.png, id=344, 697.60625pt x 340.27126pt>
+<ger1.png, id=338, 697.60625pt x 340.27126pt>
 File: ger1.png Graphic file (type png)
 <use ger1.png>
 Package pdftex.def Info: ger1.png  used on input line 129.
 (pdftex.def)             Requested size: 241.84842pt x 117.96483pt.
  [3 <./schema1.png> <./ger1.png>]
-<er.png, id=353, 316.18124pt x 65.24374pt>
+<er.png, id=348, 316.18124pt x 65.24374pt>
 File: er.png Graphic file (type png)
 <use er.png>
 Package pdftex.def Info: er.png  used on input line 177.
 (pdftex.def)             Requested size: 120.92421pt x 24.95215pt.
-<immagine.png, id=354, 624.3325pt x 300.12125pt>
+<immagine.png, id=349, 624.3325pt x 300.12125pt>
 File: immagine.png Graphic file (type png)
 <use immagine.png>
 Package pdftex.def Info: immagine.png  used on input line 189.
@@ -1105,7 +1105,7 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 769--770
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./SchemaBD1.pdf): PDF inclusion
 : found PDF version <1.7>, but at most version <1.5> allowed
-<SchemaBD1.pdf, id=461, 591.16856pt x 389.5353pt>
+<SchemaBD1.pdf, id=456, 591.16856pt x 389.5353pt>
 File: SchemaBD1.pdf Graphic file (type pdf)
 <use SchemaBD1.pdf>
 Package pdftex.def Info: SchemaBD1.pdf  used on input line 809.
@@ -1192,7 +1192,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [15]
-<immagine2.png, id=492, 803.0pt x 576.1525pt>
+<immagine2.png, id=487, 803.0pt x 576.1525pt>
 File: immagine2.png Graphic file (type png)
 <use immagine2.png>
 Package pdftex.def Info: immagine2.png  used on input line 1021.
@@ -1648,7 +1648,7 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <9> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 3334.
 
  [36] [37] [38]
-<screenshot001.png, id=770, 608.2725pt x 270.25969pt>
+<screenshot001.png, id=765, 608.2725pt x 270.25969pt>
 File: screenshot001.png Graphic file (type png)
 <use screenshot001.png>
 Package pdftex.def Info: screenshot001.png  used on input line 3550.
@@ -1711,7 +1711,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./Er1.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<Er1.pdf, id=1459, 442.53331pt x 174.6525pt>
+<Er1.pdf, id=1454, 442.53331pt x 174.6525pt>
 File: Er1.pdf Graphic file (type pdf)
 <use Er1.pdf>
 Package pdftex.def Info: Er1.pdf  used on input line 5125.
@@ -1720,7 +1720,7 @@ Package pdftex.def Info: Er1.pdf  used on input line 5125.
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er2.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<er2.pdf, id=1460, 427.5975pt x 166.7028pt>
+<er2.pdf, id=1455, 427.5975pt x 166.7028pt>
 File: er2.pdf Graphic file (type pdf)
 <use er2.pdf>
 Package pdftex.def Info: er2.pdf  used on input line 5130.
@@ -1737,7 +1737,7 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 5136--5137
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./relaztern.pdf): PDF inclusion
 : found PDF version <1.7>, but at most version <1.5> allowed
-<relaztern.pdf, id=1483, 391.4625pt x 174.6525pt>
+<relaztern.pdf, id=1478, 391.4625pt x 174.6525pt>
 File: relaztern.pdf Graphic file (type pdf)
 <use relaztern.pdf>
 Package pdftex.def Info: relaztern.pdf  used on input line 5142.
@@ -1746,7 +1746,7 @@ Package pdftex.def Info: relaztern.pdf  used on input line 5142.
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./relazrec.pdf): PDF inclusion:
  found PDF version <1.7>, but at most version <1.5> allowed
-<relazrec.pdf, id=1484, 375.32219pt x 143.5764pt>
+<relazrec.pdf, id=1479, 375.32219pt x 143.5764pt>
 File: relazrec.pdf Graphic file (type pdf)
 <use relazrec.pdf>
 Package pdftex.def Info: relazrec.pdf  used on input line 5150.
@@ -1755,7 +1755,7 @@ Package pdftex.def Info: relazrec.pdf  used on input line 5150.
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./attrcomp.pdf): PDF inclusion:
  found PDF version <1.7>, but at most version <1.5> allowed
-<attrcomp.pdf, id=1535, 268.12169pt x 81.4242pt>
+<attrcomp.pdf, id=1530, 268.12169pt x 81.4242pt>
 File: attrcomp.pdf Graphic file (type pdf)
 <use attrcomp.pdf>
 Package pdftex.def Info: attrcomp.pdf  used on input line 5158.
@@ -1764,7 +1764,7 @@ Package pdftex.def Info: attrcomp.pdf  used on input line 5158.
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er3.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<er3.pdf, id=1536, 623.44919pt x 131.53139pt>
+<er3.pdf, id=1531, 623.44919pt x 131.53139pt>
 File: er3.pdf Graphic file (type pdf)
 <use er3.pdf>
 Package pdftex.def Info: er3.pdf  used on input line 5167.
@@ -1773,7 +1773,7 @@ Package pdftex.def Info: er3.pdf  used on input line 5167.
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er5.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<er5.pdf, id=1537, 377.49028pt x 251.9814pt>
+<er5.pdf, id=1532, 377.49028pt x 251.9814pt>
 File: er5.pdf Graphic file (type pdf)
 <use er5.pdf>
 Package pdftex.def Info: er5.pdf  used on input line 5178.
@@ -1782,7 +1782,7 @@ Package pdftex.def Info: er5.pdf  used on input line 5178.
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./R11.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<R11.pdf, id=1589, 179.7114pt x 147.67169pt>
+<R11.pdf, id=1584, 179.7114pt x 147.67169pt>
 File: R11.pdf Graphic file (type pdf)
 <use R11.pdf>
 Package pdftex.def Info: R11.pdf  used on input line 5194.
@@ -1791,7 +1791,7 @@ Package pdftex.def Info: R11.pdf  used on input line 5194.
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er4.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<er4.pdf, id=1590, 623.44919pt x 131.53139pt>
+<er4.pdf, id=1585, 623.44919pt x 131.53139pt>
 File: er4.pdf Graphic file (type pdf)
 <use er4.pdf>
 Package pdftex.def Info: er4.pdf  used on input line 5201.
@@ -1800,7 +1800,7 @@ Package pdftex.def Info: er4.pdf  used on input line 5201.
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er6.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<er6.pdf, id=1627, 274.1442pt x 177.7842pt>
+<er6.pdf, id=1622, 274.1442pt x 177.7842pt>
 File: er6.pdf Graphic file (type pdf)
 <use er6.pdf>
 Package pdftex.def Info: er6.pdf  used on input line 5218.
@@ -1814,7 +1814,7 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 5230--5231
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./ER7.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<ER7.pdf, id=1628, 348.34138pt x 186.6975pt>
+<ER7.pdf, id=1623, 348.34138pt x 186.6975pt>
 File: ER7.pdf Graphic file (type pdf)
 <use ER7.pdf>
 Package pdftex.def Info: ER7.pdf  used on input line 5235.
@@ -1823,7 +1823,7 @@ Package pdftex.def Info: ER7.pdf  used on input line 5235.
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er8.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<er8.pdf, id=1629, 477.70468pt x 234.8775pt>
+<er8.pdf, id=1624, 477.70468pt x 234.8775pt>
 File: er8.pdf Graphic file (type pdf)
 <use er8.pdf>
 Package pdftex.def Info: er8.pdf  used on input line 5242.
@@ -1832,7 +1832,7 @@ Package pdftex.def Info: er8.pdf  used on input line 5242.
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er9.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<er9.pdf, id=1668, 527.08919pt x 237.7683pt>
+<er9.pdf, id=1663, 527.08919pt x 237.7683pt>
 File: er9.pdf Graphic file (type pdf)
 <use er9.pdf>
 Package pdftex.def Info: er9.pdf  used on input line 5251.
@@ -1841,7 +1841,7 @@ Package pdftex.def Info: er9.pdf  used on input line 5251.
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./gen1.pdf): PDF inclusion: fou
 nd PDF version <1.7>, but at most version <1.5> allowed
-<gen1.pdf, id=1705, 478.66827pt x 275.10779pt>
+<gen1.pdf, id=1700, 478.66827pt x 275.10779pt>
 File: gen1.pdf Graphic file (type pdf)
 <use gen1.pdf>
 Package pdftex.def Info: gen1.pdf  used on input line 5260.
@@ -1850,7 +1850,7 @@ Package pdftex.def Info: gen1.pdf  used on input line 5260.
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./gen2.pdf): PDF inclusion: fou
 nd PDF version <1.7>, but at most version <1.5> allowed
-<gen2.pdf, id=1706, 601.28638pt x 434.58359pt>
+<gen2.pdf, id=1701, 601.28638pt x 434.58359pt>
 File: gen2.pdf Graphic file (type pdf)
 <use gen2.pdf>
 Package pdftex.def Info: gen2.pdf  used on input line 5270.
@@ -1869,7 +1869,7 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 5285--5286
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./gen3.pdf): PDF inclusion: fou
 nd PDF version <1.7>, but at most version <1.5> allowed
-<gen3.pdf, id=1746, 561.05606pt x 235.8411pt>
+<gen3.pdf, id=1741, 561.05606pt x 235.8411pt>
 File: gen3.pdf Graphic file (type pdf)
 <use gen3.pdf>
 Package pdftex.def Info: gen3.pdf  used on input line 5293.
@@ -1878,7 +1878,7 @@ Package pdftex.def Info: gen3.pdf  used on input line 5293.
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./doc1.pdf): PDF inclusion: fou
 nd PDF version <1.7>, but at most version <1.5> allowed
-<doc1.pdf, id=1747, 341.35529pt x 153.6942pt>
+<doc1.pdf, id=1742, 341.35529pt x 153.6942pt>
 File: doc1.pdf Graphic file (type pdf)
 <use doc1.pdf>
 Package pdftex.def Info: doc1.pdf  used on input line 5300.
@@ -1893,84 +1893,73 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 5355--5356
 [] 
  []
 
-
-
-pdfTeX warning: /app/texlive/bin/pdflatex (file ./er10.pdf): PDF inclusion: fou
-nd PDF version <1.7>, but at most version <1.5> allowed
-<er10.pdf, id=1784, 626.34pt x 282.0939pt>
-File: er10.pdf Graphic file (type pdf)
-<use er10.pdf>
-Package pdftex.def Info: er10.pdf  used on input line 5377.
-(pdftex.def)             Requested size: 483.69684pt x 217.85863pt.
+<er10.png, id=1779, 1024.82875pt x 478.78876pt>
+File: er10.png Graphic file (type png)
+<use er10.png>
+Package pdftex.def Info: er10.png  used on input line 5378.
+(pdftex.def)             Requested size: 483.69684pt x 225.98048pt.
 [65]
 
 pdfTeX warning: /app/texlive/bin/pdflatex (file ./er11.pdf): PDF inclusion: fou
 nd PDF version <1.7>, but at most version <1.5> allowed
-<er11.pdf, id=1799, 551.1792pt x 246.9225pt>
+<er11.pdf, id=1794, 551.1792pt x 246.9225pt>
 File: er11.pdf Graphic file (type pdf)
 <use er11.pdf>
-Package pdftex.def Info: er11.pdf  used on input line 5386.
+Package pdftex.def Info: er11.pdf  used on input line 5388.
 (pdftex.def)             Requested size: 483.69684pt x 216.69714pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[66 <./er10.pdf>] [67 <./er11.pdf>] [68] [69] [70] [71] [72] [73] (./main.aux)
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: ADAE023176E527C37871AF84225BD722;10897
-(rerunfilecheck)             After:  4893A01A0AE2B9F1300DED2922A31B18;10812.
+[66 <./er10.png>]
+<er12.png, id=1801, 780.66656pt x 478.78876pt>
+File: er12.png Graphic file (type png)
+<use er12.png>
+Package pdftex.def Info: er12.png  used on input line 5398.
+(pdftex.def)             Requested size: 483.69684pt x 296.656pt.
+ [67 <./er11.pdf> <./er12.png>] [68] [69] [70] [71] [72]
+[73] [74] (./main.aux)
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 4893A01A0AE2B9F1300DED2922A31B18;10812.
  ) 
 Here is how much of TeX's memory you used:
- 38863 strings out of 476041
- 817955 string characters out of 5793173
+ 38875 strings out of 476041
+ 818088 string characters out of 5793173
  2066388 words of memory out of 6000000
- 57651 multiletter control sequences out of 15000+600000
+ 57664 multiletter control sequences out of 15000+600000
  527207 words of font info for 83 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  162i,21n,145p,2667b,2175s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{subsection.9.1} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.9} has been referenced but does not exist, 
-replaced by a fixed one
-
-</app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></app/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></app/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmbx12.pfb></app/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmbx9.pfb></app/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbxti10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ex10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></a
-pp/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></app/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></app/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi7.pfb></app/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi9.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb
-></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></app/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></app/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr5.pfb></app/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr7.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></
-app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></app/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></app/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmss8.pfb></app/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy5.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
-b></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></app/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></app/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmti9.pfb></app/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmtt9.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/latxfont/line10.pfb></app/texlive/texmf-dist/fonts/type1/public/cm-super/sf
-rm1000.pfb>
-Output written on main.pdf (73 pages, 1999057 bytes).
+</app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></app/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></app/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></app/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmbx9.pfb></app/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbxti10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmex10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></app/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></app/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi7.pfb></app/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi9.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.p
+fb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></app/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></app/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr5.pfb></app/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr7.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
+</app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></app/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></app/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmss8.pfb></app/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy5.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
+pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></app/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></app/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmti9.pfb></app/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmtt9.pfb></app/texlive/texmf-dist/fonts/type1/public/ams
+fonts/latxfont/line10.pfb></app/texlive/texmf-dist/fonts/type1/public/cm-super/
+sfrm1000.pfb>
+Output written on main.pdf (74 pages, 2097669 bytes).
 PDF statistics:
- 2373 PDF objects out of 2487 (max. 8388607)
- 2108 compressed objects within 22 object streams
+ 2365 PDF objects out of 2487 (max. 8388607)
+ 2099 compressed objects within 21 object streams
  1161 named destinations out of 1200 (max. 500000)
- 631 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 628 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -5372,23 +5372,56 @@ Uno schema ER deve avere le seguenti qualità:\begin{itemize}
 Le barche concorrenti sono caratterizzate dal nome, dalla nazionalita, dal modello, dalla lunghezza e dalla stazza. Si suppone che nome e nazionalità identifichino la barca. Le barche sono finanziate da sponsor, e cioè persone delle quali si conoscono il nome, i cognome, il codice fiscale, l'indirizzo, il telefono e l'ammontare della somma fornita Le barche partecipano alle regate e per ogni regata a cui una barca ha partecipato si conosce il punteggio conseguito.
 
 Ogni barca ha un equipaggio composto da almeno 15 membri, ciascuno con un propio ruolo, che può variare di volta in volta. I membri dell'equipaggio sono persone caratterizzate anche dal numero di vittorie conseguite e appartengono ad un certo equipaggio per un certo periodo di cui si conoscono la data di inizio e la data di fine.
+
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=1\linewidth]{er10.pdf}
+	\includegraphics[width=1\linewidth]{er10.png}
 \end{figure}
 
 \textbf{Esercizio 6}
 Si vuole realizzare la base di dati per la gestione dei film di una casa di produzione cinemategrafica. Per ogni attore sono noti il codice fiscale, il nome, il cognome, il numero di telefono, l'indirizzo di casa e il numero di cellulare. (se disponibile).
 
 Ogni film è caratterizzate da un codice (univoco), un titolo, dal nome del regista e dalla data di inizio di realizzazione. Per i film conclusi sono noti la data di fine produzione e la spesa totale affrontata per produrlo. Per ogni film sono noti la data di fine produzione e la spesa totale affrontata per produrlo. Per ogni film sono noti gli attori che vi hanno preso parte, il ruolo da loro interpretato e il loro compenso. Si supponga che ogni attore possa svolgere al massimo un ruolo per ogni film. Ad ogni film sono associate diverse versioni del copione. Per ogni versione sono noti la data in cui è stata scritta, i nomi degli autori e il testo. I set cinematografici presso i quali si svolgono le riprese sono identificati da un codice univoco e sono caratterizzati da un nome. All'inizio delle riprese di un film occorre aver prenotato i set necessari per le riprese. Per ogni prenotazione si tiene traccia del set cinematografico prenotato. Lo stesso set può essere usato più volte durante le riprese dello stesso film. Si tiene anche traccia di quali attrezzature per gli effetti speciali siano messe a disposizione sui set. Le attrezzature per gli effetti speciali sono identificate univocamente da un codice numerico e sono caratterizzate da un nome e da una descrizione.
+
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=1\linewidth]{er11.pdf}
+	\includegraphics[width=1\linewidth]{er11}
+	\label{fig:er11}
 \end{figure}
 
+\newpage
 \textbf{Esercizio 5:}
 Si richiede di progettare la base di dati per una catena di supermercati. Ogni supermercato è identificato da un codice ed è caratterizzato da indirizzo, città, numero di telefono e nome del responsabile. I supermercati della catena rilasciano delle carte fedeltà. Ogni carta fedeltà è caratterizzata de un codice univoco, dal cliente titolare della carta e dai punti accummilati. Per ogni cliente titolare di una carta fedeltà si tiene traccia delle seguenti informazioni: codice fiscale, nome, cognome, indirizzo e recapito telefonico (facoltativo). 
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\linewidth]{er12}
+	\label{fig:er12}
+\end{figure}
+
+\newpage
+\textbf{Esercizio 8:}
+Si richiede di progettare la base di dati di un'applicazione relativa alla gestione di una catena di pizzerie. Ogni
+pizzeria è caratterizzata da un nome (identificativo), un indirizzo, uno o più numeri di telefono e il nome del
+responsabile. Per ogni pizzeria si memorizza anche l'orario settimanale di apertura indicando per ogni giorno
+della settimana l'orario di apertura e di chiusura.
+Il personale dipendente è caratterizzato da codice fiscale, nome, cognome, telefono e data di assunzione. Il
+personale può essere personale di sala e personale di cucina. Ogni dipendente lavora in una sola pizzeria. Il
+personale di sala è caratterizzato dal ruolo e dalle lingue straniere parlate (per ogni lingua straniera parlata, una o
+più, si memorizza anche il livello). Il personale di cucina è caratterizzato dal ruolo e dai tipi di cucina (uno o più) di
+cui è esperto (per ogni tipo di cucina si memorizza anche la descrizione).
+Ogni pizzeria offre un menù pizza in cui vengono riportate le pizze disponibili.
+Le pizze sono caratterizzate da un nome (identificativo), dagli ingredienti e dal prezzo. Per ogni pizza vengono
+anche indicati gli eventuali allergeni presenti (glutine, uova, crostacei, ...). Per ogni allergene si memorizza il codice
+(identificativo), il nome e la descrizione. Per ogni pizza si indica anche se un certo ingrediente utilizzato è fresco o
+surgelato. Gli ingredienti sono caratterizzati da un codice (identificativo), un nome, un tipo e dagli eventuali
+allergeni che contengono.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{er14}
+	\label{fig:er14}
+\end{figure}
 
 
 \newpage
