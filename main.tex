@@ -5367,12 +5367,6 @@ Uno schema ER deve avere le seguenti qualità:\begin{itemize}
 	\item \textbf{MINIMALITÀ:} ogni concetto è rappresentato una sola volta. 
 \end{itemize}
 
-\textbf{Esercizio semplice:} uno zoo vuole creare la base di dati per memorizzare gli animali che ospita. Ogni animale ha un codice, un nome, l'età e la specie di appartenenza. Ogni specie viene collocata in un settore dello zoo. I settori sono caratterizzati dalla posizione all'interno dello zoo e da un nome. 
-
-Data una relazione ternaria E1 - R - E2,E3. Se r1 non ha attributi, corrisponde a E1 - R1 - E3 - R1 - E2
-
-includi grafici etc
-
 \subsection{Esercizi di progettazione}
 \textbf{Esercizio 2:} Progettare la base di dati per gestire le regate di una competizione. Ogni regata è identificata da nome e data e caratterizzata dal luogo e dalla descrizione del percorso.
 
@@ -5424,30 +5418,57 @@ anche indicati gli eventuali allergeni presenti (glutine, uova, crostacei, ...).
 surgelato. Gli ingredienti sono caratterizzati da un codice (identificativo), un nome, un tipo e dagli eventuali
 allergeni che contengono.
 
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\linewidth]{er14}
 	\label{fig:er14}
 \end{figure}
 
+\newpage
+\begin{esempio}
+	Uno zoo vuole creare la base di dati per memorizzare gli animali che ospita. Ogni animale ha un codice, un nome, l'età e la specie di appartenenza. Ogni specie viene collocata in un settore dello zoo. I settori sono caratterizzati dalla posizione all'interno dello zoo e da un nome. 
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\linewidth]{er17.pdf}
+	\end{figure}
+\end{esempio}
 
+\mybox{
+	
+\textbf{Nota Bene:} data una relazione ternaria tra $E_1,E_2$ ed $E_3$, se $E_1$ e $E_2$ sono in relazione (1,1) con $E_3$, allora è come dire:
+}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\linewidth]{er18.pdf}
+\end{figure}
+
+\newpage
 \section{Progettazione Logica}
 Dai requisiti, effettuiamo una progettazione concettuale, il quale produce uno \textbf{schema concettuale}, che nel nostro caso è il modello ER. Successivamente si passa ad una progettazione logica in cui otteniamo uno \textbf{schema logico} nel modello relazionale dei dati. Successivamente effettuiamo una progettazione fisica che ci permette di ottenere uno schema fisico. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{schema12}
+	\label{fig:schema12}
+\end{figure}
+
 \textbf{Quando passiamo da uno schema ER ad uno schema logico è necessaria una ristrutturazione dello schema ER} perché alcuni costrutti NON SONO direttamente rappresentabili.
 Dobbiamo tradurre lo schema concettuale in uno schema logico che rappresenti i dati in maniera corretta ed efficiente. 
 \subsection{Ristrutturazione di uno schema ER}
-A seguito di una ristrutturazione, lo schema ER ristrutturato NON è più uno schema ER propriamente detto. La ristrutturazione di un ER consiste nelle seguente fasi:
+\mybox{\textbf{ATTENZIONE:} A seguito di una ristrutturazione, lo schema ER ristrutturato NON è più uno schema ER propriamente detto. Non si possono quindi scegliere compromessi in fase di progettazione concettuale per potersi semplificare successivamente il lavoro, perché non descrive esaustivamente i requisiti.}
+ La ristrutturazione di un ER consiste nelle seguente fasi:
 \subsubsection{Analisi delle ridondanze}
-Si decide se eliminare o mantenere eventuali ridondanze. 
+Si decide se eliminare o mantenere eventuali ridondanze, ovvero informazioni ripetute.  
 \begin{esempio}
-	\begin{figure}
+	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=1\linewidth]{er15.pdf}
+		\includegraphics[width=0.5\linewidth]{er15.pdf}
 	\end{figure}
+	in questo caso, l'importo lordo è un valore derivabile dagli altri due. Si può scegliere se tenere o meno a seconda delle considerazioni sull'utilità dell'attributo. Ovvero, facendo un peso del peso di memorizzazione di un attributo ridondante e della richiesta computazionale per calcolarlo, a seconda delle esigenze di progettazione si decide se conviene mantenerlo o meno. Stessa cosa avviene col successivo esempio su città e persona: l'esito dell'analisi delle ridondanze è \textit{strettamente legato alle necessità applicative dello schema richiesto, che si basa sui requisiti forniti.} Infatti, a seconda se il numero di abitanti deve essere calcolato frequentementeo o meno, si può considerare se conviene di più mantenere un'informazione ridondante in memoria, computazionalmente parlando. 
 \end{esempio} 
-inserisci digressione sul perché lasciarlo e perché no
 \begin{esempio}
-	\begin{figure}
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=1\linewidth]{er16.pdf}
 	\end{figure}
@@ -5456,12 +5477,25 @@ inserisci digressione sul perché lasciarlo e perché no
 Tutte le generalizzazioni (gerarchie) vanno analizzate e sostituite con altri costrutti. (cioè con altre entità e relazioni) Vi sono tre possibili metodi di eliminazione di una gerarchia:
 \begin{itemize}
 	\item \textbf{Collasso verso l'ALTO}: Accorpamento delle entità figlie nelle entità genitore.
+	inserisci esempio er
+	\item \textbf{Collasso verso il BASSO:} Accorpamento dell'entità genitore nelle entità figlie. 
+	\item \textbf{Sostituzione della generalizzazione con delle associazioni.}
 \end{itemize}
 \subsubsection{Partizionamento/Accorpamento di entità e relazioni}
 Si decide se partizionare o accorpare concetti.
-Inserisci er e spiega
+Inserisci er e spiega. 
+
+Eliminazione degli atribbuti multivalore.
+inserisci er
 \subsubsection{Scelta degli identificatori primari}
 Scelgo un solo identificatore primario se ve ne sono più di uno. (Esempio studente con matricola e CF)
+\subsection{Traduzione verso il modello relazionale}
+\mybox{\textbf{IDEA DI BASE:}\begin{itemize}
+		\item Tutte le \textbf{entità} diventano \textbf{relazioni} (del modello relazionale dei dati), sugli \textbf{stessi attributi}.
+		inserisci disegnino persona 
+		\item Le relazioni dello schema E-R diventano relazioni sugli identificatore delle entità coinvolte (più gli eventuali attributi propri).
+\end{itemize}}
+
 \newpage
 \part{Tutorato}
 \section{Esercizi Algebra Relazionale}

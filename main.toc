@@ -58,10 +58,14 @@
 \contentsline {subsubsection}{\numberline {6.1.8}Generalizzazione:}{63}{subsubsection.6.1.8}%
 \contentsline {subsection}{\numberline {6.2}Documentazione di uno schema ER}{64}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Esercizi di progettazione}{66}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Progettazione Logica}{68}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Ristrutturazione di uno schema ER}{68}{subsection.7.1}%
-\contentsline {subsubsection}{\numberline {7.1.1}Analisi delle ridondanze}{69}{subsubsection.7.1.1}%
-\contentsline {part}{II\hspace {1em}Tutorato}{70}{part.2}%
-\contentsline {section}{\numberline {8}Esercizi Algebra Relazionale}{70}{section.8}%
-\contentsline {section}{\numberline {9}Esercizi SQL}{74}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Esercizio 1}{74}{subsection.9.1}%
+\contentsline {section}{\numberline {7}Progettazione Logica}{70}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Ristrutturazione di uno schema ER}{70}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Analisi delle ridondanze}{70}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Eliminazione delle generalizzazioni/gerarchie}{71}{subsubsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.3}Partizionamento/Accorpamento di entità e relazioni}{71}{subsubsection.7.1.3}%
+\contentsline {subsubsection}{\numberline {7.1.4}Scelta degli identificatori primari}{71}{subsubsection.7.1.4}%
+\contentsline {subsection}{\numberline {7.2}Traduzione verso il modello relazionale}{71}{subsection.7.2}%
+\contentsline {part}{II\hspace {1em}Tutorato}{72}{part.2}%
+\contentsline {section}{\numberline {8}Esercizi Algebra Relazionale}{72}{section.8}%
+\contentsline {section}{\numberline {9}Esercizi SQL}{76}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Esercizio 1}{76}{subsection.9.1}%
