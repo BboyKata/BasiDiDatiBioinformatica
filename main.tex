@@ -5367,6 +5367,13 @@ Uno schema ER deve avere le seguenti qualità:\begin{itemize}
 	\item \textbf{MINIMALITÀ:} ogni concetto è rappresentato una sola volta. 
 \end{itemize}
 
+\textbf{Esercizio semplice:} uno zoo vuole creare la base di dati per memorizzare gli animali che ospita. Ogni animale ha un codice, un nome, l'età e la specie di appartenenza. Ogni specie viene collocata in un settore dello zoo. I settori sono caratterizzati dalla posizione all'interno dello zoo e da un nome. 
+
+Data una relazione ternaria E1 - R - E2,E3. Se r1 non ha attributi, corrisponde a E1 - R1 - E3 - R1 - E2
+
+includi grafici etc
+
+\subsection{Esercizi di progettazione}
 \textbf{Esercizio 2:} Progettare la base di dati per gestire le regate di una competizione. Ogni regata è identificata da nome e data e caratterizzata dal luogo e dalla descrizione del percorso.
 
 Le barche concorrenti sono caratterizzate dal nome, dalla nazionalita, dal modello, dalla lunghezza e dalla stazza. Si suppone che nome e nazionalità identifichino la barca. Le barche sono finanziate da sponsor, e cioè persone delle quali si conoscono il nome, i cognome, il codice fiscale, l'indirizzo, il telefono e l'ammontare della somma fornita Le barche partecipano alle regate e per ogni regata a cui una barca ha partecipato si conosce il punteggio conseguito.
@@ -5424,6 +5431,37 @@ allergeni che contengono.
 \end{figure}
 
 
+\section{Progettazione Logica}
+Dai requisiti, effettuiamo una progettazione concettuale, il quale produce uno \textbf{schema concettuale}, che nel nostro caso è il modello ER. Successivamente si passa ad una progettazione logica in cui otteniamo uno \textbf{schema logico} nel modello relazionale dei dati. Successivamente effettuiamo una progettazione fisica che ci permette di ottenere uno schema fisico. 
+\textbf{Quando passiamo da uno schema ER ad uno schema logico è necessaria una ristrutturazione dello schema ER} perché alcuni costrutti NON SONO direttamente rappresentabili.
+Dobbiamo tradurre lo schema concettuale in uno schema logico che rappresenti i dati in maniera corretta ed efficiente. 
+\subsection{Ristrutturazione di uno schema ER}
+A seguito di una ristrutturazione, lo schema ER ristrutturato NON è più uno schema ER propriamente detto. La ristrutturazione di un ER consiste nelle seguente fasi:
+\subsubsection{Analisi delle ridondanze}
+Si decide se eliminare o mantenere eventuali ridondanze. 
+\begin{esempio}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{er15.pdf}
+	\end{figure}
+\end{esempio} 
+inserisci digressione sul perché lasciarlo e perché no
+\begin{esempio}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{er16.pdf}
+	\end{figure}
+\end{esempio} 
+\subsubsection{Eliminazione delle generalizzazioni/gerarchie}
+Tutte le generalizzazioni (gerarchie) vanno analizzate e sostituite con altri costrutti. (cioè con altre entità e relazioni) Vi sono tre possibili metodi di eliminazione di una gerarchia:
+\begin{itemize}
+	\item \textbf{Collasso verso l'ALTO}: Accorpamento delle entità figlie nelle entità genitore.
+\end{itemize}
+\subsubsection{Partizionamento/Accorpamento di entità e relazioni}
+Si decide se partizionare o accorpare concetti.
+Inserisci er e spiega
+\subsubsection{Scelta degli identificatori primari}
+Scelgo un solo identificatore primario se ve ne sono più di uno. (Esempio studente con matricola e CF)
 \newpage
 \part{Tutorato}
 \section{Esercizi Algebra Relazionale}

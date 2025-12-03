@@ -57,7 +57,11 @@
 \contentsline {subsubsection}{\numberline {6.1.7}Altri costrutti del modello E-R}{59}{subsubsection.6.1.7}%
 \contentsline {subsubsection}{\numberline {6.1.8}Generalizzazione:}{63}{subsubsection.6.1.8}%
 \contentsline {subsection}{\numberline {6.2}Documentazione di uno schema ER}{64}{subsection.6.2}%
-\contentsline {part}{II\hspace {1em}Tutorato}{68}{part.2}%
-\contentsline {section}{\numberline {7}Esercizi Algebra Relazionale}{68}{section.7}%
-\contentsline {section}{\numberline {8}Esercizi SQL}{72}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Esercizio 1}{72}{subsection.8.1}%
+\contentsline {subsection}{\numberline {6.3}Esercizi di progettazione}{66}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Progettazione Logica}{68}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Ristrutturazione di uno schema ER}{68}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Analisi delle ridondanze}{69}{subsubsection.7.1.1}%
+\contentsline {part}{II\hspace {1em}Tutorato}{70}{part.2}%
+\contentsline {section}{\numberline {8}Esercizi Algebra Relazionale}{70}{section.8}%
+\contentsline {section}{\numberline {9}Esercizi SQL}{74}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Esercizio 1}{74}{subsection.9.1}%
