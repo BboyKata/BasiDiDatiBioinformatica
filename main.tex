@@ -5567,7 +5567,15 @@ Si decide se \textbf{partizionare o accorpare concetti} a seconda del loro utili
 		\end{figure}
 \end{esempio}
 \subsubsection{Scelta degli identificatori primari}
-Scelgo un solo identificatore primario se ve ne sono più di uno. (Esempio studente con matricola e CF)
+Scelgo un solo identificatore primario se ve ne sono più di uno. Solitamente, si sceglie il \textbf{sottoinsieme minore di attributi che identifica univocamente l'entità.} 
+
+\begin{esempio}
+	Scelgo se usare come chiave Matricola o CF.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.5\linewidth]{er24.pdf}
+	\end{figure}
+\end{esempio}
 \subsection{Traduzione verso il modello relazionale}
 \mybox{\textbf{IDEA DI BASE:}\begin{itemize}
 		\item Tutte le \textbf{entità} diventano \textbf{relazioni} (del modello relazionale dei dati), sugli \textbf{stessi attributi}.
