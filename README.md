@@ -2,7 +2,7 @@
 
 Questi sono gli appunti che ho preso per l'esame _"Basi di Dati"_, tenuto dalla Prof.ssa Olliboni, erogato nell'A.A. 2025/2026 all'Università Degli Studi Di Verona. 
 
-**Gli appunti compilati sono disponibili sul file [`main.pdf`]([url](https://github.com/BboyKata/BasiDiDatiBioinformatica/blob/main/main.pdf))**
+**Gli appunti compilati sono disponibili sul file [`main.pdf`](https://github.com/BboyKata/BasiDiDatiBioinformatica/blob/main/main.pdf)**
 
 ## 📚 Contenuto del progetto
 
