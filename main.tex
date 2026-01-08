@@ -6146,6 +6146,34 @@ GROUP BY P.CodUtente,U.Cognome,U.Nome
 \end{enumerate}
 
 
+\section{Esercizi progettazione}
+Si progetti la base di dati per una compagnia aerea. Elemento principale della compagnia sono i \textbf{voli} di linea. Ogni volo è caratterizzato da un numero, dall'ora della partenza e di arrivo, infine dalla durata. Si ha anche un elenco di tutti li aeroporti serviti dalla compagnia, caratterizzati da un codice, dal nome dell'aeroporto, dalla città e dalla nazione; in particolare, per ogni volo si vuole sapere l'aeroporto di partenza e quello di arrivo. Per ogni volo si devono conoscere i viaggi previsti o da effettuare. Ogni viaggio è identificato dalla data e da un attributo che indica se il volo è previsto o effettuato o soppresso. Si noti che un viaggio dice in quali giorni un volo deve essere effetivamente effettuato, pertanto ad ogni volo vengono associati tanti viaggi identificati dalla data. I viaggi sono effettuati con degli aeromobili, identificati dal numero di matricola e caratterizzati dal modello, dalla marca e dall'anno di acquisto. Ovviamente, ogni viaggio viene effettuato con uno e un solo aeromobile. Per effettuare i viaggi serve anche il persnoale viaggiante. Il personale viaggiante è identificato dal numero di matricola ed è caratterizzato da cognome, nome e data di nascita. Il personale viaggiante viene poi suddiviso in piloti e assistenti; per i piloti, si vuole conoscere il grado. Per ogni viaggio occorre conoscere il comandante, il vicepilota e gli assistenti di viaggio (almeno uno).	
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{estut1.pdf}
+\end{figure}
+\textbf{Traduzione a schema logico:}
+\begin{align*}
+	AEROPORTO&(\underline{Codice},Nome, Citta, Nazione)\\
+	VOLO&(\underline{Numero}, OraArrivo,OraPartenza,Durata,CodiceArrivo,CodicePartenza)\\
+	AEROMOBILE&(\underline{Matricola},Modello,Marca,AnnoAcquisto)\\
+	VIAGGIO&(\underline{Data, NumeroVolo}, Stato, MatrComand,MatrVicepil, MatrAeromob)\\
+	PILOTI&(\underline{Matricola},Nome,Cognome,DataNascita,Grado)\\
+	ASSISTENTI&(\underline{Matricola},Nome,Cognome,DataNascita)\\
+	ASSISTENZA&(\underline{NumeroVolo,Data,MatrAssistente)})
+\end{align*}
+Effettuo un collasso verso il basso nella generalizzazione assistente e pilota.
+
+\hrule
+\paragraph{Esercizio Taxi}
+Il centralino del radio-taxi riceve le chiamate di richiesta di un taxi; al centralino lavorano le telefoniste, caratterizzate da un codice, cognome, nome, data di nscita. Le chiamate vengono tutte registrate e sono caratterizzate da un numero di chiamata, la date a ora della chiamata, il luogo della partenza e il luogo di destinazione (che le telefoniste richiedono sempre, non accettano chiamate se questo non viene fornito); per ogni chiamata, si vuole anche sapere quale è stata la telefonista che l'ha ricevuta. Le chiamate sono poi suddivise in ciamate urgenti e chiamate per appuntamento; per queste ultime si vuole conoscere anche la data e ora dell'appuntamento richiesto dal cliente. I taxi sono caratterizzati da un codice, il nome e cognome del proprietario (che fa anche da conducente)'i taxi si dividono in disponibili (che quindi possono servire le chiamate) e indisponibili, e di questi ulimi si vuole sapere fino a che data e ora sono indisponibili. Le chiamate vengono servite dai taxi; si vuole sapere in un certo momento chi sta servendo una certa chiamata (una chiamata può essere servita al più da un tai e un taxi può servire al più una chiamata), con l'indicazione dell'ora presunta alla quale il taxi terminerà di servire la chiamata; in più, si vuole anche tenere storia di tutte le volte che un taxi ha servito una chiamata, con l'indicazione della data e ora di inizio e data e  ora di fine servizio; da ultimo, i taxi disponibili vengono riservati per servire le chiamate ad appuntamento (per ogni chiamata c'è al più un taxi riservato).
+
+\begin{align*}
+	TELEFONISTA&(\underline{Codice},Nome,Cognome,DatNascita)\\
+	CHIAMATA&(\underline{Numero},data, ora, LPart,LDest,CodiceTelef,Tipo,DataApp*,OraApp*, CodTaxiPren*)\\
+	TAXI&(\underline{Codice},NomePropr,CognomePropr,Tipo,DataDisp*,OraDisp*)\\
+	dafinire
+\end{align*}
 
 \end{document} 
