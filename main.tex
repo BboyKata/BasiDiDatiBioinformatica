@@ -298,7 +298,7 @@ Il significato della colonna è descritto dal nome della colonna stessa, quindi 
 
 \textbf{Tabelle e relazioni (nel modello relazionale dei dati):}
 
-\mybox{\emph{!Domanda di Esame!} \textit{quando una tabella rappresenta una relazione nel modello relazionale dei dati?} \textit{(per i posteri, 1 Forma Normale)}
+\mybox{\emph{!Domanda di Esame!} \textbf{Quando una tabella rappresenta una relazione nel modello relazionale dei dati?}
 	\begin{itemize}
 		\item Una tabella rappresenta una relazione \textit{se} i valori di ogni colonna sono fra loro \textbf{omogenei}, perché appartengono allo stesso dominio.
 		\item le righe della tabella sono tutte diverse tra loro, perché la relazione è un insieme, quindi ogni elemento(riga) è diverso tra loro.
@@ -325,7 +325,6 @@ Infatti, ad esempio, posso collegare la prima squadra della tabella \ref{tab:ese
     \label{tab:squadre}
 \end{table}
 
-\newpage
 \subsection{DEFINIZIONI relative al MODELLO RELAZIONALE DEI DATI}
 \begin{itemize}
     \item \textbf{Grado:} numero di colonne di una relazione;
@@ -429,12 +428,12 @@ Infatti, ad esempio, posso collegare la prima squadra della tabella \ref{tab:ese
         \end{tabular}
 \captionof{table}{Rappresentante}
 \end{minipage}
+\end{itemize}
 
 \subsubsection{Informazioni incomplete}
 Le informazioni delle tabelle sono collegate, e le relazioni possono essere anche con un solo attributo e si basano sui valori.
 
 \textbf{Lo schema della Base di Dati impone una struttura rigida definita a priore.} Tutti i dati inseriti nella base di dati infatti devono rispettare quello schema, una volta deciso. Questo significa che le tuple che posso inserire nella mia base di dati devono rispettare la struttura che ho definito. 
-\end{itemize}
 
 Per alcune tuple, potrei non avere il valore di qualche attributo. $\to$ \textbf{Informazione incompleta}
     
@@ -519,6 +518,7 @@ Per alcune tuple, potrei non avere il valore di qualche attributo. $\to$ \textbf
 	\end{table}
 \end{esempio}
 
+\newpage
 \textbf{\textit{Osservazioni relazione "paziente"}}
 
 \mybox{Se non ha un codice la prima tupla in paziente, non potrò mai connetterlo con la base di dati, quindi è un problema; non posso lasciare NULL il codice. Il numero di telefono, invece, non crea problemi; tantomeno la data di nascita; non creano problemi nello schema attuale della base di dati e delle sue istanze se assume valore NULL.}
@@ -803,7 +803,6 @@ A livello di SQL, si possono scegliere politiche di reazione alla violazione dei
 \end{align*}
 \par\rule{\textwidth}{0.5pt} 
 
-\newpage
 \begin{figure}[h!]
     \centering
     \includegraphics[width=1\linewidth]{SchemaBD1.pdf}
@@ -3514,8 +3513,8 @@ CREATE TABLE Anagrafica(
 \end{lstlisting}
 
 \textbf{VIOLAZIONE DEI VINCOLI:} $\to$ \textit{OPERAZIONI NON PERMESSE}
-Tabella Interna = \textbf{Tabella Slave}
-Tabella Esterna = \textbf{Tabella Master}
+\sitemize{\item Tabella Interna = \textbf{Tabella Slave}
+	\item Tabella Esterna = \textbf{Tabella Master}}
 \begin{itemize}
 \item \textbf{Operando sulla tabella interna:} modifico il valore dell'attributo della tabella referente, o inserisco una nuova riga con un valore inesistente. (nulla da fare)
 \item \textbf{Operando sulla tabella esterna:} per modifiche dell'attributo riferito (MA), o per cancellazione di righe dalla tabella \textbf{Master}.
@@ -3533,7 +3532,8 @@ La tabella interna (o tabella Slave) deve adeguarsi alle modifiche che avvengono
 	\item no action...? vincolo non rispettato?  
 \end{itemize}
 
-\textbf{Modificazioni tabella interna per cancellazione attributo riferito}
+\textbf{Modificazioni tabella interna per cancellazione attributo riferito (riga tabella
+	esterna)}
 \begin{itemize}
 	
 	\item \textbf{Cascade:} tutte le righe della tabella interna corrispondenti alla riga cancellata vengono cancellate.
@@ -5368,6 +5368,48 @@ Uno schema ER deve avere le seguenti qualità:\begin{itemize}
 \end{itemize}
 
 \subsection{Esercizi di progettazione}
+\textbf{Esercizio 1:}
+La base di dati per il controllo del traffico aereo contiene le informazioni relative ai voli e
+ai loro piani di volo. Ogni volo è caratterizzato da numero volo, tipo di volo, compagnia
+area, numero passeggeri. Di ogni volo si conoscono l’aeroporto di partenza e arrivo e i
+rispettivi orari. Ogni aeroporto è caratterizzato da nome, posizione geografica, servizi
+disponibili. I servizi hanno un nome (identificativo), un tipo e l’indicazione di quali sono
+a pagamento.
+Durante il volo l’aereo occupa una o più aerovie. Ogni aerovia è caratterizzata da un
+nome (identificativo) e da alcune posizioni di riferimento (radiofari). Un radiofaro ha un
+nome ed è identificato dalle coordinate geografiche (longitudine e latitudine).
+Il piano di volo, fatto prima della partenza, determina l’ora, la quota e la velocità di
+passaggio su ciascun radiofaro.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\linewidth]{graphics/er25}
+\end{figure}
+
+
+\textbf{Traduzione:}
+
+\begin{tabular}{ll}
+	\textbf{VOLO} & (\underline{Numero}, Tipo, Compagnia, Passeggeri,AeroportoPart, OraPart, AeroportoArr, OraArr) \\ 
+	
+	\textbf{AEROPORTO} & (\underline{Nome}, Posizione) \\ 
+	
+	\textbf{SERVIZIO} & (\underline{Nome}, Tipo, Pagamento) \\ 
+	
+	\textbf{AEROVIA} & (\underline{Nome}) \\ 
+	
+	\textbf{RADIOFARO} & (\underline{Latitudine}, \underline{Longitudine}, Nome) \\ 
+	
+	\textbf{OFFERTA} & (\underline{NomeAeroporto}, \underline{NomeServizio}) \\ 
+	
+	\textbf{PIANOVOLO} & (\underline{NumVolo}, \underline{Latitudine}, \underline{Longitudine}, \underline{Orario}, Quota, Velocità) \\ 
+	
+	\textbf{OCCUPAZIONE} & (\underline{NumVolo}, \underline{NomeAerovia}) \\ 
+	
+	\textbf{PASSAGGIO} & (\underline{NomeAerovia}, \underline{Latitude}, \underline{Longitude}) \\
+\end{tabular}
+
+\newpage
 \textbf{Esercizio 2:} Progettare la base di dati per gestire le regate di una competizione.
 Ogni regata è identificata da nome e data e caratterizzata dal luogo e dalla descrizione
 del percorso.
@@ -5382,11 +5424,194 @@ ruolo, che può variare di volta in volta. I membri dell’equipaggio sono perso
 caratterizzate anche dal numero di vittorie conseguite e appartengono ad un certo
 equipaggio per un certo periodo di cui si conoscono la data di inizio e la data di fine.
 
+
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\linewidth]{er10.png}
+	\includegraphics[width=\linewidth]{er10.png}
 \end{figure}
 
+\textbf{Ristrutturazione E-R:} Accorpo le entità figlie nell’entità genitore
+
+\begin{tabular}{ll}
+	\textbf{Regata} & (\underline{Nome}, \underline{Data}, Luogo, Percorso) \\
+	\textbf{Partecipazione} & (\underline{NomeBarca, Nazionalità, NomeRegata, Data}, Punteggio) \\
+	\textbf{Barca} & (\underline{Nome, Nazionalità}, Modello, Lunghezza, Stazza) \\
+	\textbf{Persona} & (\underline{CF}, Nome, Cognome, Indirizzo, Telefono, TipoPersona, NumVittorie*) \\
+	\textbf{Equipaggio} & (\underline{NomeBarca, Nazionalità, CF, DataInizio, DataFine}, Ruolo) \\
+	\textbf{Finanziamento} & (\underline{NomeBarca, Nazionalità, CF}, Ammontare) \\
+\end{tabular}
+
+\vspace{0.5em}
+
+\textbf{Ristrutturazione E-R:} Accorpo l’entità genitore nelle entità figlie
+
+\begin{tabular}{ll}
+	\textbf{Regata} & (\underline{Nome}, \underline{Data}, Luogo, Percorso) \\
+	\textbf{Partecipazione} & (\underline{NomeBarca, Nazionalità, NomeRegata, Data}, Punteggio) \\
+	\textbf{Barca} & (\underline{Nome, Nazionalità}, Modello, Lunghezza, Stazza) \\
+	\textbf{Sponsor} & (\underline{CFS}, Nome, Cognome, Indirizzo, Telefono) \\
+	\textbf{MembroEquipaggio} & (\underline{CFME}, Nome, Cognome, Indirizzo, Telefono, NumVittorie) \\
+	\textbf{Equipaggio} & (\underline{NomeBarca, Nazionalità, CFME, DataInizio, DataFine}, Ruolo) \\
+	\textbf{Finanziamento} & (\underline{NomeBarca, Nazionalità, CFS}, Ammontare) \\
+\end{tabular}
+
+
+\newpage
+\textbf{Esercizio 3}
+Si vogliono modellare le seguenti informazioni relative alla gestione di compravendite immobiliari.
+Gli immobili, oggetto delle transazioni, sono distinti in abitazioni e uffici e sono caratterizzati da
+posizione, via e città. Le abitazioni sono caratterizzate dal numero di locali e gli uffici dalla
+superficie in metri quadrati.
+La transazione ha numero di contratto (identificativo), data, tipo di pagamento e valore. Le
+transazioni possono essere di vendita o di affitto. Per le transazioni di affitto si hanno anche la data
+di inizio e la durata del contratto.
+Gli enti (persone o aziende) possono acquistare, vendere o affittare gli immobili. Per le persone si
+hanno il codice fiscale, il nome, la professione, l’indirizzo e il numero di telefono. Per le aziende si
+hanno il codice fiscale, l’indirizzo, il numero di telefono, l’ammontare del capitale sociale e il
+numero di dipendenti.
+Le agenzie che effettuano le transazioni sono caratterizzate da codice fiscale, nome, indirizzo e
+numero di telefono.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{er26}
+\end{figure}
+
+\textbf{Traduzione ER}
+
+\begin{tabular}{ll}
+	\textbf{TRANSAZIONE} & (\underline{NumContratto}, Valore, Data, Pagamento, CodFiscAg,Città, Via, Posizione, TipoTransazione, DataInizio*, Durata*) \\
+	
+	\textbf{AGENZIA} & (\underline{CodFiscale}, Nome, Telefono) \\
+	
+	\textbf{IMMOBILE} & (\underline{Città}, \underline{Via}, \underline{Posizione}, Valore, TipoImmobile, Num\_Locali*, Superficie*) \\
+	
+	\textbf{PERSONA} & (\underline{CFP}, Indirizzo, Telefono, Nome, Professione) \\
+	
+	\textbf{AZIENDA} & (\underline{CFA}, Indirizzo, Telefono, CapitaleSociale, NumDipendenti) \\
+	
+	\textbf{P-ACQUISTO} & (\underline{NumContratto}, \underline{CFP}) \\
+	
+	\textbf{P-VENDITA} & (\underline{NumContratto}, \underline{CFP}) \\
+	
+	\textbf{P-DARE-AFFITTO} & (\underline{NumContratto}, \underline{CFP}) \\
+	
+	\textbf{P-PRENDERE-AFFITTO} & (\underline{NumContratto}, \underline{CFP}) \\
+	
+	\textbf{A\_ACQUISTO} & (\underline{NumContratto}, \underline{CFA}) \\
+	
+	\textbf{A\_VENDITA} & (\underline{NumContratto}, \underline{CFA}) \\
+	
+	\textbf{A\_DARE-AFFITTO} & (\underline{NumContratto}, \underline{CFA}) \\
+	
+	\textbf{A\_PRENDERE-AFFITTO} & (\underline{NumContratto}, \underline{CFA}) \\
+\end{tabular}
+
+\newpage
+\textbf{Esercizio 4:}
+Si vuole progettare la base di dati per memorizzare alcune delle informazioni relative ad una scuola di musica.
+Gli insegnanti della scuola sono univocamente identificati da un codice di matricola e sono caratterizzati da
+nome, cognome, data di nascita, data di assunzione e da un numero di cellulare (se disponibile). Gli insegnanti
+possono essere insegnanti di canto o insegnanti di strumenti musicali. Per gli insegnanti di strumenti musicali è
+noto l’elenco degli strumenti per cui sono abilitati all’insegnamento. Per ogni strumento sono noti il nome,
+identificativo e la descrizione. Gli studenti della scuola sono univocamente identificati dal codice fiscale e sono
+caratterizzati da nome, cognome e data di nascita. Gli studenti possono essere studenti di musica o studenti di
+canto. Gli studenti di musica utilizzano uno degli strumenti della scuola. I corsi sono univocamente identificati
+da un codice, da un titolo, dal costo del corso e dalla data di inizio delle lezioni. I corsi possono essere di canto
+o relativi ad uno strumento musicale e sono caratterizzati dall’insegnante che terrà le lezioni (insegnanti di
+canto per i corsi di canto e insegnanti di strumento per i corsi relativi ad esso) e dagli studenti iscritti al corso.
+Per i corsi riguardanti l’insegnamento di uno strumento musicale è memorizzato il tipo di strumento cui il corso
+si riferisce. Il corso è composto da un insieme di lezioni. Ogni lezione è identificata da un numero univoco
+all’interno del corso ed è caratterizzata dalla data di svolgimento, dall’ora d’inizio, dall’aula e dalla durata
+espressa in minuti. Si vuole tenere traccia per ogni lezione degli studenti che sono presenti in aula.
+Periodicamente si svolgono degli esami. Ogni esame è caratterizzato da un codice, dalla data di svolgimento,
+dal prezzo, dall'insieme di insegnanti che fanno parte della commissione d’esame e dagli studenti che
+partecipano all'esame. Per ogni studente si vuole memorizzare il voto conseguito.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{er27}
+\end{figure}
+
+\textbf{Traduzione ER}
+
+\begin{tabular}{ll}
+	\textbf{Insegnante} & (\underline{Codice}, Nome, Cognome, DataDiNascita, DataAssunzione, Telefono*, TipoInsegni) \\
+	
+	\textbf{Strumento} & (\underline{Nome}) \\
+	
+	\textbf{Abilitazione} & (\underline{Insegnante, NomeStrumento}) \\
+	
+	\textbf{Studente} & (\underline{CodiceFiscale}, Nome, Cognome, DataDiNascita, TipoStudente, StrumentoUtilizzato*) \\
+	
+	\textbf{Corso} & (\underline{Codice}, Costo, DataInizio) \\
+	
+	\textbf{CorsoCanto} & (\underline{CodCorso}, CodInsegnante) \\
+	
+	\textbf{CorsoStrumento} & (\underline{CodCorso}, CodInsegnante, NomeStrumento) \\
+	
+	\textbf{IscrizioneCanto} & (\underline{Studente}, CorsoCanto) \\
+	
+	\textbf{IscrizioneStrumento} & (\underline{Studente}, CorsoStrumento) \\
+	
+	\textbf{Lezione} & (\underline{Numero, Corso}, Data, Ora, Aula, Durata) \\
+	
+	\textbf{Presenza} & (\underline{NumeroLezione, Corso, Studente}) \\
+	
+	\textbf{Esame} & (\underline{Codice}, Data, Prezzo) \\
+	
+	\textbf{Commissione} & (\underline{Esame, Insegnante}) \\
+	
+	\textbf{Partecipazione} & (\underline{Esame, Studente}, Voto) \\
+\end{tabular}
+
+\newpage
+\textbf{Esercizio 5:} Si richiede di progettare la base di dati per una catena di supermercati. Ogni supermercato è identificato da
+un codice ed è caratterizzato da indirizzo, città, numero di telefono e nome del responsabile. I supermercati
+della catena rilasciano delle carte fedeltà. Ogni carta fedeltà è caratterizzata da un codice univoco, dal cliente
+titolare della carta e dai punti accumulati. Per ogni cliente titolare di una carta fedeltà si tiene traccia delle
+seguenti informazioni: codice fiscale, nome, cognome, indirizzo e recapito telefonico (facoltativo).
+Ogni supermercato vieni rifornito di prodotti tramite forniture caratterizzate da codice, data di consegna e
+prezzo totale. I prodotti della fornitura sono caratterizzati da un codice univoco, dal nome del prodotto, e dal
+prezzo consigliato. Per ogni fornitura si conosce la quantità di prodotto fornito.
+Si vuole tenere traccia degli scontrini emessi dai vari supermercati della catena. Ogni scontrino è
+caratterizzato da data di emissione, cassa da cui è stato emesso, numero progressivo giornaliero (il numero
+progressivo giornaliero è univoco all'interno della cassa), elenco dei prodotti acquistati con relative quantità e
+prezzi. Per ogni scontrino si deve tenere traccia anche dell'eventuale tessera fedeltà usata durante l'acquisto.
+Ogni cassa del supermercato è identificata da un codice univoco ed è caratterizzata dal supermercato presso
+cui è collocata, dalla data in cui è stata installata e dal modello.
+Il supermercato propone delle promozioni che hanno un codice univoco rispetto al supermercato, una data
+di inizio, una data di fine e il prodotto in promozione.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{graphics/er28}
+\end{figure}
+
+\begin{tabular}{ll}
+	\textbf{Supermercato} & (\underline{Codice}, Indirizzo, Città, Telefono, Responsabile) \\
+	
+	\textbf{CartaFedeltà} & (\underline{Codice}, Punti, SupermercatoRilascio, CodiceFiscaleCliente) \\
+	
+	\textbf{Cliente} & (\underline{CF}, Nome, Cognome, Indirizzo, Telefono*) \\
+	
+	\textbf{Prodotto} & (\underline{Codice}, Nome, PrezzoConsigliato) \\
+	
+	\textbf{Fornitura} & (\underline{Codice}, DataConsegna, PrezzoTotale, CodSupermercato) \\
+	
+	\textbf{Promozione} & (\underline{Codice}, \underline{CodSupermercato}, DataInizio, DataFine, CodProdotto) \\
+	
+	\textbf{Cassa} & (\underline{Codice}, Modello, DataInstallazione, CodSupermercato) \\
+	
+	\textbf{Scontrino} & (\underline{CodCassa}, \underline{NumScontrino}, \underline{Data}, NumCarta*) \\
+	
+	\textbf{Acquisto} & (\underline{CodCassa}, \underline{NumScontrino}, \underline{Data}, \underline{CodProdotto}, Quantità, Prezzo) \\
+	
+	\textbf{Composizione} & (\underline{CodProdotto}, \underline{CodFornitura}, Quantità) \\
+\end{tabular}
+
+
+\newpage
 \textbf{Esercizio 6:} 
 Si vuole realizzare la base di dati per la gestione dei film di una casa di produzione cinematografica.
 Per ogni attore sono noti il codice fiscale, il nome, il cognome, il numero di telefono, l’indirizzo di casa
@@ -5408,34 +5633,85 @@ caratterizzate da un nome e da una descrizione.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.9\linewidth]{er11}
+	\includegraphics[width=\linewidth]{er11}
 	\label{fig:er11}
 \end{figure}
 
+\begin{tabular}{ll}
+	\textbf{Attore} & (\underline{CF}, Nome, Cognome, Telefono, Indirizzo, Cellulare*) \\
+	
+	\textbf{Film} & (\underline{Codice}, Titolo, Regista, DataInizio, Concluso, DataFine*, SpesaTotale*) \\
+	
+	\textbf{Recitazione} & (\underline{CFAttore}, \underline{CodFilm}, Ruolo, Compenso) \\
+	
+	\textbf{Copione} & (\underline{CodiceFilm}, \underline{DataVersione}, Testo) \\
+	
+	\textbf{Autore} & (\underline{Nome}) \\
+	
+	\textbf{AutoreCopione} & (\underline{CodiceFilm}, \underline{DataVersione}, \underline{NomeAutore}) \\
+	
+	\textbf{Set} & (\underline{Codice}, Nome) \\
+	
+	\textbf{Giornata} & (\underline{Data}) \\
+	
+	\textbf{Prenotazione} & (\underline{CodiceFilm}, \underline{DataGiornata}, \underline{CodiceSet}) \\
+	
+	\textbf{AttSpeciale} & (\underline{Codice}, Nome, Descrizione) \\
+	
+	\textbf{Attrezzatura} & (\underline{CodiceSet}, \underline{CodiceAttSpec}) \\
+\end{tabular}
+
 \newpage
-\textbf{Esercizio 5:}
-Si richiede di progettare la base di dati per una catena di supermercati. Ogni supermercato è identificato da
-un codice ed è caratterizzato da indirizzo, città, numero di telefono e nome del responsabile. I supermercati
-della catena rilasciano delle carte fedeltà. Ogni carta fedeltà è caratterizzata da un codice univoco, dal cliente
-titolare della carta e dai punti accumulati. Per ogni cliente titolare di una carta fedeltà si tiene traccia delle
-seguenti informazioni: codice fiscale, nome, cognome, indirizzo e recapito telefonico (facoltativo).
-Ogni supermercato vieni rifornito di prodotti tramite forniture caratterizzate da codice, data di consegna e
-prezzo totale. I prodotti della fornitura sono caratterizzati da un codice univoco, dal nome del prodotto, e dal
-prezzo consigliato. Per ogni fornitura si conosce la quantità di prodotto fornito.
-Si vuole tenere traccia degli scontrini emessi dai vari supermercati della catena. Ogni scontrino è
-caratterizzato da data di emissione, cassa da cui è stato emesso, numero progressivo giornaliero (il numero
-progressivo giornaliero è univoco all'interno della cassa), elenco dei prodotti acquistati con relative quantità e
-prezzi. Per ogni scontrino si deve tenere traccia anche dell'eventuale tessera fedeltà usata durante l'acquisto.
-Ogni cassa del supermercato è identificata da un codice univoco ed è caratterizzata dal supermercato presso
-cui è collocata, dalla data in cui è stata installata e dal modello.
-Il supermercato propone delle promozioni che hanno un codice univoco rispetto al supermercato, una data
-di inizio, una data di fine e il prodotto in promozione.
+\textbf{Esercizio 7:} Si richiede di progettare la base di dati di un’azienda che fabbrica e vende divani artigianali.
+L’azienda mantiene un catalogo dei modelli base che i clienti possono considerare come riferimento per la
+definizione del proprio ordine. Di ogni modello interessa il codice identificativo, il nome e la descrizione. Ogni
+modello può essere realizzato in diversi tessuti e in diversi colori.
+Di ogni tessuto si registra il codice del tessuto, il nome e l'insieme di colori disponibili.
+Di ogni divano ordinato interessa il numero progressivo (unico per ogni modello), il modello di riferimento, il
+numero di posti, il tessuto e il colore scelto, il numero di giorni previsti per la sua realizzazione e il prezzo. Di ogni
+divano interessa inoltre sapere i dettagli dell’ordine che è caratterizzato dal cliente che ha effettuato l’ordine stesso e
+dalla data.
+Ciascun cliente può effettuare al più un ordine in una certa data. Di ogni cliente interessa il codice fiscale, il nome, il
+cognome, la data di nascita, numero di telefono e l’indirizzo di residenza.
+Gli ordini si suddividono in processati e non processati. Di ogni ordine non processato interessa la data prevista per
+la consegna. Di ogni ordine processato interessano i dettagli relativi alla consegna (una ed una sola) attraverso cui è
+stato processato.
+Di ogni consegna, che può essere relativa a più di un ordine, interessa il codice (identificativo), la data, l’ora, la
+durata e il corriere usato.
+Di ogni corriere interessa il codice (univoco), il nome, il numero di telefono e la città in cui opera.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=1\linewidth]{er12}
-	\label{fig:er12}
+	\includegraphics[width=\linewidth]{graphics/er29}
 \end{figure}
+
+\textbf{Traduzione ER:}
+
+\begin{tabular}{ll}
+	\textbf{Modello} & (\underline{Codice}, Nome, Descrizione) \\
+	
+	\textbf{Tessuto} & (\underline{Codice}, Nome) \\
+	
+	\textbf{Colore} & (\underline{Nome}) \\
+	
+	\textbf{CatTessuti} & (\underline{CodModello}, \underline{CodTessuto}) \\
+	
+	\textbf{OpzioneC} & (\underline{CodModello}, \underline{NomeColore}) \\
+	
+	\textbf{ColoreDisponibile} & (\underline{CodTessuto}, \underline{NomeColore}) \\
+	
+	\textbf{Divano} & (\underline{CodModello}, \underline{NumProgr}, Prezzo, NPosti, GRealizzazione, NColore, CodTessuto, DataOrdine, CFCliente) \\
+	
+	\textbf{Ordine} & (\underline{Data}, \underline{Cliente}, TipoOrd, DataPrevistaConsegna*, CodConsegna*) \\
+	
+	\textbf{Cliente} & (\underline{CF}, Nome, Cognome, DataDiNascita, Indirizzo, Telefono) \\
+	
+	\textbf{Consegna} & (\underline{Codice}, Data, Ora, Durata, CodCorriere) \\
+	
+	\textbf{Corriere} & (\underline{Codice}, Nome, Telefono, Città) \\
+\end{tabular}
+
+\newpage
 
 \textbf{Esercizio 8:}
 Si richiede di progettare la base di dati di un'applicazione relativa alla gestione di una catena di pizzerie. Ogni
@@ -5460,7 +5736,77 @@ allergeni che contengono.
 	\label{fig:er14}
 \end{figure}
 
-\newpage
+\begin{tabular}{ll}
+	\textbf{Pizzeria} & (\underline{Nome}, Indirizzo, Responsabile) \\
+	
+	\textbf{Recapito} & (\underline{NumTel}, NomePizzeria) \\
+	
+	\textbf{GiornoSett} & (\underline{Giorno}) \\
+	
+	\textbf{Orario} & (\underline{NomePizzeria}, \underline{Giorno}, Apertura, Chiusura) \\
+	
+	\textbf{Personale} & (\underline{CF}, Nome, Cognome, DataAssunzione, Ruolo, Tipo, NomePizzeria) \\
+	
+	\textbf{Lingua} & (\underline{Nome}) \\
+	
+	\textbf{Competenza} & (\underline{CFPers}, \underline{NomeL}, Livello) \\
+	
+	\textbf{Cucina} & (\underline{Nome}, Descrizione) \\
+	
+	\textbf{Esperienza} & (\underline{CFPers}, \underline{NomeC}) \\
+	
+	\textbf{Menu} & (\underline{NomePizzeria}, \underline{NomePizza}) \\
+	
+	\textbf{Pizza} & (\underline{Nome}, Prezzo) \\
+	
+	\textbf{Ingrediente} & (\underline{Codice}, Nome, Tipo) \\
+	
+	\textbf{Allergene} & (\underline{Codice}, Nome, Descrizione) \\
+	
+	\textbf{Composizione} & (\underline{NomePizza}, \underline{CodIngrediente}, F/S) \\
+	
+	\textbf{PresenzaAll} & (\underline{NomePizza}, \underline{CodAllergene}) \\
+	
+	\textbf{IngAll} & (\underline{CodIngrediente}, \underline{CodAllergene}) \\
+\end{tabular}
+
+\begin{tabular}{ll}
+	\textbf{Pizzeria} & (\underline{Nome}, Indirizzo, Responsabile) \\
+	
+	\textbf{Recapito} & (\underline{NumTel}, NomePizzeria) \\
+	
+	\textbf{GiornoSett} & (\underline{Giorno}) \\
+	
+	\textbf{Orario} & (\underline{NomePizzeria}, \underline{Giorno}, Apertura, Chiusura) \\
+	
+	\textbf{PersonaleSala} & (\underline{CFSala}, Nome, Cognome, DataAssunzione, Ruolo, NomePizzeria) \\
+	
+	\textbf{PersonaleCucina} & (\underline{CFCucina}, Nome, Cognome, DataAssunzione, Ruolo, NomePizzeria) \\
+	
+	\textbf{Lingua} & (\underline{Nome}) \\
+	
+	\textbf{Competenza} & (\underline{CFPersSala}, \underline{NomeL}, Livello) \\
+	
+	\textbf{Cucina} & (\underline{Nome}, Descrizione) \\
+	
+	\textbf{Esperienza} & (\underline{CFPersCucina}, \underline{NomeC}) \\
+	
+	\textbf{Menu} & (\underline{NomePizzeria}, \underline{NomePizza}) \\
+	
+	\textbf{Pizza} & (\underline{Nome}, Prezzo) \\
+	
+	\textbf{Ingrediente} & (\underline{Codice}, Nome, Tipo) \\
+	
+	\textbf{Allergene} & (\underline{Codice}, Nome, Descrizione) \\
+	
+	\textbf{Composizione} & (\underline{NomePizza}, \underline{CodIngrediente}, F/S) \\
+	
+	\textbf{PresenzaAll} & (\underline{NomePizza}, \underline{CodAllergene}) \\
+	
+	\textbf{IngAll} & (\underline{CodIngrediente}, \underline{CodAllergene}) \\
+\end{tabular}
+
+\vspace{1em}
 \begin{esempio}
 	Uno zoo vuole creare la base di dati per memorizzare gli animali che ospita. Ogni animale ha un codice, un nome, l'età e la specie di appartenenza. Ogni specie viene collocata in un settore dello zoo. I settori sono caratterizzati dalla posizione all'interno dello zoo e da un nome. 
 	
@@ -5576,12 +5922,121 @@ Scelgo un solo identificatore primario se ve ne sono più di uno. Solitamente, s
 		\includegraphics[width=0.5\linewidth]{er24.pdf}
 	\end{figure}
 \end{esempio}
+
+\newpage
 \subsection{Traduzione verso il modello relazionale}
 \mybox{\textbf{IDEA DI BASE:}\begin{itemize}
 		\item Tutte le \textbf{entità} diventano \textbf{relazioni} (del modello relazionale dei dati), sugli \textbf{stessi attributi}.
 		inserisci disegnino persona 
 		\item Le relazioni dello schema E-R diventano relazioni sugli identificatore delle entità coinvolte (più gli eventuali attributi propri).
 \end{itemize}}
+
+\begin{itemize}
+	\item \textbf{Relazioni ricorsive:} si crea una tabella per l'entità ed una per la relazione ricorsiva. Ad esempio, ottenendo \begin{align*}
+		PRODOTTO&(\underline{Codice},Nome,Costo)\\
+		COMPOSIZIONE&(\underline{CodComposto,CodComponente},Quantita)
+	\end{align*}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.4\linewidth]{graphics/er30}
+	\end{figure}
+	
+	\item \textbf{Relazione binaria MOLTI a MOLTI:} ogni relazione molti a molti corrisponde a una tabella, \textbf{ la chiave primaria è la combinazione degli identificatori delle due entità collegate}.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{graphics/er31}
+	\end{figure}
+	
+	\item \textbf{Relazione N-Aria:} si crea una nuova tabella con chiave primaria tutte le chiavi primarie delle tabelle collegate e come attributi quelli presenti sulla relazione.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{graphics/er32}
+	\end{figure}
+	
+	\item \textbf{Relazione UNO a MOLTI con partecipazione OBBLIGATORIA:} Si effettua quando l'entità che partecipa con cardinalità massima pari a 1 alla relazione, partecipa obbligatoriamente alla relazione (cardinalità minima pari
+	a 1). \textbf{Si aggiunge al lato (1,1) la chiave esterna del lato (-,N)}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.7\linewidth]{graphics/er33}
+	\end{figure}
+	
+	\newpage
+	\item \textbf{Relazione UNO a MOLTI con partecipazione OPZIONALE:}  Si effettua quando l'entità che partecipa con cardinalità massima pari a 1 alla
+	relazione, partecipa opzionalmente alla relazione (cardinalità minima pari a 0)
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{graphics/er34}
+	\end{figure}
+	
+	\item \textbf{Entità deboli:} La relazione è rappresentata insieme all’identificatore. La relazione contribuisce alla definizione dell’identificatore dell’entità debole.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{graphics/er35}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{graphics/er36}
+	\end{figure}
+	\item \textbf{Relazione UNO a UNO con partecipazione OBBLIGATORIA di ENTRAMBE le entità:}  Si effettua quando entrambe le entità partecipano con cardinalità massima
+	pari a 1 alla relazione, ed entrambe le entità partecipano obbligatoriamente
+	alla relazione (cardinalità minima pari a 1
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\linewidth]{graphics/er37}
+	\end{figure}
+	
+	\item \textbf{Relazione UNO a UNO con partecipazione OBBLIGATORIA di UNA entità:} Si effettua quando entrambe le entità partecipano con cardinalità massima
+	pari a 1 alla relazione, ma solo una delle due entità partecipa
+	obbligatoriamente alla relazione (cardinalità minima pari a 1)
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\linewidth]{graphics/er38}
+	\end{figure}
+	
+	\item \textbf{Relazione UNO a UNO con partecipazione OPZIONALE di ENTRAMBE le entità:} Si effettua quando entrambe le entità partecipano con cardinalità massima pari a 1
+	alla relazione, ed entrambe le entità partecipano opzionalmente alla relazione
+	(cardinalità minima pari a 0)
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\linewidth]{graphics/er39}
+	\end{figure}
+
+\end{itemize}
+
+\begin{esempio} Nell'esempio proposto sotto, la soluzione per garantire che vi sia una relazione MOLTI a MOLTI tra giocatore e squadra, ma in periodi diversi, è importante sviluppare l'ER come nella terza soluzione.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\linewidth]{graphics/er40}
+	\end{figure}
+	
+\end{esempio}
+
+\newpage
+\subsubsection{Esercizi d'esame di traduzione}
+Dato il seguente schema
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{graphics/er41}
+\end{figure}
+
+
+questo si traduce con \begin{align*}
+	A&(\underline{a_1,a_2},a_3,e*,b_1,b_2*) \\
+	B&(\underline{b_1,b_2},b_3,e_1)\\
+	C&(\underline{c_1,b_1,b_2},c_2,c_3)\\
+	R_3&(\underline{a_1,a_2,d_1},f)\\
+	D&(\underline{d_1},d_2,d_3)\\
+	E&(\underline{e_1},e_2,e_3)
+\end{align*}
 
 \newpage
 \part{Tutorato}
