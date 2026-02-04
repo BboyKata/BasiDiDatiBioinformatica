@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.3.5)  4 FEB 2026 16:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.3.5)  4 FEB 2026 17:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2340,11 +2340,25 @@ File: graphics/er41.png Graphic file (type png)
 <use graphics/er41.png>
 Package pdftex.def Info: graphics/er41.png  used on input line 6028.
 (pdftex.def)             Requested size: 241.84842pt x 190.4518pt.
+<graphics/er42.png, id=2139, 553.31718pt x 310.91156pt>
+File: graphics/er42.png Graphic file (type png)
+<use graphics/er42.png>
+Package pdftex.def Info: graphics/er42.png  used on input line 6045.
+(pdftex.def)             Requested size: 241.84842pt x 135.89537pt.
+<graphics/er43.png, id=2140, 359.09157pt x 250.68657pt>
+File: graphics/er43.png Graphic file (type png)
+<use graphics/er43.png>
+Package pdftex.def Info: graphics/er43.png  used on input line 6063.
+(pdftex.def)             Requested size: 241.84842pt x 168.84273pt.
 
 
-[81 <./graphics/er41.png>]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[82]
+
+
+[81 <./graphics/er41.png> <./graphics/er42.png>]
+
+[82 <./graphics/er43.png>]
 
 [83]
 
@@ -2358,35 +2372,44 @@ Package pdftex.def Info: graphics/er41.png  used on input line 6028.
 
 [88]
 
+[89]
+
 pdfTeX warning: pdflatex.exe (file ./graphics/estut1.pdf): PDF inclusion: found
  PDF version <1.7>, but at most version <1.5> allowed
-<graphics/estut1.pdf, id=2320, 537.92969pt x 356.29109pt>
+<graphics/estut1.pdf, id=2330, 537.92969pt x 356.29109pt>
 File: graphics/estut1.pdf Graphic file (type pdf)
 <use graphics/estut1.pdf>
-Package pdftex.def Info: graphics/estut1.pdf  used on input line 6609.
+Package pdftex.def Info: graphics/estut1.pdf  used on input line 6646.
 (pdftex.def)             Requested size: 483.69684pt x 320.38174pt.
 
 
-[89 <./graphics/estut1.pdf>]
-Overfull \hbox (4.0967pt too wide) detected at line 6632
+[90 <./graphics/estut1.pdf>]
+Overfull \hbox (4.0967pt too wide) detected at line 6669
 []
  []
 
 
 
-[90] (./main.aux)
+[91] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0E02BCE32E76314B6DE8FAB0EAE737D3;13123.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 0E02BCE32E76314B6DE8FAB0EAE737D3;13123
+(rerunfilecheck)             After:  1BB054F60C4FB351F724433CC3176AC8;13246.
  ) 
 Here is how much of TeX's memory you used:
- 39276 strings out of 473201
- 826183 string characters out of 5720300
+ 39302 strings out of 473201
+ 826734 string characters out of 5720300
  1521206 words of memory out of 5000000
- 60835 multiletter control sequences out of 15000+600000
+ 60858 multiletter control sequences out of 15000+600000
  573757 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  162i,21n,145p,2667b,2187s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2418,10 +2441,10 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2024/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmtt9.pfb><c:/texlive/2024/texmf-dist/fonts/type1
 /public/amsfonts/latxfont/line10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/pu
 blic/cm-super/sfrm1000.pfb>
-Output written on main.pdf (90 pages, 3288687 bytes).
+Output written on main.pdf (91 pages, 3825400 bytes).
 PDF statistics:
- 2729 PDF objects out of 2984 (max. 8388607)
- 2357 compressed objects within 24 object streams
- 1225 named destinations out of 1440 (max. 500000)
- 853 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2740 PDF objects out of 2984 (max. 8388607)
+ 2363 compressed objects within 24 object streams
+ 1228 named destinations out of 1440 (max. 500000)
+ 863 words of extra memory for PDF output out of 10000 (max. 10000000)
 

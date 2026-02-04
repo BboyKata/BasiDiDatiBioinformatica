@@ -6019,7 +6019,7 @@ Scelgo un solo identificatore primario se ve ne sono più di uno. Solitamente, s
 \end{esempio}
 
 \newpage
-\subsubsection{Esercizi d'esame di traduzione}
+\subsubsection{Esercizi d'esame di traduzione (non li ho corretti)}
 Dato il seguente schema
 
 
@@ -6037,6 +6037,43 @@ questo si traduce con \begin{align*}
 	D&(\underline{d_1},d_2,d_3)\\
 	E&(\underline{e_1},e_2,e_3)
 \end{align*}
+
+\textbf{Dato il seguente schema}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{graphics/er42}
+\end{figure}
+
+si traduce in
+
+\begin{align*}
+	A&(\underline{a_1,a_2},a_3)\\
+	R_1&(\underline{a_1,a_2,b_1,d_1},d_2,e)\\
+	B&(\underline{b_1},b_2,b_3)\\
+	C&(\underline{c_1},c_2,c_3,\underline{b_1})\\
+	D&(\underline{d_1,d_2},d_3)\\
+	E&(\underline{e_1},e_2,e_3,f,\underline{a_1,a_2})
+\end{align*}
+
+\textbf{Dato il seguente schema}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{graphics/er43}
+\end{figure}
+
+Si traduce con
+
+\begin{align*}
+	A&(\underline{a_1,a_2},a_3,b_1,b_2,e)\\
+	B&(\underline{b_1,b_2},b_3,e_1)^*\\
+	C&(\underline{c_1},c_2,c_3,\underline{b_1,b_2})\\
+	E&(\underline{e_1},e_2,e_3)\\
+	R_3&(\underline{d_1,a_1,a_2},f)\\
+	D&(\underline{d_1},d_2,d_3)
+\end{align*}
+
 
 \newpage
 \part{Tutorato}
@@ -6631,4 +6668,5 @@ Il centralino del radio-taxi riceve le chiamate di richiesta di un taxi; al cent
 	dafinire
 \end{align*}
 
+\emph{TUTTO CIÒ CHE MANCA DI TUTORATO ED ESERCIZI È SU MOODLE CIAO}
 \end{document} 

@@ -66,10 +66,10 @@
 \contentsline {paragraph}{Eliminazione degli attributi multivalore:}{77}{section*.71}%
 \contentsline {subsubsection}{\numberline {7.1.4}Scelta degli identificatori primari}{77}{subsubsection.7.1.4}%
 \contentsline {subsection}{\numberline {7.2}Traduzione verso il modello relazionale}{78}{subsection.7.2}%
-\contentsline {subsubsection}{\numberline {7.2.1}Esercizi d'esame di traduzione}{81}{subsubsection.7.2.1}%
-\contentsline {part}{II\hspace {1em}Tutorato}{82}{part.2}%
-\contentsline {section}{\numberline {8}Esercizi Algebra Relazionale}{82}{section.8}%
-\contentsline {section}{\numberline {9}Esercizi SQL}{86}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Esercizio 1}{86}{subsection.9.1}%
-\contentsline {section}{\numberline {10}Esercizi progettazione}{88}{section.10}%
-\contentsline {paragraph}{Esercizio Taxi}{89}{section*.87}%
+\contentsline {subsubsection}{\numberline {7.2.1}Esercizi d'esame di traduzione (non li ho corretti)}{81}{subsubsection.7.2.1}%
+\contentsline {part}{II\hspace {1em}Tutorato}{83}{part.2}%
+\contentsline {section}{\numberline {8}Esercizi Algebra Relazionale}{83}{section.8}%
+\contentsline {section}{\numberline {9}Esercizi SQL}{87}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Esercizio 1}{87}{subsection.9.1}%
+\contentsline {section}{\numberline {10}Esercizi progettazione}{89}{section.10}%
+\contentsline {paragraph}{Esercizio Taxi}{90}{section*.89}%
