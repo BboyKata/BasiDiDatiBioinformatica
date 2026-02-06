@@ -6675,7 +6675,7 @@ Il centralino del radio-taxi riceve le chiamate di richiesta di un taxi; al cent
 \mybox{\textbf{DISCLAIMER:} \emph{tutte le risposte qui sotto riportate sono state scritte ed interpretate da me e vengono da quanto riportato nei miei appunti e dalla mia esperienza; quindi ad una valutazione esterna della docente non è certo che possano essere accurate, precise o perfino sufficienti. Non me ne assumo la responsabilità :D, buono studio.}}
 
 \section{Domande preliminari}
-\subsubsection{Domande teoriche}
+\subsection{Domande teoriche}
 
 \begin{multicols}{2}
 	\begin{enumerate}[leftmargin=*, align=left]
@@ -6813,7 +6813,7 @@ Il centralino del radio-taxi riceve le chiamate di richiesta di un taxi; al cent
 	
 \end{multicols}
 
-\section{Domande sulla cardinalità}
+\subsection{Domande sulla cardinalità}
 \begin{enumerate}
 	\item Data una relazione $R_1(\underline{A},B,C,D)$ e la relazione $R_2(\underline{D},\underline{E},F)$ dove $|R_1| = N_1$ e $|R_2| = N_2$. \begin{itemize}
 		\item Se effettuo $\Pi_{A} (R_1) \to |\Pi_{A} (R_1)|=N_1$ cioè stessa cardinalità.
@@ -6844,6 +6844,8 @@ Il centralino del radio-taxi riceve le chiamate di richiesta di un taxi; al cent
 		\item $\Pi_{A,C}(R_1) \rightarrow |\Pi_{A,C}(R_1)| = N_1$
 		\item $\Pi_{E}(R_2) \rightarrow |\Pi_{E}(R_2)| \leq N_2$
 		\item $R_1 \bowtie_{A=D} R_2 \rightarrow 0 \leq | R_1 \bowtie_{A=D} R_2 | \leq min(N_1,N_2)$
+		\item $R_1 \bowtie_{C=E} R_2 \rightarrow 0 \leq |R_1 \bowtie_{C=E} R_2| \leq N_1 \times N_2$
+		\item $R_1 \bowtie_{B = D} R_2 \rightarrow |R_1 \bowtie_{B=D} R_2| = N_1$
 	\end{itemize}
 \end{enumerate}
 
@@ -6864,6 +6866,20 @@ Il centralino del radio-taxi riceve le chiamate di richiesta di un taxi; al cent
 		F&(\underline{f_1},f_2,f_3)\\
 		R_3&(\underline{d_1,f_1,e_1},f)\\
 	\end{align*}
+	
+	\item Dato il seguente schema concettuale nel modello ER, si produca la sua traduzione nel modello relazionale.
+	\begin{center}
+		\includegraphics[width=0.5\linewidth]{graphics/er45}
+	\end{center}
+	
+	\textbf{Traduzione:} \begin{align*}
+		A&(\underline{a_1}, a_2, a_3)\\
+		B&(\underline{b_1}, \underline{b_2}, b_3)\\
+		C&(\underline{c_1}, c_2, c_3, d_1, d_2, f)\\
+		R_1&(\underline{a_1, b_1, b_2, c_1}, e)\\
+		D&(\underline{d_1, d_2}, d_3)\\
+	\end{align*}
+	
 \end{enumerate}
 
 \end{document} 
