@@ -76,5 +76,5 @@
 \contentsline {part}{III\hspace {1em}Preparazione all'esame}{92}{part.3}%
 \contentsline {section}{\numberline {11}Domande preliminari}{92}{section.11}%
 \contentsline {subsection}{\numberline {11.1}Domande teoriche}{92}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Domande sulla cardinalità}{94}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Domande sulla traduzione degli ER:}{95}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.2}Domande sulla cardinalità}{95}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Domande sulla traduzione degli ER:}{96}{subsection.11.3}%

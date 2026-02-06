@@ -6808,6 +6808,49 @@ Il centralino del radio-taxi riceve le chiamate di richiesta di un taxi; al cent
 	\end{itemize}
 	
 	
+	\item \textbf{A cosa servono le equivalenze tra espressioni algebriche?}\\
+		Le espressioni equivalenti servono ai DBMS per ottimizzare le query che poniamo, affinché si trovino quelle
+	meno costose computazionalmente, ovvero quelle che si portano dietro meno tuple. Sono interessanti le trasfor
+	mazioni di equivalenze che riducono le dimensioni dei risultati intermedi.
+	
+	 Equivalenza \textbf{assoluta:} \begin{align*}
+		\Pi_{A,B}(\sigma_{A>0}(R)) \equiv \sigma_{A>0} (\Pi_{A,B}(R))
+	\end{align*}
+	
+	\item \textbf{Quale è lo scopo delle trasformazioni di equivalenza?} \\
+	Lo scopo delle trasformazioni di equivalenza è quello di anticipare \textit{il prima possibile} la \emph{proiezione e selezione} all'interno di un'espressione algebrica (o interrogazione) così da ottimizzarne le prestazioni. Le prestazioni vengono ottimizzate perché anticipando queste due operazioni si "scremano", cioè si escludono, presto le colonne o le tuple che non non interessano alla risoluzione dell'interrogazione, così da ridurre il carico a tutte le operazioni che seguiranno.
+	
+	\item \textbf{Che cosa si intende con violazione dei vincoli?} \\
+	Quando si violano dei vincoli interrelazionali vuol dire che si fanno operazioni
+	non permesse riguardante principalmente il vincolo di integrità referenziale sulla tabella esterna o interna.
+	Ci sono diverse alternative per la violazione generata da modifiche o delezioni sulla tabella esterna referente alle quali la tabella riferita(interna) si deve adeguare:
+	\begin{itemize}
+		\item \textbf{cascade:} propagazione della modifica.
+		\item \textbf{set null}
+		\item \textbf{set default}
+		\item \textbf{no action}
+	\end{itemize}
+	
+	\item \textbf{Cos'è un entità, un attributo e una relazione secondo il modello concettuale?} \\
+	Un'entità è una classe di oggetti (fatti, persone, cose) dell'applicazione di interesse con \textit{proprietà comuni ed esistenza "autonoma"}. Si rappresenta con un rettangolo ed il nome della classe che voglio rappresentare.
+	Vi è una mappatura tra l'entità nello schema ER, la relazione nello schema logico, e l'istanza come tupla. Una \textbf{relazione} rappresenta un legame logico tra due o più entità, rilevante per l'applicazione di interesse. La relazione si rappresenta con un rombo.
+	Un \textbf{attributo} è una proprietà elementare di un'entità o di una relazione, di interesse ai fini dell'applicazione. Lo rappresento tramite delle "puntine" e con il loro nome di appartenenza.
+	\textit{Inserisci rappresentazione grafica}.
+	
+	\item \textbf{Cos'è un'entità debole?} \\
+	è un'entità la cui identificazione univoca è possibile unicamente per mezzo della relazione che effettua con un'altra entità.
+	
+	\item \textbf{Che tipi di cardinalità di relazione ci sono all'interno di uno schema ER?}\\
+	 all'interno di un modello concettuale, le relazioni possono avere come cardinalità minima 0 o 1, dove 0 corrisponde all'opzionalità nel coinvolgimento della relazione, e come cardinalità massima 1 o N. Da questi 3 valori di cardinalità massima si ottengono le seguenti possibilità:\begin{itemize}
+		\item \textbf{1 a 1:} ogni entità A è in relazione con una sola altra entità B. \textit{Esempio: università - rettore}
+		\item \textbf{1 a N:} ogni entità A può essere in relazione con più entità B, ma quest'ultime possono essere in relazione unicamente con una e una sola entità A. \textit{Esempio: alunno - classe}
+		\item \textbf{N a N:} ogni entità A può essere in relazione con più entità B e viceversa. \textit{Esempio: professore - classe}
+		
+		\item \textbf{Si illustri il costrutto di relazione del modello ER. Si indichi inoltre il significato di cardinalità di una relazione, riportando un esempio per ogni tipo di carinalità descritta.}\\
+		Rappresenta un legame logico tra due o più entità, rilevante per l'applicazione di interesse. La relazione si rappresenta con un rombo. Il significato di cardinalità in una relazione indica il numero minimo e massimo di entità coinvolte in una relazione, ovvero, per ciascuna entità, con quante altre entità può essere in relazione e se il coinvolgimento in una relazione è opzionale o obbligatorio.
+		
+		
+	\end{itemize}
 	\end{enumerate}
 	
 	
@@ -6846,7 +6889,75 @@ Il centralino del radio-taxi riceve le chiamate di richiesta di un taxi; al cent
 		\item $R_1 \bowtie_{A=D} R_2 \rightarrow 0 \leq | R_1 \bowtie_{A=D} R_2 | \leq min(N_1,N_2)$
 		\item $R_1 \bowtie_{C=E} R_2 \rightarrow 0 \leq |R_1 \bowtie_{C=E} R_2| \leq N_1 \times N_2$
 		\item $R_1 \bowtie_{B = D} R_2 \rightarrow |R_1 \bowtie_{B=D} R_2| = N_1$
+		
 	\end{itemize}
+
+\item Date le relazioni: $R_1(A, B, C)$ ed $R_2(D, E, F)$ aventi rispettivamente cardinalità $N_1$ ed $N_2$. Assumere che sia definito un vincolo di integrità referenziale tra $R_1.C$ e la chiave di $R_2$. Indicare la cardinalità del risultato delle seguenti espressioni (specificare l’intervallo nel quale può variare).
+\begin{itemize}
+	\item $\Pi_B (R_1) \rightarrow 1 \leq |\Pi_B (R_1)| \leq N_1$
+	\item $\Pi_{DE} (R_2) \rightarrow |\Pi_{DE} (R_2)| = N_2 \quad (\text{D chiave})$
+	\item $\Pi_A (R_1) \rightarrow |\Pi_A (R_1)| = N_1 \quad (\text{A chiave})$
+	\item $R_1 \bowtie_{A=D} R_2 \rightarrow 0 \leq |R_1 \bowtie_{A=D} R_2| \leq \min(N_1, N_2)$
+	\item $R_1 \bowtie_{C=D} R_2 \rightarrow |R_1 \bowtie_{C=D} R_2| = N_1 \quad (\text{vincolo integrità referenziale})$
+\end{itemize}
+
+\item Date le relazioni $R_1(\underline{A},B,C)$ e $R_2(\underline{D},E,F)$ aventi rispettivamente cardinalità $N_1$ e $N_2$. Assumere che sia definito un vincolo di integrità referenziale tra $R_1.B$ e la chiave di $R_2$. Indicare la cardinalità del risultato delle seguenti espressioni (eventualmente specificando l'intervallo nel quale può variare): \sitemize{
+	\item $\Pi_{AC}(R_1) \to |\Pi_{A,C}(R_1)| =N_1$
+	\item $\Pi_E(R_2) \to 1\leq |\Pi_E(R_2)| \leq N_2$
+	\item $R_1 \bowtie_{A=D} R_2 \to 0 \leq |R_1 \bowtie_{A=D} R_2| \leq min(N_1,N_2)$
+	
+	Dove 0 è nel caso minimo dove non c'è corrispondenza , e $min(N_1,N_2)$ dove corrispondono tutti i valori.
+	
+	\begin{minipage}{0.3\textwidth}
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{A} & \textbf{B} & \textbf{C} \\
+			\hline
+			X & W & 2 \\
+			\hline
+			Y & X & 1 \\
+			\hline
+			Z & X & 1\\
+			\hline
+		\end{tabular}
+		\captionof{table}{$R_1$}
+	\end{minipage}
+	\begin{minipage}{0.3\textwidth}
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{D} & \textbf{E} & \textbf{F} \\
+			\hline
+			X & 3 & 4 \\
+			\hline
+			Z & 3 & 5 \\
+			\hline
+		\end{tabular}
+		\captionof{table}{$R_2$}
+	\end{minipage}
+	\begin{minipage}{0.3\textwidth}
+		\centering
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			\textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} & \textbf{F} \\
+			\hline
+			X & W & Z &X & 3 & 4 \\
+			\hline
+			Z & X & 1 & Z & 3 & 5 \\
+			\hline
+		\end{tabular}
+		\captionof{table}{$R_1 \bowtie_{A=D} R_2$}
+	\end{minipage}
+	\item $R_1 \bowtie_{C=E} R_2 \to 0\leq | R_1 \bowtie_{C=E} R_2 | \leq N_1 \times N_2$
+	
+	Poiché qua abbiamo attributi non chiave potrebbe essere tra 0 e la combinazione di tutti i valori.
+	\item $R_1 \bowtie_{B=D}R_2 \to |R_1 \bowtie_{B=D}R_2| = N_1$
+	
+	Poiché vi è un vincolo di integrità referenziale.
+}
+Dato $R_3(\underline{G},\underline{{H}},I)$, $1 \leq |\Pi_{G,I}| \leq N_3$ e non esattamente $N_3$ perché prendo \textbf{parte della chiave}, che si può ripetere, e non tutta. (Esempio con Nome e Cognome).
+
 \end{enumerate}
 
 \subsection{Domande sulla traduzione degli ER:}\begin{enumerate}
