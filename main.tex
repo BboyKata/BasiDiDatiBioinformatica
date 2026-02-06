@@ -6830,6 +6830,21 @@ Il centralino del radio-taxi riceve le chiamate di richiesta di un taxi; al cent
 		\item $R_1 \bowtie_{D = E}R_2 \rightarrow | R_1 \bowtie_{D = E}R_2 | = N_1$
 		\item $R_1 \bowtie_{A = E}R_2\rightarrow 0 \leq | R_1 \bowtie_{A = E}R_2| \leq N_1$
 	\end{itemize}
+	
+	\item Date le relazioni $R_1(\underline{A,B}, C, D)$ $R_2(\underline{E},F,G)$ e $R_3(\underline{H},I)$ con $R_1.D \rightarrow R_2.E$ e $R_2.G \rightarrow R_3.H$ trovare la cardinalità di:\begin{itemize}
+		\item $\Pi_{B,C}(R_1) \rightarrow 1 \leq | \Pi_{B,C}(R_1) | \leq N_1$
+		\item $\Pi_{E,F}(R_1) \rightarrow | \Pi_{E,F}(R_1) | = N_2$
+		\item $R_1 \bowtie_{C = I}R_3 \rightarrow 0 \leq | R_1 \bowtie_{C = I}R_3 | \leq N_1 \times N_3$
+		\item $R_1 \bowtie_{D = E}R_2 \rightarrow |R_1 \bowtie_{D = E}R_2| = N_1 $
+		\item $R_2 \bowtie_{E = H}R_3 \rightarrow 0 \leq | R_2 \bowtie_{E = H}R_3 | \leq min(N_2,N_3)$
+		\item $R_2 \bowtie_{E = I}R_3 \rightarrow 0 \leq | R_2 \bowtie_{E = I}R_3 | \leq N_2 \times N_3$
+	\end{itemize}
+	
+	\item Data una relazione $R_1(\underline{A},B,C)$ e $R_2(\underline{D},E,F)$ aventi rispettivamente cardinalità $N_1$ ed $N_2$. Assumere un vincolo di integrità referenziale tra $R_1.B$ e $R_2.D$. Definire la cardinalità di: \begin{itemize}
+		\item $\Pi_{A,C}(R_1) \rightarrow |\Pi_{A,C}(R_1)| = N_1$
+		\item $\Pi_{E}(R_2) \rightarrow |\Pi_{E}(R_2)| \leq N_2$
+		\item $R_1 \bowtie_{A=D} R_2 \rightarrow 0 \leq | R_1 \bowtie_{A=D} R_2 | \leq min(N_1,N_2)$
+	\end{itemize}
 \end{enumerate}
 
 \subsection{Domande sulla traduzione degli ER:}\begin{enumerate}
