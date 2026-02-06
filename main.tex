@@ -6674,8 +6674,8 @@ Il centralino del radio-taxi riceve le chiamate di richiesta di un taxi; al cent
 \part{Preparazione all'esame}
 \mybox{\textbf{DISCLAIMER:} \emph{tutte le risposte qui sotto riportate sono state scritte ed interpretate da me e vengono da quanto riportato nei miei appunti e dalla mia esperienza; quindi ad una valutazione esterna della docente non è certo che possano essere accurate, precise o perfino sufficienti. Non me ne assumo la responsabilità :D, buono studio.}}
 
-\section{Possibili domande di teoria}
-
+\section{Domande preliminari}
+\subsubsection{Domande teoriche}
 
 \begin{multicols}{2}
 	\begin{enumerate}[leftmargin=*, align=left]
@@ -6771,11 +6771,84 @@ Il centralino del radio-taxi riceve le chiamate di richiesta di un taxi; al cent
 			\item \textbf{Valore inesistente}: non esiste nella realtà modellata
 			\item \textbf{Valore senza informazione}: OR logico dei due sopra $\leftarrow$ i DBMS lavorano con questa assunzione.}
 		
+		\item \textbf{Che cos'è un vincolo di integrità e in che classi si suddividono?}\\
+		 è un vincolo che descrive le proprietà che i dati di una base di dati devono rispettare per poterne assicurare \textbf{la qualità}, più precisamente, l'integrità, ovvero la \textbf{completezza} e la \textbf{correttezza}. Un vincolo è una \textit{funzione booleana} che associa all'istanza il valore VERO o FALSO a seconda se le proprietà richieste sono rispettate. Abbiamo due tipologie: 
+		\sitemize{\item \textbf{Vincoli INTRA-RELAZIONALI:} vincoli riferiti ad una singola tabella e ai valori che questa e le sue tuple assumono. Sono \begin{itemize}
+				\item \textbf{Di tupla:} effettua la validazione dei valori contenuti in ciascuna tupla secondo le proprietà richieste.
+				\item \textbf{Di dominio:} riferito a ciascun valore, verifica che il valore inserito appartenga al dominio specificato dal dato.
+				\item \textbf{Di chiave:} permette di specificare qual è l’insieme di attributi che identificano in maniera univoca ogni singola tupla e quindi che i suoi valori siano unici per tutta la relazione.
+		\end{itemize}
+		\item \textbf{Vincoli INTER-RELAZIONALI:} fanno riferimento a più relazioni, l'unico è il \textbf{vincolo di integrità referenziale:} date due tabelle, la tabella \textbf{interna/referente/slave}, e la tabella \textbf{esterna/riferita/master}, il vincolo garantisce che \textit{per ogni valore diverso da NULL} contenuto nella tabella interna, questo abbia una \textit{corrispondenza tra i valori (chiave) della tabella esterna.}
+	} 
+	
+	\item \textbf{Quale è la differenza tra chiave, superchiave e chiave primaria?}
+	\sitemize{
+		\item Un insieme \textit{K} di attributi è \textbf{superchiave} per \textit{r} se \textit{r} NON contiene due tuple distinte $t_1$ e $t_2$ con $t_1[k] = t_2[k]$. $\rightarrow$ \textbf{UNICITÀ}
 		
+		
+		\item Un insieme \textit{K} di attributi è \textbf{chiave} per \textit{r} se è una \textbf{superchiave minimale} per \textit{r} $\leftarrow$ \textbf{MINIMALITÀ}
+		\item una \textbf{chiave} è \textbf{superchiave} se \textit{non ammette valori nulli}.
+	}
+	
+	\item \textbf{VERO O FALSO riassuntivo:}\begin{itemize}
+		\item \textbf{Ogni relazione ha almeno una chiave}, \textbf{VERO}, poiché una relazione è un insieme, quindi male che vada ho tutti gli attributi come chiave. 
+		\item Ogni relazione ha \textit{esattamente} una chiave? \textbf{FALSO}.  
+		\item Ogni attributo della relazione appartiene al massimo ad una chiave. FALSO. Una chiave può essere sottoinsieme di un'altra. 
+		\item Può esistere una chiave che coinvolge tutti gli attributi. \textbf{VERO.}
+	\end{itemize}
+	
+	\item \textbf{Che tipi di linguaggi esistono?}\\
+	I linguaggi possono essere: \begin{itemize}
+		\item \textbf{Linguaggi FORMALI:} Come l'algebra relazionale.
+		\item \textbf{Linguaggi COMMERCIALI:} Come l'SQL (Structured Query Language).
+	\end{itemize}
+	Inoltre i linguaggi possono essere: \begin{itemize}
+		\item \textbf{DICHIARATIVI: }specificano le proprietà del risultato, cioè "che cosa" voglio ottenere. SQL è un linguaggio dichiarativo.
+		\item \textbf{PROCEDURALI: }specificano le modalità di generazione del risultato, cioè "come" ottenerlo, quali sono i passaggi. L'algebra relazionale è un linguaggio procedurale.
+	\end{itemize}
+	
+	
 	\end{enumerate}
 	
 	
-	
 \end{multicols}
+
+\section{Domande sulla cardinalità}
+\begin{enumerate}
+	\item Data una relazione $R_1(\underline{A},B,C,D)$ e la relazione $R_2(\underline{D},\underline{E},F)$ dove $|R_1| = N_1$ e $|R_2| = N_2$. \begin{itemize}
+		\item Se effettuo $\Pi_{A} (R_1) \to |\Pi_{A} (R_1)|=N_1$ cioè stessa cardinalità.
+		\item Se effettuo $\Pi_{B} (R_1) \to |\Pi_{B} (R_1) | \leq N_1$
+		\item Se effettuo $\Pi_{D,E} (R_2) \to | \Pi_{D,E} (R_2) | = N_2$
+		\item Se effettuo $\Pi_{D} (R_2) \to | \Pi_{D} (R_2) | \leq N_2$
+		\item Se effettuo $\sigma_{B = "Verona"} (R_1) \to |\sigma_{B = "Verona"} (R_1) | \leq N_1 $
+	\end{itemize}
+	
+	\item Siano date le relazioni: $R_1(\underline{A,B}, C,D)$ ed $R_2(\underline{E},F,G)$ aventi rispettivamente cardinalità $N_1$ ed $N_2$. Assumere che sia definito in vincolo di integrità referenziale tra $R_1.D$ e la chiave di $R_2$. Indicare la cardinalità del risultato delle seguenti espressioni: \begin{itemize}
+		\item $\Pi_{B,C}(R_1) \rightarrow 1 \leq |\Pi_{B,C}(R_1)| \leq N_1$ 
+		\item $\Pi_{E,F}(R_2) \rightarrow | \Pi_{E,F}(R_2)| = N_2$
+		\item $R_1 \bowtie_{C = G}R_2 \rightarrow 0 \leq |R_1 \bowtie_{C = G}R_2| \leq N_1 \times N_2 $
+		\item $R_1 \bowtie_{D = E}R_2 \rightarrow | R_1 \bowtie_{D = E}R_2 | = N_1$
+		\item $R_1 \bowtie_{A = E}R_2\rightarrow 0 \leq | R_1 \bowtie_{A = E}R_2| \leq N_1$
+	\end{itemize}
+\end{enumerate}
+
+\subsection{Domande sulla traduzione degli ER:}\begin{enumerate}
+
+	\item Dato il seguente schema concettuale nel modello ER, si produca la sua traduzione nel modello relazionale.
+	
+	\begin{center}
+		\includegraphics[width=0.5\linewidth]{graphics/er44}
+	\end{center}
+	\textbf{Traduzione}
+	\begin{align*}
+		A&(\underline{a_1,a_2},a_3)\\
+		B&(\underline{b_1,b_2},b_3,e,a_1,a_2)\\
+		C&(\underline{c_1,a_1,a_2},c_2,c_3)\\
+		D&(\underline{d_1},d_2,d_3)\\
+		E&(\underline{e_1},e_2,e_3,b_1,b_2)\\
+		F&(\underline{f_1},f_2,f_3)\\
+		R_3&(\underline{d_1,f_1,e_1},f)\\
+	\end{align*}
+\end{enumerate}
 
 \end{document} 

@@ -74,4 +74,7 @@
 \contentsline {section}{\numberline {10}Esercizi progettazione}{89}{section.10}%
 \contentsline {paragraph}{Esercizio Taxi}{90}{section*.89}%
 \contentsline {part}{III\hspace {1em}Preparazione all'esame}{92}{part.3}%
-\contentsline {section}{\numberline {11}Possibili domande di teoria}{92}{section.11}%
+\contentsline {section}{\numberline {11}Domande preliminari}{92}{section.11}%
+\contentsline {subsubsection}{\numberline {11.0.1}Domande teoriche}{92}{subsubsection.11.0.1}%
+\contentsline {section}{\numberline {12}Domande sulla cardinalità}{94}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Domande sulla traduzione degli ER:}{95}{subsection.12.1}%
