@@ -6669,4 +6669,113 @@ Il centralino del radio-taxi riceve le chiamate di richiesta di un taxi; al cent
 \end{align*}
 
 \emph{TUTTO CIÒ CHE MANCA DI TUTORATO ED ESERCIZI È SU MOODLE CIAO}
+
+\newpage
+\part{Preparazione all'esame}
+\mybox{\textbf{DISCLAIMER:} \emph{tutte le risposte qui sotto riportate sono state scritte ed interpretate da me e vengono da quanto riportato nei miei appunti e dalla mia esperienza; quindi ad una valutazione esterna della docente non è certo che possano essere accurate, precise o perfino sufficienti. Non me ne assumo la responsabilità :D, buono studio.}}
+
+\section{Possibili domande di teoria}
+
+
+\begin{multicols}{2}
+	\begin{enumerate}[leftmargin=*, align=left]
+		\item \textbf{Che cos'è un sistema informatico?}\\
+		Un sistema informatico è la \textit{componente automatizzata} di un sistema \textit{informativo} che \textbf{gestisce} (quindi elabora, acquisisce, conserva, sincronizza e produce) le \textbf{informazioni di interesse} di un'organizzazione. 
+		\sitemize{
+			\item Le informazioni di interesse sono descritte dal \textbf{contesto} in analisi (Ad esempio, infatti, nel sistema informatico di un supermercato non sarà un'informazione di interesse la pressione arteriosa dei clienti.)
+			\item La differenza tra un sistema \textit{informatiVo} ed un sistema \textit{informatiCo} è che il sistema informativo gestisce le informazioni di interesse, mentre quello informatico lo fa anch'esso, ma in maniera \textit{automatizzata} per mezzo di tecnologie informatiche.
+			\item Le \textbf{informazioni} vengono rappresentate attraverso i dati, mentre i \textbf{dati} sono un modo di rappresentare l'informazione. Dato e informazione non si equivalgono: l'informazione è composta da
+			dati, i quali prendono significato a seguito di un'interpretazione.
+		}
+		\item \textbf{Che cos'è un sistema organizzativo?}\\
+		Ogni organizzazione ha un sistema organizzativo, che è l'insieme di \textbf{risorse e regole} per lo \textbf{svolgimento coordinato delle attività} al fine del perseguimento degli scopi dell'organizzazione stessa. Tra le risorse di un'azienda vi sono persone, denaro, materiali e \textbf{informazioni.} \sitemize{\item La gestione di queste informazioni è organizzata da un sistema informativo, che non è detto che sia \textit{informatico} (ad esempio l'anagrafe prima dei computer esisteva comunque). \item Il sistema informativo è parte del sistema organizzativo. Come detto sopra, la porzione del sistema informativo che è automatizzata è detta informatica.}
+		\item \textbf{Che cos'è una base di dati?} \\
+		Una base di dati è un \textbf{insieme organizzato di dati} utilizzati per il \textbf{supporto allo svolgimento delle attività} di un ente.
+		\sitemize{\item In senso tecnologico, la base di dati è il sistema software ed infrastrutturale che permette di gestire i dati organizzati, conservarli e permetterne l'interrogazione. \item La base di dati è gestita da un \textbf{DataBase Management System (DBMS)}. }
+		\item \textbf{Che cos'è un DBMS?} \\
+		Un DBMS è un \textbf{sistema informatico} (quindi parte del sistema informativo) che \textbf{gestisce grandi collezioni di dati} (per la loro numerosità, complessità o dimensione). 
+		
+		I dati devono essere
+		\sitemize{\item \textbf{persistenti}, ovvero memorizzati in maniera \textit{durevole}. \item \textbf{condivisi}, ovvero accessibili da più utenti con diversi livelli di visibilità ed autorizzazione.}
+		
+		Il DBMS deve garantire
+		\sitemize{
+			\item \textbf{privatezza}, ovvero che l'accesso ai dati sia regolato \item \textbf{affidabilità}, ovvero che i dati rimangano sicuri, integri e consistenti in qualsiasi condizione. \item \textbf{efficienza}, ovvero deve funzionare con un utilizzo di memoria e di tempo ottimali \item \textbf{efficacia}, ovvero deve fare risparmiare tempo}
+		
+		Si basa sul concetto di \textbf{transazione}che è\sitemize{\item \textbf{atomica}, ovvero che l'insieme di operazioni che compongono la transazione O vengono eseguite tutte correttamente, O si annulla l'effetto di tutti i sottoprocessi che compongono la transizione \item \textbf{concorrente}, ovvero deve restituire un risultato o un'operazione valida e coerente anche se effettuate richieste concorrenti da utenti diversi; in altre parole, transazioni concorrenti non devono influire l'una sull'esito dell'altra
+			\item \textbf{definitiva:} se la transazione va a buon fine gli effetti sono definitivi}
+		
+		\item \textbf{Che cos'è un modello di dati?} \\
+		Un modello di dati è un \textbf{insieme di concetti} utilizzati per \textbf{organizzare} i dati di interesse e \textbf{descriverne la struttura} in modo che risulti comprensibile ad un elaboratore. Abbiamo il \sitemize{\item \textbf{Modello concettuale:} organizza i concetti fondamentali di un dominio in \textbf{maniera astratta}, indipendentemente dal modello logico, quindi non occupandosi dell'implementazione finale della struttura. Il focus in questo modello è sui \textit{concetti rappresentati}. 
+			$\rightarrow$ \textbf{Esempio:} modello ER.
+			
+			\item \textbf{Modello logico:} organizza i dati in modo strutturato, ma ancora astratto, per mezzo di tabelle e relazioni.
+			$\rightarrow$ \textbf{Esempio:} modello relazionale. }
+		
+		\item \textbf{Che cos'è uno SCHEMA in una base di dati?} \\
+		Lo schema è l'applicazione e la strutturazione di un modello in modo da \textbf{descrivere la struttura della base di dati.} Lo schema è la \textbf{descrizione formale della struttura dei dati.} \sitemize{\item Nel \textbf{modello concettuale (ER)} lo schema sono le \textbf{entità e le relazioni}. \item Nel \textbf{modello relazionale (logico)} lo schema è la struttura delle tabelle, degli attributi e dei tipi di dati}
+		
+		\item \textbf{Che cos'è un'ISTANZA in una base di dati?} \\
+		Un'istanza è l'\textbf{insieme dei valori attuali contenuti nella base di dati}, sono i dati veri e proprio che possono cambiare nel tempo. \sitemize{\item Nel \textbf{modello concettuale (ER)} l'istanza è costituita dalle \textit{entità} e dalle coppie di entità che formano le \textit{relazioni}. \item Nel \textbf{modello relazionale (logico)} l'istanza è costituita dalle \textit{tuple della tabella}}
+		
+		\item \textbf{Che cos'è una tupla?}\\
+		Nel modello relazionale (logico), data una relazione \textit{R }ed il suo insieme di attributi \textit{X}, una tupla è una funzione che associa a ciascuno degli attributi \textit{A} in \textit{X} un valore del dominio di \textit{A}.
+		
+		\item \textbf{Che cos'è una relazione?} \\
+		A seconda del contesto a cui ci si riferisce, una relazione è:\sitemize{\item \textbf{Matemtica:} dati due insiemi di dominio $D_1$ e $D_2$ rispettivamente, una relazione è il \textbf{sottoinsieme del loro prodotto cartesiano}: $R\subseteq D_1 \times D_2$. Questo concetto non è sufficiente in una base di dati perché l'ordine dei valori nel prodotto cartesiano è \textbf{posizionale}, ovvero $D_1 \times D_2 \neq D_2 \times D_1$.
+			\item \textbf{Modello concettuale (ER):} collegamento tra due entità. Ha cardinalità ed attributi propri.
+			\item \textbf{Modello relazionale (Codd):} è una variante della relazione matematica per renderla \textbf{non-posizionale}, infatti \textbf{i valori non dipendono dall aposizione della colonna, ma ognuna ha un ruolo distinguibile tramite il nome.} Ai domini vengono quindi associati dei nomi descrittivi rendendo la loro identificazione indipendente dalla posizione della colonna. 
+			
+		} 
+		
+		\item \textbf{Quando una tabella rappresenta una relazione nel modello relazionale dei dati?}\\
+		Una tabella rappresenta una relazione se: \sitemize{\item i valori di ogni colonna sono fra loro \textbf{omogenei}, perché appartengono allo stesso dominio.
+			\item \textbf{le righe della tabella sono tutte diverse tra loro}, perché la relazione è un insieme, quindi ogni elemento(riga) è diverso tra loro.
+			\item \textbf{Le intestazioni di ogni colonna sono diverse} perché se dò nomi uguali si torna ad una notazione posizionale, mentre io ne voglio una NON posizionale. }
+		
+		\item \textbf{Cos'è il GRADO nel modello relazionale dei dati?}\\
+		È il numero di \textit{colonne} di una relazione.
+		
+		\item \textbf{Cos'è la CARDINALITÀ nel modello relazionale dei dati?}\\
+		È il numero di \textit{tuple} dell'istanza di una relazione.
+		
+		\item \textbf{Cos'è lo SCHEMA DI RELAZIONE nel modello relazionale?}\\
+		Descrive la struttura della relazione e si indica con $R(X)$, dove $R$ è il nome della relazione, $X$ è l'insieme degli attributi $X = A_1,A_2,...,A_n$; ad ogni attributo è asociato un dominio. \\
+		Un esempio è \begin{align*}
+			STUDENTE&(Matricola,Nome, Cognome,DataNascita)
+		\end{align*}
+		Un'\textbf{istanza di relazione su uno schema R(X)} è un insieme di tuple \textit{r} su X.\\
+		Un esempio è \begin{align*}
+			r = \{ &(VR0001, Rossi, Mario, 01/01/2001),\\
+			&(VR0002, Gialli, Lucia, 02/02/2002), ... \}
+		\end{align*}
+		
+		\item \textbf{Cos'è uno SCHEMA DI BASE DI DATI?}\\
+		È un'insieme di schemi di relazione con nomi diversi $\boldsymbol{R}= \{  R_1(X_1), R_2(X_2), ..., R_n(X_n) \}$.\\
+		Un esempio è \begin{align*}
+			\boldsymbol{R} = \{ Studente(Matricola, Cognome, Nome, Datanascita),\\
+			Docente(Codice, Cognome, Nome, NumTel), \\ Supervisore(MatrSt CodDoc, DataInizio)\}
+		\end{align*}
+		Un'\textbf{istanza di base di dati} è data dall'insieme di istanze di relazioni $r = \{r_1,r_2,...,r_n\}$.
+		
+		\item \textbf{Che cos'è un'informazione incompleta? Che tipologie di valori nulli esistono?}
+		
+		Lo schema di una base di dati ha una struttura rigida che deve essere rispettata da ogni tupla della BD.
+		A volte dei valori relativi ad alcuni attributi potrebbe essere assenti, si parla di \textbf{informazione incompleta}.
+		
+		Non è corretto inserire come "place holder" un valore qualsiasi, in quanto potrebbe venire utilizzato dalla BD. Si usa un valore non presente nei domini.
+		
+		Si possono avere 3 tipi di valori nulli:
+		\sitemize{\item \textbf{Valore sconosciuto}: esiste ma non è conosciuto dalla BD
+			
+			\item \textbf{Valore inesistente}: non esiste nella realtà modellata
+			\item \textbf{Valore senza informazione}: OR logico dei due sopra $\leftarrow$ i DBMS lavorano con questa assunzione.}
+		
+		
+	\end{enumerate}
+	
+	
+	
+\end{multicols}
+
 \end{document} 

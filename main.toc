@@ -73,3 +73,5 @@
 \contentsline {subsection}{\numberline {9.1}Esercizio 1}{87}{subsection.9.1}%
 \contentsline {section}{\numberline {10}Esercizi progettazione}{89}{section.10}%
 \contentsline {paragraph}{Esercizio Taxi}{90}{section*.89}%
+\contentsline {part}{III\hspace {1em}Preparazione all'esame}{92}{part.3}%
+\contentsline {section}{\numberline {11}Possibili domande di teoria}{92}{section.11}%
